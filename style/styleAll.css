@@ -10,6 +10,9 @@
 header {
   width: 100%; }
 
+#addGifo {
+  display: none; }
+
 .logo {
   margin-top: 29px;
   margin-left: 22px;
@@ -142,6 +145,113 @@ nav ul li a {
   width: 10vh;
   border-bottom: 1px solid #FFFFFF; }
 
+@media only screen and (min-width: 768px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+
+  .navegador {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 90px;
+    margin: 0; }
+
+  .logo {
+    position: absolute;
+    top: 17px;
+    left: 10%;
+    height: 8%;
+    min-height: 56px;
+    max-height: 65px;
+    max-width: 56px;
+    min-width: 49px;
+    width: 15%;
+    z-index: 20;
+    margin: 0; }
+
+  .menuhamburguesa {
+    display: none; }
+
+  header input[type="checkbox"] {
+    display: none; }
+
+  #menuH:checked ~ .menu {
+    color: #572EE5;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-end;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 90px;
+    top: 5px;
+    display: flex;
+    z-index: 3;
+    opacity: 1; }
+
+  .menu {
+    color: #572EE5;
+    flex-direction: row;
+    position: absolute;
+    width: 100%;
+    justify-content: flex-end;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 90px;
+    top: 5px;
+    display: flex;
+    z-index: -1;
+    opacity: 1; }
+
+  nav ul li {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    align-items: center;
+    justify-content: flex-end;
+    width: 9%;
+    font-size: 14px;
+    color: #572EE5;
+    font-weight: bold; }
+
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    color: #572EE5;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0; }
+
+  nav ul li a {
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 14px;
+    color: #572EE5; }
+
+  #addGifo {
+    padding: 0 9% 0 9%;
+    display: flex;
+    justify-content: center; }
+
+  #addGifo img {
+    display: flex;
+    justify-content: center;
+    height: 54px;
+    width: 54px;
+    color: #572EE5;
+    border-radius: 50%;
+    border: 1px solid #572EE5;
+    object-fit: scale-down; } }
 footer h4 {
   padding: 47px 0 22px 0;
   font-size: 15px;
@@ -286,7 +396,7 @@ h1 {
   height: 120px;
   width: 156px;
   margin: 10px;
-  background-color: cadetblue; }
+  background-color: #cc7d7d; }
 
 .buttonVerMas {
   padding: 0 0  80px 0; }
