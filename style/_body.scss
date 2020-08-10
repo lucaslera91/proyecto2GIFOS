@@ -1,22 +1,23 @@
-//  main{
-// //     //position: relative;
-// //    //top: -100vh;
-// background-color: #FFFFFF;
-// }
 h1{
     color: #572EE5;
     font-size: 30px;
     
 }
 .titulo {
+
     width: 100%;
         padding: 0px 45px 20px 45px;
         display: flex;
         justify-content: center;
         align-items: center;
-    //padding-left: 45px;
-    //padding-right: 45px;
 }
+
+.titulo:hover{
+   
+    cursor: pointer;
+}
+
+
 .auxTitulo{
 text-align: center;
 }
@@ -38,9 +39,17 @@ color: turquoise;
 
 #search1{
     text-align: center;
-    width: 90vw;
+    width: 100%;
+    border-radius: 20px 20px 20px 20px;;
     height: 50px;
-    border-radius: 50px 50px 50px 50px;
+    border: none;
+    cursor: pointer;
+    z-index: 100;
+   
+}
+.searchBar img:hover{
+    z-index: 99;
+    cursor: pointer;
 }
 
 
@@ -53,10 +62,9 @@ color: turquoise;
     position: absolute;
     top: 14px;
     right: 25px;
-} 
-
-// Trending Gifos
-
+    z-index: 99;
+    cursor: pointer;
+}
 .trending .h3aux h3 {
     font-weight: bold;
     color: #572EE5;
@@ -87,48 +95,39 @@ color: turquoise;
     opacity: 0.5;
     //left: 10%; /*this centers it based on the above width*/
     border-bottom: 1px solid #9CAFC3;
+
+
 }
 
-.trendingGifos {
-    text-align: center;
-   background-color: #F3F5F8;
+
+
+    @media only screen and (min-width: 768px){
+
+.imagenInicio{
+                width: 50vw;
+        }
+.imagenInicio img {
+    width: 100%;
 }
-.trendingGifos h2{
+// Search Bar
+
+// #search1{
+//     width: 50%;
+// }
+
+}
+@media only screen and (min-width: 1024px){
+
+    .imagenInicio{
+        width: 24vw;
+    }
+    // Search Bar
     
-    padding: 45px 0 0 0;
-
-    color: #572EE5;
-    font-size: 25px;
- }
- .trendingGifos h4{
-     padding: 10px 100px 30px 100px;
-     color: #000000;
-    font-weight: normal;
- }
- .gifosAux{
-     width: 100%;
-     background-color: #F3F5F8;
-    overflow: hidden;
-
- }
- .trendigGIFOS {
-    display: flex;
-    
-    width: fit-content;
-//width: 50%;
-    justify-content: center;
-    align-items: center;
-    //background-color: indianred;
-    padding-bottom: 84px;
-}
- .trendigGIFOS p {
-     height: 187px;
-     width: 243px;
-     background-color: greenyellow;
-     margin: 9px;
-    // float: left;
-}
+    // #search1{
+    //     background-color: blue;
+    //     width: 50%;
+    //     height: 50px;
+    // }
+    }
 
 
-
- 

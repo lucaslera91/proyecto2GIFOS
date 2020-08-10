@@ -224,7 +224,7 @@ nav ul li a{
         height: 90px;
         top: 5px;
         display: flex;
-        z-index: -1;
+       // z-index: 21;
         opacity: 1;
     }
     nav ul li{
@@ -251,7 +251,7 @@ nav ul{
     width: 100%;
     padding: 0;
     margin: 0;
-
+z-index: 21;
 }   
     
     nav ul li a{
@@ -272,18 +272,32 @@ nav ul{
        
     }
 
-    #addGifo img{
+    #addGifo .svg{
         display: flex;
+        background-image: url(/imagenes/button-crear-gifo.svg);
+        background-repeat: no-repeat;
+        background-position: center;
         justify-content: center;
         height: 54px;
         width: 54px;
-        color: #572EE5;
         border-radius: 50%;
         border: 1px solid #572EE5;
         object-fit: scale-down;
-    }
+        z-index: 21;
 
-    
+    }
+    #addGifo .svg:hover {
+       background-image: url(/imagenes/button-crear-gifo\ hover.svg);
+        background-color: #572EE5;
+        border: 1px solid #572EE5;
+       
+    }
+    #addGifo .svg:active {
+         background-color: #9CAFC3;
+         border: 1px solid #9CAFC3;
+        
+     }
+
 }
     
     

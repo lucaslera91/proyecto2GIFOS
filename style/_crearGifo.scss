@@ -1,0 +1,252 @@
+.camara{
+    display: none;
+    }
+.pelicula{
+    display: none;
+}
+.contenerAux{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.contenerCrearGifo{
+    height: 65vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pantalla{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.esquinas{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 95%;
+    
+    
+}
+
+.esquinas span:first-child{
+    height: 1px;
+    width: 5%;
+    background-color: #50E3C2;
+    z-index: 4;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+.esquinas span:nth-child(2n){
+    //content:"";
+    height: 1px;
+    width: 5%;
+    background-color: #50E3C2;
+    z-index: 4;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+.esquinas span:nth-child(3n){
+    //content:"";
+    height: 10%;
+    width: 1px;
+    background-color: #50E3C2;
+    z-index: 4;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+.esquinas span:nth-child(4n){
+    //content:"";
+    height: 10%;
+    width: 1px;
+    background-color: #50E3C2;
+    z-index: 4;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+}
+.esquinas span:nth-child(5n){
+    //content:"";
+    height: 10%;
+    width: 1px;
+    background-color: #50E3C2;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 4;
+
+}
+.esquinas span:nth-child(6n){
+    //content:"";
+    height: 10%;
+    width: 1px;
+    background-color: #50E3C2;
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}
+.esquinas::before{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 5%;
+    background-color: #50E3C2;
+    z-index: 4;
+    top: 0px;
+    left: 0;
+
+}
+.esquinas::after{
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: 5%;
+    background-color: #50E3C2;
+    z-index: 4;
+    top: 0px;
+    right: 0;
+
+}
+.textoEnPantalla{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenerAux .botones{
+    padding: 10px
+}
+.contenerAux .botones button{
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+
+}
+.contenerAux .linea{
+    height: 7px;
+    width: 56%;
+    background-color: #572EE5;
+}
+.bottonComenzar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+    width: 127px;
+    height: 50px;
+}
+.btnCamara{
+    height: 50px;
+    width: 127px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.controler{
+    height: 100%;
+    width: 100%;
+    border-radius: 50px 50px 50px 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#grabar{
+    z-index: 4;
+}
+#start{
+z-index: 3;
+}
+#stop{
+z-index: 2;
+}
+#subir{
+z-index: 1;
+}
+#videoSave{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.textoEnPantalla{
+    z-index: 3;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+}
+
+#show{
+    z-index: 2;
+}
+#videoSave{
+    z-index: 1;
+}
+
+
+
+
+@media only screen and (min-width: 768px){
+    .camara{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //position: absolute;
+       height: 100%;
+       width: 20%;
+    }
+    #luz{
+        position: relative;
+        
+    }
+    .camara img{
+        height: 15vw;
+        width: 15vw;
+    }
+    .pelicula img{
+        height: 10w;
+        width: 10vw;
+    }
+    .pelicula{
+        padding-top: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        width: 33%;
+    
+    //     position: relative;
+    // bottom: 100%;
+    // right: 10%;
+     }
+}

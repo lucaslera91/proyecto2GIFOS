@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROYECTO FINAL 2</title>
     <link rel="stylesheet" href="./style/styleAll.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -27,7 +28,9 @@
 
                     <li><a href="./misGifos.html">Mis GIFOS</a></li>
 
-                    <li id="addGifo"><a href=""><img src="./imagenes/button-crear-gifo.svg" alt=""></a></li>
+                    <li id="addGifo"><a href="crearGifo.html">
+                            <div class="svg"></div>
+                        </a></li>
 
 
                 </ul>
@@ -47,8 +50,14 @@
                 <img src="./imagenes/ilustra_header.svg" alt="">
             </div>
             <div class="searchBar">
-                <input type="text" id="search1" placeholder="Busca GIFOS y mas">
-                <img src="./imagenes/icon-search.svg" alt="">
+                <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
+                <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
+                <ul class="suggestions" id='suggestionBox'>
+                     
+
+                   
+                </ul>
+             </datalist>
             </div>
         </section>
         <section class="trending">
@@ -60,30 +69,84 @@
             </div>
 
             <section class="lookUp">
-                <h2>Busqueda</h2>
-                <article class="gifosSearch"> 
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <h2 id="searchtitle"></h2>
+                <article class="gifosSearch" id="cont">
+                    <!-- <div class="base">
+                        <img class="embed" src="https://www.florespedia.com/Imagenes/flores-bonitas.jpg" alt="">
+                        <div class="overlay">
+                            <div class="background"></div>
+                            <div class="iconosBox">
+                                <div class="iconos" id="fav">
+                                    <img src="./imagenes/icon-fav-hover.svg" alt="">
+                                </div>
+                                <div class="iconos" id="download">
+                                    <img src="./imagenes/icon-download.svg" alt="">
+                                </div>
+                                <div class="iconos" id="maximg">
+                                    <img src="./imagenes/icon-max.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="nameBox">
+                                <h4>User</h3>
+                                    <h3>Titulo</h2>
+                            </div>
+                        </div>
+                    </div>
+                    </div> -->
+
+
                 </article>
                 <div class="buttonVerMas">
                     <button id="verMas">VER MÁS</button>
                 </div>
             </section>
-            <div class="trendingGifos">
+
+
+            <!-- ///////////////// /    TRENDING     //// ////// / / / / / /  /////// -->
+            <!-- ///////////////// /    TRENDING     //// ////// / / / / / /  /////// -->
+            <!-- ///////////////// /    TRENDING     //// ////// / / / / / /  /////// -->
+
+
+            <div class="trendingGifos" id="trendingMain">
                 <h2>Trending GIFOS</h2>
                 <h4>Mira los ultimos GIFOS de nuestra comunidad.</h4>
+
                 <div class="gifosAux">
-                    <div class="trendigGIFOS">
-                        <p>1</p>
-                        <p>2</p>
-                        <p>3</p>
+
+                    <button id="previousTrend"><img src="" alt=""></button>
+
+                    <div id="windowTrend">
+                        <div class="contenerTrend" id="contenerTrending">
+
+                            <!-- <div class="trendingGIFOS" id="">
+                    <img class="embedT" src="${result.data[i].images.fixed_height.url}" alt="">
+                    <div class="overlayT">
+                    <div class="iconosBoxT">
+                    <div class="iconosT" id="fav">
+                    <img src="./imagenes/icon-fav-hover.svg" alt="">
                     </div>
+                    <div class="iconosT" id="download">
+                    <img src="./imagenes/icon-download.svg" alt="">
+                    </div>
+                    <div class="iconosT" id="maximg">
+                    <img src="./imagenes/icon-max.svg" alt="">
+                    </div>
+                    </div>
+                    <div class="nameBoxT">
+                    <h4>User</h3>
+                    <h3>Titulo</h2>
+                    </div>
+                    </div>
+                    </div>` -->
+                        </div>
+                    </div>
+
+                    <button id="nextTrend"><img src="" alt=""></button>
+
                 </div>
+
             </div>
+
         </section>
 
     </main>
@@ -101,5 +164,8 @@
     </footer>
     <div class="margins"></div>
 </body>
+<script src="searchSuggestions.js"></script>
+<script src="appSearch.js"></script>
+<script src="trending.js"></script>
 
 </html>

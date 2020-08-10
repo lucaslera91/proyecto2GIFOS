@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROYECTO FINAL 2 Crear Gifo</title>
+    <link rel="stylesheet" href="./style/styleAll.css">
+</head>
+
+<body>
+    <div class="margins"></div>
+    <header>
+        <div class="logo"><a href="index.html"><img src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a></div>
+        <nav class="navegador">
+            <input type="checkbox" name="menuHam" id="menuH">
+            <label for="menuH"></label>
+            <div class="menuhamburguesa">
+                <div></div>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li class="conLinea">Modo Nocturno</li>
+
+                    <li class="conLinea"><a href="favoritos.html">Favoritos</a></li>
+
+                    <li><a href="./misGifos.html">Mis GIFOS</a></li>
+
+                    <li id="addGifo"><a href="crearGifo.html">
+                            <div class="svg"></div>
+                        </a></li>
+
+
+                </ul>
+            </div>
+
+        </nav>
+    </header>
+    <main>
+
+        <div class="contenerAux">
+            <div class="contenerCrearGifo">
+                <div class="camara">
+                    <img src="/imagenes/camara.svg" alt="camara">
+                    <img id="luz" src="/imagenes/element-luz-camara.svg" alt="pelicula">
+                </div>
+
+                <div class="pantalla">
+                    <div class="esquinas">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <div class="textoEnPantalla">
+                            <h2>Aqui podras crear tus GIFOS</h2>
+                            <p>Crea tu Gifo solo 3 pasos</p>
+                            <p>(solo necesitas una camara para grabar un video</p>
+                        </div>
+                        <video controls id="show"></video>
+                        <img id="videoSave" src="">
+                    </div>
+                </div>
+                <div class="pelicula">
+                    <img src="/imagenes/pelicula.svg" alt="">
+                </div>
+            </div>
+            
+            <div class="botones">
+                <button id="boton1">1</button>
+                <button id="boton2">2</button>
+                <button id="boton3">3</button>
+            </div>
+            <div class="linea"></div>
+            <div class="bottonComenzar">
+                <div class="btnCamara"><button class="controler" id="grabar">Comenzar</button>
+                    <div><button class="controler" id='start'>Grabar</button></div>
+                    <div><button class="controler" id='stop'>Finalizar</button></div>
+                    <button class="controler" id="subir">Subir</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <footer>
+        <h4>Compartir en:</h4>
+        <div class="redes">
+
+            <img src="./imagenes/icon_facebook.svg" alt="facebook">
+            <img src="./imagenes/icon-twitter.svg" alt="twitter">
+            <img src="./imagenes/icon_instagram.svg" alt="instagram">
+
+        </div>
+        <p>© GIFOS 2020 All Rights Reserved</p>
+
+    </footer>
+    <div class="margins"></div>
+
+    <script src="grabar.js"></script>
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
+    
+</body>
+
+</html>

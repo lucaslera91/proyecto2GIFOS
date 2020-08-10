@@ -1,0 +1,316 @@
+#previousTrend{
+    display: none;
+    top: 50%;
+    position: relative;
+    //right: 0;
+    z-index: 99;
+}
+#nextTrend{
+    display: none;
+    //left: 0;
+    position: relative;
+    top: 50%;
+    z-index: 99;
+
+}
+.overlayT{
+    opacity: 0;
+    display: none;
+}
+
+
+
+
+.gifosAux{
+    width: 100%;
+    background-color: #F3F5F8;
+   //overflow: hidden;
+
+}
+.trendigGIFOS {
+   display: flex;
+   width: 100%;
+   width: fit-content;
+//width: 50%;
+   justify-content: center;
+   align-items: center;
+   //background-color: indianred;
+   padding-bottom: 84px;
+}
+.trendigGIFOS .embedT {
+    height: 187px;
+    width: 243px;
+    background-color: greenyellow;
+    margin: 9px;
+   // float: left;
+   z-index: 1;
+}
+
+
+
+
+.trendingGifos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #F3F5F8;
+}
+.trendingGifos h2, .trendingGifos h4{
+    text-align: center;
+}
+.gifosAux{
+    display: flex;
+    position: relative;
+    width: 95%;
+    margin: auto;
+    //@extend: nowrap;
+}
+#contenerTrending{
+    position: relative;
+    //object-fit: scale-down;
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    transition: ease-in-out 0.3s;
+
+      
+}
+#windowTrend{
+    width: 100%;
+    height: auto;
+    //background-color: red;
+    background-color: #F3F5F8;
+    overflow: hidden;
+transition: ease-in-out 0.3s;
+}
+.trendingGIFOS{
+    position: relative;
+height: 100%;
+width: 100%;
+margin: 10px;
+
+}
+
+// .embedT{
+//     height: 100%;
+//     width: 100%;
+// //object-fit: cover;
+// //padding: 10px;
+// //background: grey;
+// z-index: 1;
+
+
+// }
+
+
+
+
+
+////---------------------------------------------------------
+////---------------------------------------------------------
+////---------------------------------------------------------
+////----------------------------------------------------------
+
+@media only screen and (min-width: 768px){
+
+        .trendingGIFOS{
+            position: relative;
+        transition: ease-in-out 0.3s;
+
+           
+        }
+        .trendingGIFOS .embedT {
+            height: auto;
+            max-height: auto;
+            width: auto;
+            max-width: 400px;
+            
+                //margin: 2%;
+        }
+        .trendingGIFOS .embedT img{
+           
+            z-index: -1;
+                //margin: 2%;
+        }
+       
+        #previousTrend{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: 40px;
+            top: 50%;
+            position: absolute;
+            background-image: url(/imagenes/button-left.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            left: -50px;
+            z-index: 99;
+            border: 1px solid gray;
+        }
+
+        #nextTrend{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 30px;
+            width: 40px;
+            right: -70px;
+            position: absolute;
+            background-image: url(/imagenes/button-right.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            top: 50%;
+            border: 1px solid gray;
+
+        
+        }
+
+        #previousTrend:hover{
+            background-color: blue;
+            background-image: url(/imagenes/button-left\ hover.svg);
+            
+        }
+        #nextTrend:hover{
+            background-color: blue;
+            background-image: url(/imagenes/button-right\ hover.svg);
+            
+            
+        }
+        
+        
+        .trendingGifos{
+            position: relative;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            //background-color: pink;
+        }
+        .trendingGifos h2, .trendingGifos h4{
+            text-align: center;
+        }
+        .gifosAux{
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            //overflow: hidden;
+
+        }
+        #contenerTrending{
+            position: relative;
+            object-fit: contain;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            //overflow: hidden;
+              
+        }
+        #windowTrend{
+            width: 100%;
+            height: auto;
+            //background-color: red;
+            background-color: #F3F5F8;
+            overflow: hidden;
+transition: ease-in-out 0.3s;
+
+        }
+        .overlayT{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+           //background-color: #000000;
+            z-index: 999;
+            //background-color: blue;
+            
+        }
+        .overlayT:hover {
+            opacity: 1;
+            color: white;
+            //background-color: pink;
+           background-color: transparentize($color: #000000, $amount: 0.6)
+        
+        }
+        .overlayT:hover .iconosT:hover{
+            opacity: 1;
+            color: white;
+           background-color: transparentize($color: #FFFFFF, $amount: 0);
+        
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .overlayT .iconosT img{
+        background-color: #FFFFFF;
+        object-fit: contain;
+     }
+    .iconosBoxT{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        position: absolute;
+        
+        top: 0;
+        right: 0;
+    }
+    .nameBoxT{
+        position: absolute;
+        bottom: 2px;
+        left: 5px;
+    }
+    
+    .iconosT{
+        
+        height: 32px;
+        width: 32px;
+        background-color: #FFFFFF;
+        border-radius: 4px 4px 4px 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2px;
+        opacity: 0.6;
+    
+    }
+    
+    
+    
+    
+}
