@@ -5,16 +5,19 @@ let tituloBusqueda = document.getElementById('searchtitle');
 let busqueda;
 let verMas = 0;
 let disp = document.getElementById("cont");
-
+let btnFav;
+let btnDownload;
+let btnFullSize;
+let btn;
 
 buscador.addEventListener("click", searchtitle);
 buscador.addEventListener("click", guardarValue);
 buscador.addEventListener("click", resetGifs);
 buscador.addEventListener("click", resetSearch);
-buscador.addEventListener("click", function(){testing(busqueda)});
+buscador.addEventListener("click", function () { testing(busqueda) });
 
 botonVerMas.addEventListener("click", doceMas);
-botonVerMas.addEventListener("click", function(){testing(busqueda)});
+botonVerMas.addEventListener("click", function () { testing(busqueda) });
 
 let base;
 
@@ -44,9 +47,11 @@ function resetGifs() {
 }
 
 function searchtitle() {
-
+   
     tituloBusqueda.innerHTML = test.value;
 }
+
+
 
 //let disp2 = document.getElementById("cont2");
 //debugger;
@@ -54,17 +59,21 @@ function searchtitle() {
 function testing(busqueda) {
     //alert("yes");
     //debugger;
+    let countsearch = 0;
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&q=${busqueda}&limit=12&offset=${verMas}`)
         .then(function (dato1) {
             result = dato1.json();
             return result;
         })
         .then(function (result) {
+
+
             result.data.forEach(element => {
-            
-            base = document.createElement('div');
-            
-            base.className = "base";
+
+                base = document.createElement('div');
+
+                base.className = "base";
+                //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
                 //`<img src="${element.images.fixed_height.url}" type="">`;
                 base.innerHTML =
                     `
@@ -72,15 +81,16 @@ function testing(busqueda) {
                         <div class="overlay">
                             <div class="background"></div>
                             <div class="iconosBox">
-                                <div class="iconos" id="fav">
+                                <div class="iconos" id="fav${element.id}">
                                     <img src="./imagenes/icon-fav-hover.svg" alt="">
                                 </div>
-                                <div class="iconos" id="download">
-                                    <img src="./imagenes/icon-download.svg" alt="">
+                                <div class="iconos" id="dwl${element.id}">
+                                <img src="./imagenes/icon-download.svg" alt="">
                                 </div>
-                                <div class="iconos" id="maximg">
-                                    <img src="./imagenes/icon-max.svg" alt="">
+                                <div class="iconos" id="max${element.id}">
+                                <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
                                 </div>
+                                
                             </div>
                             <div class="nameBox">
                                 <h4>User</h3>
@@ -89,21 +99,60 @@ function testing(busqueda) {
                         </div>
                     `;
 
-                    disp.appendChild(base);
+                disp.appendChild(base);
 
+                countsearch++;
             });
+            btn = document.getElementsByClassName('iconos');
             debugger;
-            if (verMas + 12 >= parseInt(result.pagination.total_count)){
+            for (let i = 0; i < btn.length; i++) {
+                btn[i].addEventListener('click', testClick);
+            }
+            if (verMas + 12 >= parseInt(result.pagination.total_count)) {
                 //alert("last items");
                 botonVerMas.style.display = "none";
-                
-            }else{
-               //alert(result.pagination.total_count);
-            botonVerMas.style.display = "flex";
+
+            } else {
+                //alert(result.pagination.total_count);
+                botonVerMas.style.display = "flex";
             }
 
         })
         .catch(function (err) {
             console.log("error");
         });
+}
+
+let arrayFav = [];
+
+function testClick() {
+    let idend = this.id;
+    let idgif = idend.slice(3);
+    //alert(idend.slice(3));
+    //alert(idend.slice(0, 3));
+    if (idend.slice(0, 3) == 'fav') {
+        //alert('fav');
+        let favSave = JSON.parse(localStorage.getItem("favs"));
+        if (favSave != null) {
+            for (let i = 0; i < favSave.length; i++) {
+                arrayFav.push(favSave[i]);
+                debugger;
+            }
+        } arrayFav.push(idgif);
+        localStorage.setItem("favs", JSON.stringify(arrayFav));
+
+    }
+    if (idend.slice(0, 3) == 'dwl') {
+        //alert(idgif);
+        //ver como descargo esto...
+        //si es de fetch o de otro lado
+        //verGif(idgif, 1);
+        
+    }
+    if (idend.slice(0, 3) == 'max') {
+        // alert('max');
+        //link a maximizar imagen
+        //fetch con este id en otra linea
+        localStorage.setItem("max", JSON.stringify(idgif));
+    }
 }

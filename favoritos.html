@@ -44,36 +44,91 @@
                 <img src="./imagenes/icon-favoritos.svg" alt="favoritos">
                 <h3>Favoritos</h3>
             </div>
-            
-        </section>
-        <section class="trending">
-           
             <section class="lookUp">
-               
-                <article class="gifosSearch"> 
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
+                <h2 id="searchtitle"></h2>
+                <article class="gifosSearch" id="cont">
+                     <!-- <div class="base">
+                        <img class="embed" src="https://www.florespedia.com/Imagenes/flores-bonitas.jpg" alt="">
+                        <div class="overlay">
+                            <div class="background"></div>
+                            <div class="iconosBox">
+                                <div class="iconos" id="fav">
+                                    <img src="./imagenes/icon-fav-hover.svg" alt="">
+                                </div>
+                                <div class="iconos" id="download">
+                                    <img src="./imagenes/icon-download.svg" alt="">
+                                </div>
+                                <div class="iconos" id="maximg">
+                                    <img src="./imagenes/icon-max.svg" alt="">
+                                </div>
+                            </div>
+                            <div class="nameBox">
+                                <h4>User</h3>
+                                    <h3>Titulo</h2>
+                            </div>
+                        </div>
+                    </div>
+                    </div>  -->
+
+
                 </article>
                 <div class="buttonVerMas">
                     <button id="verMas">VER MÁS</button>
                 </div>
             </section>
-            <div class="trendingGifos">
-                <h2>Trending GIFOS</h2>
-                <h4>Mira los ultimos GIFOS de nuestra comunidad.</h4>
-                <div class="gifosAux">
-                    <div class="trendigGIFOS">
-                        <p>1</p>
-                        <p>2</p>
-                        <p>3</p>
+
+
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+        <div class="trendingGifos" id="trendingMain">
+            <h2>Trending GIFOS</h2>
+            <h4>Mira los ultimos GIFOS de nuestra comunidad.</h4>
+
+            <div class="gifosAux">
+
+                <button id="previousTrend"><img src="" alt=""></button>
+
+                <div id="windowTrend">
+                    <div class="contenerTrend" id="contenerTrending">
+
+                        <!-- <div class="trendingGIFOS" id="">
+                <img class="embedT" src="${result.data[i].images.fixed_height.url}" alt="">
+                <div class="overlayT">
+                <div class="iconosBoxT">
+                <div class="iconosT" id="fav">
+                <img src="./imagenes/icon-fav-hover.svg" alt="">
+                </div>
+                <div class="iconosT" id="download">
+                <img src="./imagenes/icon-download.svg" alt="">
+                </div>
+                <div class="iconosT" id="maximg">
+                <img src="./imagenes/icon-max.svg" alt="">
+                </div>
+                </div>
+                <div class="nameBoxT">
+                <h4>User</h3>
+                <h3>Titulo</h2>
+                </div>
+                </div>
+                </div>` -->
                     </div>
                 </div>
+
+                <button id="nextTrend"><img src="" alt=""></button>
+
             </div>
-        </section>
+
+        </div>
 
     </main>
     <footer>
@@ -92,5 +147,6 @@
     <div class="margins"></div>
 
 </body>
-
+<script src="trending.js"></script>
+<script src="appFavs.js"></script>
 </html>

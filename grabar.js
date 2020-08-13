@@ -67,8 +67,9 @@ grabar.addEventListener('click', function () {
             console.log(videoURL);
             subirGifBtn.style.zIndex = capaBtnStart + 1;
             fileReader = new FileReader();
+
             fileReader.onload = function (evt) {
-                // Read out file contents as a Data URL
+            //Read out file contents as a Data URL
             let result = evt.target.result;
             videoSave.setAttribute("src", result);
             localStorage.setItem("video2", result);
@@ -77,6 +78,8 @@ grabar.addEventListener('click', function () {
             fileReader.readAsDataURL(blob);
 
             subirGifBtn.addEventListener('click', () => { addToMyGifs(videoSave); });
+
+            
             alert("seguimos ok");
         })
 
@@ -110,14 +113,14 @@ let misGifos = [];
 
 
 let cuantosGifs = 0;
-function addToMyGifs(video) {
+function addToMyGifs(url) {
     if(localStorage.getItem("misGifs") != null) {
     listaGifs = JSON.parse(localStorage.getItem("misGifs"));
     //cuantosGifs++;
     for(let i = 0; i<listaGifs.length; i++)
     misGifos.push(listaGifs[i]);
     }
-    misGifos.push(video.src);
+    misGifos.push(videoSave.src);
 
     localStorage.setItem("misGifs", JSON.stringify(misGifos));
 

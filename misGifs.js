@@ -4,18 +4,19 @@ let base;
 let request;
 if(localStorage.getItem("misGifs") != null) {
 listaGifs = JSON.parse(localStorage.getItem("misGifs"));
-contenedorMisGifs = document.getElementById('cont');
-base;
-window.onload = cargarMisGifs;
+//alert("fuck");
 
 }
-
+contenedorMisGifs = document.getElementById('cont');
+window.onload = cargarMisGifs;
 function cargarMisGifs(){
-
+    debugger;
     for(let i = 0; i< listaGifs.length; i++){
         // request = new XMLHttpRequest();
      base = document.createElement('div');
         // request.open("POST", "http://foo.com/submitform.php");
+      
+       alert("still weird");
 
     base.innerHTML = 
     `<div class="base">
@@ -43,3 +44,4 @@ function cargarMisGifs(){
         
 }
 }
+//window.onload = testingtrend;

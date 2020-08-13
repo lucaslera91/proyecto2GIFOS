@@ -25,7 +25,8 @@ window.onload = testingtrend;
 function testingtrend() {
     //alert("yes");
     //debugger;
-    fetch(`https://api.giphy.com/v1/gifs/trending?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&q`)
+    
+    fetch(`https://api.giphy.com/v1/gifs/trending?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&rating=r`)
         .then(function (dato1) {
             result = dato1.json();
             return result;
@@ -66,7 +67,7 @@ function testingtrend() {
             
                          arrayWidth.push(sumWidth);
 
-
+                //debugger;
 
         
                 arrayTrending.push(i);
