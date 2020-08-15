@@ -1,5 +1,4 @@
 * {
-  background-color: var(--colorBlanco);
   box-sizing: border-box;
   margin: 0px;
   font-family: 'Montserrat', sans-serif; }
@@ -247,7 +246,7 @@ nav ul li a {
 
   #addGifo .svg {
     display: flex;
-    background-image: url(./imagenes/button-crear-gifo.svg);
+    background-image: url(//imagenes/button-crear-gifo.svg);
     background-repeat: no-repeat;
     background-position: center;
     justify-content: center;
