@@ -1,3 +1,4 @@
+
 .verGifo{
     display: flex;
     //background-color: pink;
@@ -70,7 +71,7 @@
 .iconoContenedor .iconos{
     height: 32px;
     width: 32px;
-    background-color: #FFFFFF;
+    background-color: var(--colorBlanco);
     border-radius: 4px 4px 4px 4px;
     display: flex;
     justify-content: center;

@@ -1,5 +1,7 @@
+
 .camara{
     display: none;
+
     }
 .pelicula{
     display: none;
@@ -44,7 +46,7 @@
 .esquinas span:first-child{
     height: 1px;
     width: 5%;
-    background-color: #50E3C2;
+    background-color: var(--colorSecundario);
     z-index: 4;
     position: absolute;
     bottom: 0;
@@ -55,7 +57,7 @@
     //content:"";
     height: 1px;
     width: 5%;
-    background-color: #50E3C2;
+    background-color: var(--colorSecundario);
     z-index: 4;
     position: absolute;
     bottom: 0;
@@ -66,7 +68,7 @@
     //content:"";
     height: 10%;
     width: 1px;
-    background-color: #50E3C2;
+    background-color: var(--colorSecundario);
     z-index: 4;
     position: absolute;
     bottom: 0;
@@ -77,7 +79,7 @@
     //content:"";
     height: 10%;
     width: 1px;
-    background-color: #50E3C2;
+    background-color: var(--colorSecundario);
     z-index: 4;
     position: absolute;
     bottom: 0;
@@ -88,7 +90,7 @@
     //content:"";
     height: 10%;
     width: 1px;
-    background-color: #50E3C2;
+    background-color: var(--colorSecundario);
     position: absolute;
     top: 0;
     right: 0;
@@ -99,7 +101,7 @@
     //content:"";
     height: 10%;
     width: 1px;
-    background-color: #50E3C2;
+    background-color: var(--colorSecundario);
     z-index: 4;
     position: absolute;
     top: 0;
@@ -111,7 +113,7 @@
     position: absolute;
     height: 1px;
     width: 5%;
-    background-color: #50E3C2;
+    background-color: var(--colorSecundario);
     z-index: 4;
     top: 0px;
     left: 0;
@@ -122,7 +124,7 @@
     position: absolute;
     height: 1px;
     width: 5%;
-    background-color: #50E3C2;
+    background-color: var(--colorSecundario);
     z-index: 4;
     top: 0px;
     right: 0;
@@ -147,7 +149,7 @@
 .contenerAux .linea{
     height: 7px;
     width: 56%;
-    background-color: #572EE5;
+    background-color: var(--colorTitulo);
 }
 .bottonComenzar{
     display: flex;
@@ -201,7 +203,7 @@ video{
 }
 .textoEnPantalla{
     z-index: 3;
-    background-color: #ffffff;
+    background-color: var(--colorBlanco);
     height: 100%;
     width: 100%;
 }

@@ -1,3 +1,5 @@
+
+
 #previousTrend{
     display: none;
     top: 50%;
@@ -23,7 +25,7 @@
 
 .gifosAux{
     width: 100%;
-    background-color: #F3F5F8;
+    background-color: var(--colorBlanco);
    //overflow: hidden;
 
 }
@@ -40,7 +42,6 @@
 .trendigGIFOS .embedT {
     height: 187px;
     width: 243px;
-    background-color: greenyellow;
     margin: 9px;
    // float: left;
    z-index: 1;
@@ -54,7 +55,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #F3F5F8;
+    background-color: var(--colorBlanco);
 }
 .trendingGifos h2, .trendingGifos h4{
     text-align: center;
@@ -82,7 +83,7 @@
     width: 100%;
     height: auto;
     //background-color: red;
-    background-color: #F3F5F8;
+    background-color: var(--colorBlanco);
     overflow: hidden;
 transition: ease-in-out 0.3s;
 }
@@ -215,7 +216,7 @@ margin: 10px;
             width: 100%;
             height: auto;
             //background-color: red;
-            background-color: #F3F5F8;
+            background-color: var(--colorBlanco);
             overflow: hidden;
 transition: ease-in-out 0.3s;
 
@@ -234,15 +235,16 @@ transition: ease-in-out 0.3s;
         }
         .overlayT:hover {
             opacity: 1;
-            color: white;
+            color: var(--colorBlanco);
             //background-color: pink;
            background-color: transparentize($color: #000000, $amount: 0.6)
         
         }
         .overlayT:hover .iconosT:hover{
             opacity: 1;
-            color: white;
+            color: var(--colorBlanco);
            background-color: transparentize($color: #FFFFFF, $amount: 0);
+           z-index: 19990;
         
         }
 

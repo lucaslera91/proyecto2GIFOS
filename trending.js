@@ -15,7 +15,7 @@ let contadorAuxiliar;
 let preGif = document.createElement("div");
 let postGif = document.createElement("div");
 let widthArray2 = [];
-
+let btn2;
 let arrayTrending = [];
 
 
@@ -41,17 +41,16 @@ function testingtrend() {
                 <div class="trendingGIFOS" id="${i}">
                             <img class="embedT" src="${result.data[i].images.fixed_height.url}" alt="">
                             <div class="overlayT">
-                                <div class="iconosBoxT">
-                                    <div class="iconosT" id="fav">
-                                        <img src="./imagenes/icon-fav-hover.svg" alt="">
-                                    </div>
-                                    <div class="iconosT" id="download">
-                                        <img src="./imagenes/icon-download.svg" alt="">
-                                    </div>
-                                    <div class="iconosT" id="maximg">
-                                        <img src="./imagenes/icon-max.svg" alt="">
-                                    </div>
-                                </div>
+                            <div class="iconosBoxT">
+                            <div class="iconosT" id="fav${result.data[i].id}">
+                            <img src="./imagenes/icon-fav-hover.svg" alt="">
+                        </div>
+                        <div class="iconosT" id="dwl${result.data[i].id}">
+                        <img src="./imagenes/icon-download.svg" alt="">
+                        </div>
+                        <div class="iconosT" id="max${result.data[i].id}">
+                        <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
+                        </div>
                                 <div class="nameBoxT">
                                     <h4>User</h3>
                                         <h3>Titulo</h2>
@@ -73,6 +72,9 @@ function testingtrend() {
                 arrayTrending.push(i);
 
             }
+
+
+           
            //
             //alert(arrayWidth);
 
@@ -85,17 +87,16 @@ function testingtrend() {
                 <div >
                             <img class="embedT" src="${result.data[arrayTrending.length - 1].images.fixed_height.url}" alt="">
                             <div class="overlayT">
-                                <div class="iconosBoxT">
-                                    <div class="iconosT" id="fav">
-                                        <img src="./imagenes/icon-fav-hover.svg" alt="">
-                                    </div>
-                                    <div class="iconosT" id="download">
-                                        <img src="./imagenes/icon-download.svg" alt="">
-                                    </div>
-                                    <div class="iconosT" id="maximg">
-                                        <img src="./imagenes/icon-max.svg" alt="">
-                                    </div>
-                                </div>
+                            <div class="iconosBoxT">
+                            <div class="iconosT" id="fav${result.data[arrayTrending.length - 1].id}">
+                            <img src="./imagenes/icon-fav-hover.svg" alt="">
+                        </div>
+                        <div class="iconosT" id="dwl${result.data[arrayTrending.length - 1].id}">
+                        <img src="./imagenes/icon-download.svg" alt="">
+                        </div>
+                        <div class="iconosT" id="max${result.data[arrayTrending.length - 1].id}">
+                        <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
+                        </div>
                                 <div class="nameBoxT">
                                     <h4>User</h3>
                                         <h3>Titulo</h2>
@@ -114,16 +115,15 @@ function testingtrend() {
                             <img class="embedT" src="${result.data[0].images.fixed_height.url}" alt="">
                             <div class="overlayT">
                                 <div class="iconosBoxT">
-                                    <div class="iconosT" id="fav">
-                                        <img src="./imagenes/icon-fav-hover.svg" alt="">
-                                    </div>
-                                    <div class="iconosT" id="download">
-                                        <img src="./imagenes/icon-download.svg" alt="">
-                                    </div>
-                                    <div class="iconosT" id="maximg">
-                                        <img src="./imagenes/icon-max.svg" alt="">
-                                    </div>
-                                </div>
+                                <div class="iconosT" id="fav${result.data[0].id}">
+                                <img src="./imagenes/icon-fav-hover.svg" alt="">
+                            </div>
+                            <div class="iconosT" id="dwl${result.data[0].id}">
+                            <img src="./imagenes/icon-download.svg" alt="">
+                            </div>
+                            <div class="iconosT" id="max${result.data[0].id}">
+                            <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
+                            </div>
                                 <div class="nameBoxT">
                                     <h4>User</h3>
                                         <h3>Titulo</h2>
@@ -138,12 +138,24 @@ function testingtrend() {
             panic = 1;
 
             auxPanic();
+            btn2 = document.getElementsByClassName('iconosT');
+            debugger;
+
+            for (let i = 0; i < btn2.length; i++) {
+                //alert('working');
+                debugger;
+                btn2[i].addEventListener('click', testClick);
+                //alert('working');
+            }
         })
 
         .catch(function (err) {
             console.log("error");
         });
 }
+
+
+
 
 //alert(panic);
 function auxPanic() {

@@ -1,5 +1,8 @@
+
+
 *{
 
+ background-color: var(--colorBlanco);
 box-sizing: border-box;
 margin: 0px;
 font-family: 'Montserrat', sans-serif;
@@ -14,5 +17,5 @@ font-family: 'Montserrat', sans-serif;
 .margins{
 height: 5px;
 width: 100%;
-background-color: #572EE5;
+background-color: var(--colorTitulo) ;
 }

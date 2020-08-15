@@ -1,5 +1,14 @@
+:root{
+    --colorBlanco:#ffffff;
+ --colorSecundario: #50E3C2;
+ --colorTitulo: #572EE5;
+
+}
+
 h1{
-    color: #572EE5;
+    --colorTitulo: #572EE5;
+    --colorSecundario: #50E3C2;
+    
     font-size: 30px;
     
 }
@@ -27,7 +36,7 @@ text-align: center;
     align-items: center;
 }
 .auxTitulo span{
-color: turquoise;
+color: var(--colorSecundario);
 }
 .imagenInicio{
     width: 80vw;
@@ -67,12 +76,12 @@ color: turquoise;
 }
 .trending .h3aux h3 {
     font-weight: bold;
-    color: #572EE5;
+    color: var(--colorTitulo);
     font-size: 18px;
     text-align: center;
 }
 .trending .h3aux p{
-    color: #572EE5;
+    color: var(--colorTitulo);
     font-size: 18px;
     text-align: center;
     font-weight: normal;

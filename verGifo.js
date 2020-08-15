@@ -2,13 +2,13 @@ let verGifoNet = 0;
 let contenerGif = document.getElementById('contenerGifoMax');
 //alert('start');
 let idMax = "";
-alert(JSON.parse(localStorage.getItem("max")));
+//alert(JSON.parse(localStorage.getItem("max")));
 verGif(JSON.parse(localStorage.getItem("max")));
 
 function verGif(id){
     
    
-        alert(id);
+        //alert(id);
             debugger;
            // alert(id);
             fetch(`https://api.giphy.com/v1/gifs/${id}?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U`)

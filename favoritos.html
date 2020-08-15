@@ -21,15 +21,15 @@
 
             <div class="menu">
                 <ul>
-                    <li class="conLinea">Modo Nocturno</li>
+                    <li class="conLinea"><a class="dark" href="">Modo Nocturno</a></li>
 
                     <li class="conLinea"><a href="favoritos.html">Favoritos</a></li>
 
                     <li><a href="misGifos.html">Mis GIFOS</a></li>
 
                     <li id="addGifo"><a href="crearGifo.html">
-                        <div class="svg"></div>
-                    </a></li>
+                            <div class="svg"></div>
+                        </a></li>
                 </ul>
             </div>
 
@@ -38,16 +38,18 @@
 
     <main>
         <section class="inicio">
-            <div class="titulo">
-              
-            <div class="imagenfav">
+            <div class="titulo" id="titulo">
+
+            </div>
+                <!-- <div class="imagenfav">
                 <img src="./imagenes/icon-favoritos.svg" alt="favoritos">
                 <h3>Favoritos</h3>
-            </div>
-            <section class="lookUp">
-                <h2 id="searchtitle"></h2>
-                <article class="gifosSearch" id="cont">
-                     <!-- <div class="base">
+                </div> -->
+                
+                <section class="lookUp">
+                    <h2 id="searchtitle"></h2>
+                    <article class="gifosSearch" id="cont">
+                        <!-- <div class="base">
                         <img class="embed" src="https://www.florespedia.com/Imagenes/flores-bonitas.jpg" alt="">
                         <div class="overlay">
                             <div class="background"></div>
@@ -71,11 +73,11 @@
                     </div>  -->
 
 
-                </article>
-                <div class="buttonVerMas">
-                    <button id="verMas">VER MÁS</button>
-                </div>
-            </section>
+                    </article>
+                    <div class="buttonVerMas">
+                        <button id="verMas">VER MÁS</button>
+                    </div>
+                </section>
 
 
 
@@ -96,7 +98,9 @@
 
             <div class="gifosAux">
 
-                <button id="previousTrend"><img src="" alt=""></button>
+                <button id="previousTrend"><img src="" alt="">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                </button>
 
                 <div id="windowTrend">
                     <div class="contenerTrend" id="contenerTrending">
@@ -149,4 +153,6 @@
 </body>
 <script src="trending.js"></script>
 <script src="appFavs.js"></script>
+<script src="appSearch.js"></script>
+
 </html>

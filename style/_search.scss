@@ -1,3 +1,4 @@
+
 .lookUp{
     width: 100%;
 //height: 1000px;
@@ -11,7 +12,7 @@ align-items: center;
 .lookUp h2{
 
 padding: 40px 0 20px 0;
-color:#572EE5;
+color: var(--colorTitulo);
 font-size: 30px;
 }
 .overlay{
@@ -64,7 +65,7 @@ font-size: 30px;
 
 }
 #verMas:hover{
-    background-color: #572EE5;
+    background-color: var(--colorTitulo);
     color: #F3F5F8;
 
 
@@ -73,12 +74,12 @@ font-size: 30px;
     display: none;
     align-items: center;
     justify-content: center;
-    color: #572EE5;
+    color: var(--colorTitulo);
     width: 127px;
     height: 50px;
     border-radius: 50px 50px 50px 50px;
-    border: 1px solid #572EE5;
-    background-color: #F3F5F8;
+    border: 1px solid var(--colorTitulo);
+    background-color: var(--colorBlanco);
 }
 
 @media only screen and (min-width: 768px){
@@ -106,7 +107,7 @@ font-size: 30px;
     }
     
     .overlay .iconos img{
-        background-color: #FFFFFF;
+        background-color: var(--colorBlanco);
         object-fit: contain;
      }
     
@@ -126,7 +127,7 @@ font-size: 30px;
         
         height: 32px;
         width: 32px;
-        background-color: #FFFFFF;
+        background-color: var(--colorBlanco);
         border-radius: 4px 4px 4px 4px;
         display: flex;
         justify-content: center;
@@ -137,13 +138,13 @@ font-size: 30px;
     }
     .lookUp .gifosSearch .overlay:hover {
         opacity: 1;
-        color: white;
+        color: var(--colorBlanco);
        background-color: transparentize($color: #000000, $amount: 0.6)
 
     }
     .lookUp .gifosSearch .overlay:hover .iconos:hover{
         opacity: 1;
-        color: white;
+        color: var(--colorBlanco);
        background-color: transparentize($color: #FFFFFF, $amount: 0);
 
     }

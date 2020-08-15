@@ -1,3 +1,4 @@
+
 header{
     width: 100%;
 }
@@ -48,7 +49,7 @@ header input[type="checkbox"]{
     z-index: -1;
     justify-content: center;
     transition: 0.4s ease-in-out;
-    background-color: #572EE5 ;
+    background-color: var(--colorTitulo);
 }
 .navegador .menuhamburguesa > div:before {
     content: '';
@@ -57,7 +58,7 @@ header input[type="checkbox"]{
     width: 100%;
     height: 2px;
     z-index: 1;
-    background-color: #572EE5 ;
+    background-color: var(--colorTitulo);
 }
 .navegador .menuhamburguesa > div:after {
     content: '';
@@ -66,7 +67,7 @@ header input[type="checkbox"]{
     width: 100%;
     height: 2px;
     z-index: 1;
-    background-color: #572EE5 ;
+    background-color: var(--colorTitulo);
 
 }
 /*-------- ACTIVACION MENU ---///*/
@@ -97,7 +98,7 @@ header input[type="checkbox"]{
     //display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #572EE5;
+    background-color: var(--colorTitulo);
     width: 100%;
     height: 100%;
     //max-height: 0vh;
@@ -122,7 +123,7 @@ nav ul{
     display: flex;
     flex-direction: column;
     list-style: none;
-    color: white;
+    color:var(--colorBlanco);
     align-items: center;
     width: 100%;
     justify-content: center;
@@ -141,7 +142,7 @@ nav ul li{
 nav ul li a{
     text-decoration: none;    
     font-size: 20px;
-    color: white;
+    color: var(--colorBlanco);
 
 }
 .conLinea{
@@ -154,7 +155,7 @@ nav ul li a{
         bottom: 0;
         width: 10vh;
        //left: 10%; /*this centers it based on the above width*/
-        border-bottom: 1px solid #FFFFFF;
+        border-bottom: 1px solid var(--colorBlanco);
 }
 
 @media only screen and (min-width: 768px){
@@ -198,12 +199,12 @@ nav ul li a{
        display: none;
     }
     #menuH:checked ~ .menu {
-        color: #572EE5;
+        color: var(--colorTitulo);
         position: absolute;
         width: 100%;
         justify-content: flex-end;
 
-        background-color: #FFFFFF;
+        background-color: var(--colorBlanco);
         width: 100%;
         height: 90px;
         top: 5px;
@@ -214,12 +215,12 @@ nav ul li a{
     }
     .menu{
     
-        color: #572EE5;
+        color: var(--colorTitulo);
         flex-direction: row;
         position: absolute;
         width: 100%;
         justify-content: flex-end;
-        background-color: #FFFFFF;
+        background-color: var(--colorBlanco);
         width: 100%;
         height: 90px;
         top: 5px;
@@ -236,7 +237,7 @@ nav ul li a{
         justify-content: flex-end;
         width: 9%;
         font-size: 14px;
-        color: #572EE5;
+        color: var(--colorTitulo);
         font-weight: bold;
 
     }
@@ -245,7 +246,7 @@ nav ul{
     display: flex;
     flex-direction: row;
     list-style: none;
-    color: #572EE5;
+    color: var(--colorTitulo);
     justify-content: flex-end;
     align-items: center;
     width: 100%;
@@ -262,7 +263,7 @@ z-index: 21;
         text-decoration: none;    
         font-size: 14px;
 
-        color: #572EE5;
+        color: var(--colorTitulo);
 
     }   
     #addGifo {
@@ -281,15 +282,15 @@ z-index: 21;
         height: 54px;
         width: 54px;
         border-radius: 50%;
-        border: 1px solid #572EE5;
+        border: 1px solid var(--colorTitulo);
         object-fit: scale-down;
         z-index: 21;
 
     }
     #addGifo .svg:hover {
        background-image: url(/imagenes/button-crear-gifo\ hover.svg);
-        background-color: #572EE5;
-        border: 1px solid #572EE5;
+        background-color: var(--colorTitulo);
+        border: 1px solid var(--colorTitulo);
        
     }
     #addGifo .svg:active {
