@@ -18,6 +18,11 @@ let widthArray2 = [];
 let btn2;
 let arrayTrending = [];
 
+let start;
+let stopX;
+
+
+
 
 //let displayTrend = 
 window.onload = testingtrend;
@@ -25,7 +30,7 @@ window.onload = testingtrend;
 function testingtrend() {
     //alert("yes");
     //debugger;
-    
+
     fetch(`https://api.giphy.com/v1/gifs/trending?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&rating=r`)
         .then(function (dato1) {
             result = dato1.json();
@@ -58,24 +63,24 @@ function testingtrend() {
                             </div>
                         </div>`;
                 //displayTrend.appendChild(auxTrend);
-                               
-                
-                         sumWidth += parseInt(result.data[i].images.fixed_height.width);
-            
-                         //alert(sumWidth);
-            
-                         arrayWidth.push(sumWidth);
+
+
+                sumWidth += parseInt(result.data[i].images.fixed_height.width);
+
+                //alert(sumWidth);
+
+                arrayWidth.push(sumWidth);
 
                 //debugger;
 
-        
+
                 arrayTrending.push(i);
 
             }
 
 
-           
-           //
+
+            //
             //alert(arrayWidth);
 
             //for (let i = 0; i < result.data.length; i++) {
@@ -108,7 +113,7 @@ function testingtrend() {
 
 
             postGif.className = "trendingGIFOS";
-            postGif.id= "first";
+            postGif.id = "first";
 
             postGif.innerHTML = `
                 <div  >
@@ -139,15 +144,47 @@ function testingtrend() {
 
             auxPanic();
             btn2 = document.getElementsByClassName('iconosT');
-            debugger;
+            //debugger;
 
             for (let i = 0; i < btn2.length; i++) {
                 //alert('working');
-                debugger;
+                //debugger;
                 btn2[i].addEventListener('click', testClick);
                 //alert('working');
             }
+            for(let i = 0; i<vistaImg.length; i++){
+            vistaImg[i].addEventListener('touchstart', (e) => {
+                //alert('holas');
+                //debugger;
+                let eventStart = e.touches;
+                start = parseInt(eventStart[0].screenX);
+
+                //parseInt(start[0].screenX);
+            }, false);
+        
+            vistaImg[i].addEventListener('touchend', (e) => {
+                //e.preventDefault();
+                let touchEvent = e.TouchEvent;
+                touch = parseInt(e.changedTouches[0].clientX);
+                 change = start - touch;
+                 //alert(change);
+                 if (change < 0) {
+                     //left
+                    previo();
+                    //alert('a');
+
+                } else if (change > 0) {
+                    //right
+                    siguiente();
+                    //alert('b');
+                }
+                //alert(2);
+            });
+        }
         })
+
+
+
 
         .catch(function (err) {
             console.log("error");
@@ -169,25 +206,25 @@ function auxPanic() {
         contador = 1;
         //alert(vista.id);
         wideTest = wide.clientWidth;
-        aux = arrayWidth[contador]/ wideTest;
+        aux = arrayWidth[contador] / wideTest;
         //alert(width);
         //alert(vistaImg[0]);
 
-       vistaImg = document.getElementsByClassName('trendingGIFOS');
-        
+        vistaImg = document.getElementsByClassName('trendingGIFOS');
+
 
         width = sumWidth / vistaImg.length;
         //alert(width);
         vista.style.left = aux + "%";
-    
-        vista.style.transform = "translateX(" + (- arrayWidth[0]-10) + "px)";
+
+        vista.style.transform = "translateX(" + (- arrayWidth[0] - 10) + "px)";
 
         //
         //vista.style.left = aux + "%";
         //setTimeout(arraywid(),5000);
         let btnPrev = document.getElementById('previousTrend');
         let btnNext = document.getElementById('nextTrend');
-        
+
         btnPrev.addEventListener("click", previo);
         btnNext.addEventListener("click", siguiente);
         btnPrev.addEventListener("click", efect);
@@ -250,7 +287,7 @@ function auxPanic() {
 function auxSize() {
     if (panic != 0) {
         try {
-           //alert("try");
+            //alert("try");
 
             //alert("yes");
             // alert(aux);
@@ -258,7 +295,7 @@ function auxSize() {
             //eje = vistaImg[count(contador)].clientWidth;
             siguiente();
             previo();
-
+            touchSlide();
             //vista.style.transform = "translateX(" +  + "px)";
 
         } catch (error) {
@@ -272,7 +309,7 @@ function auxSize() {
 
 //         for (let i = 0; i < vistaImg.length; i++) {
 //             //alert(vistaImg[i].clientWidth);            
-            
+
 //             sumWidth += vistaImg[i].clientWidth;
 
 //             //alert(sumWidth);
@@ -281,13 +318,13 @@ function auxSize() {
 //         }
 //     }
 
-   
+
 // }
 
 function previo() {
     if (panic != 0) {
         try {
-        //width = arrayWidth[0];
+            //width = arrayWidth[0];
 
             //alert(arrayWidth[contador]);
             //width= arrayWidth[contador];
@@ -296,7 +333,7 @@ function previo() {
             if (contador <= 0) return;
             contador--;
             vista.style.transition = "ease-in-out 0.3s"
-            
+
             //vista.style.left = -arrayWidth[contador] + "px";
 
             vista.style.transform = "translateX(" + (- width * contador) + "px)";
@@ -312,24 +349,24 @@ function previo() {
 function siguiente() {
     if (panic != 0) {
         try {
-        //width = arrayWidth[0];
+            //width = arrayWidth[0];
 
-           
+
             //width= arrayWidth[contador];
 
             console.log(arrayWidth[contador]);
-            if (contador >= vistaImg.length-1) return;
-          
+            if (contador >= vistaImg.length - 1) return;
+
             contador++;
             vista.style.transition = "ease-in-out 0.3s"
             //vista.style.left = -arrayWidth[contador+1] + "px";
             vista.style.transform = "translateX(" + (- width * contador) + "px)";
 
-        }catch (error) {
+        } catch (error) {
             console.log(error);
         }
     }
-    }
+}
 // function count(contador) {
 //     contadorAuxiliar = (contador ^ 2) ^ 1/2;
 //     return contadorAuxiliar;
@@ -366,12 +403,50 @@ function efect() {
     }
     if (vistaImg[contador].id === 'first') {
         vista.style.transition = 'none';
-        contador = vistaImg.length-1 - contador;
+        contador = vistaImg.length - 1 - contador;
         vista.style.transform = "translateX(" + (-width * contador) + "px)";
 
 
     }
 }
+// let change;
+
+// // function touchSlide() {
+//     vistaImg[contador].addEventListener('touchstart', (e) => {
+//         alert('holas');
+//         start = e.clientX
+//     }, false);
+
+//     vistaImg[contador].addEventListener('touchend', (e) => {
+//         e.preventDefault();
+//         let touch = e.clientX;
+//         change = start - touch;
+//         if (change > 0) {
+//             //left
+//             previo();
+//             alert('a');
+//         } else if (change < 0) {
+//             //right
+//             siguiente();
+//             alert('b');
+//         }
+//     }, false);
+    
+
+
+// function slideShow() {
+//     if (change > 0) {
+//         //left
+//         previo();
+//         alert('a');
+//     } else if (change < 0) {
+//         //right
+//         siguiente();
+//         alert('b');
+//     }
+//     alert('c');
+// }
+
 
 
 

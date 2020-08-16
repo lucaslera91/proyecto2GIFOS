@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROYECTO FINAL 2</title>
     <link rel="stylesheet" href="./style/styleAll.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="margins"></div>
     <header>
-        <div class="logo"><a href="index.html"><img src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a></div>
+        <div class="logo"><a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a>
+        </div>
         <nav class="navegador">
             <input type="checkbox" name="menuHam" id="menuH">
             <label for="menuH"></label>
@@ -22,6 +24,16 @@
 
             <div class="menu">
                 <ul>
+                    <li id='liSearch'>
+                        <!-- <div class="searchBar">
+                        <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
+                        <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
+                        <ul class="suggestions" id='suggestionBox'>
+                        </ul>
+                     </datalist>
+                    </div>-->
+                    </li>
+
                     <li class="conLinea" id="darkIndex">Modo Nocturno</li>
 
                     <li class="conLinea"><a href="favoritos.html">Favoritos</a></li>
@@ -29,8 +41,9 @@
                     <li><a href="./misGifos.html">Mis GIFOS</a></li>
 
                     <li id="addGifo"><a href="crearGifo.html">
-                            <div class="svg"></div>
+                            <div class="svg"><i class="fas fa-plus"></i></div>
                         </a></li>
+
 
 
                 </ul>
@@ -49,20 +62,19 @@
             <div class="imagenInicio">
                 <img src="./imagenes/ilustra_header.svg" alt="">
             </div>
-            <div class="searchBar">
-                <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
-                <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
-                <ul class="suggestions" id='suggestionBox'>
-                     
-
-                   
-                </ul>
-             </datalist>
+            <div id="searchHelp">
+                <div class="searchBar">
+                    <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
+                    <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
+                    <ul class="suggestions" id='suggestionBox'>
+                    </ul>
+                    </datalist>
+                </div>
             </div>
         </section>
         <section class="trending">
             <div class="h3aux">
-                <h3><span>Trending:</span></h3>
+                <h3 id="line"><span>Trending:</span></h3>
                 <p>
                     Reactions, Entretainment, Sports, Stickers, Artists
                 </p>

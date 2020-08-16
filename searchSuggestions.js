@@ -1,12 +1,24 @@
 test = document.getElementById("search1");
-test.innerHTML = "testç";
-
-test.addEventListener("keyup", testingHelp);
 let contenedorSugerengcia = document.getElementById('suggestionBox');
 let suggestion;
 let idSuggestoins;
 
 let buscarSugerencia;
+test.innerHTML = "test";
+
+
+test.addEventListener("keyup", testingHelp);
+
+window.addEventListener('keyup', ()=>{   
+    
+    debugger;
+   //alert('scroll');
+test = document.getElementById("search1");
+contenedorSugerengcia = document.getElementById('suggestionBox');
+test.addEventListener("keyup", testingHelp);
+
+//alert('scroll');
+});
 
 
 function setSearchSuggestion() {
@@ -14,7 +26,7 @@ function setSearchSuggestion() {
     //alert("wero");
     let idCheck = this.id;
     alert(idCheck);
-    debugger;
+    //debugger;
     test.value = idCheck;
     contenedorSugerengcia.innerHTML = "";
 
@@ -69,6 +81,7 @@ function testingHelp() {
                 });
                 buscarSugerencia = document.getElementsByClassName('suggestion');
                 for (let i = 0; i < buscarSugerencia.length; i++) {
+                    debugger;
                     buscarSugerencia[i].addEventListener('click', setSearchSuggestion);
                 }
             })

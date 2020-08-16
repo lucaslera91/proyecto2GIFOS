@@ -1,4 +1,5 @@
 * {
+  background-color: var(--colorBlanco);
   box-sizing: border-box;
   margin: 0px;
   font-family: 'Montserrat', sans-serif; }
@@ -8,6 +9,12 @@
   width: 100%;
   background-color: var(--colorTitulo); }
 
+@media only screen and (min-width: 768px) {
+  body {
+    margin-top: 90px; }
+
+  header {
+    margin-top: -90px; } }
 header {
   width: 100%; }
 
@@ -147,10 +154,17 @@ nav ul li a {
   border-bottom: 1px solid var(--colorBlanco); }
 
 @media only screen and (min-width: 768px) {
-  .header {
+  header {
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    z-index: 999999999; }
+
+  #liSearch {
+    padding: 0 20px 0 20px;
+    width: 38%; }
 
   .navegador {
     display: flex;
@@ -246,25 +260,27 @@ nav ul li a {
 
   #addGifo .svg {
     display: flex;
-    background-image: url(//imagenes/button-crear-gifo.svg);
-    background-repeat: no-repeat;
-    background-position: center;
     justify-content: center;
+    align-items: center;
     height: 54px;
     width: 54px;
     border-radius: 50%;
     border: 1px solid var(--colorTitulo);
-    object-fit: scale-down;
     z-index: 21; }
 
-  #addGifo .svg:hover {
-    background-image: url(./imagenes/button-crear-gifo\ hover.svg);
+  #addGifo .svg i {
+    transform: scale(1.3); }
+
+  #addGifo a .svg:hover {
     background-color: var(--colorTitulo);
     border: 1px solid var(--colorTitulo); }
 
   #addGifo .svg:active {
     background-color: #9CAFC3;
-    border: 1px solid #9CAFC3; } }
+    border: 1px solid #9CAFC3; }
+
+  #addGifo .svg:hover i {
+    color: var(--colorBlanco); } }
 footer h4 {
   padding: 47px 0 22px 0;
   font-size: 15px;
@@ -289,11 +305,11 @@ footer p {
 :root {
   --colorBlanco:#ffffff;
   --colorSecundario: #50E3C2;
-  --colorTitulo: #572EE5; }
+  --colorTitulo: #572EE5;
+  --colorTrending:#F3F5F8; }
 
 h1 {
-  --colorTitulo: #572EE5;
-  --colorSecundario: #50E3C2;
+  color: var(--colorTitulo);
   font-size: 30px; }
 
 .titulo {
@@ -821,9 +837,12 @@ video {
   opacity: 0;
   display: none; }
 
+.trendingGifos {
+  background-color: var(--colorTrending); }
+
 .gifosAux {
   width: 100%;
-  background-color: var(--colorBlanco); }
+  background-color: var(--colorTrending); }
 
 .trendigGIFOS {
   display: flex;
@@ -831,7 +850,8 @@ video {
   width: fit-content;
   justify-content: center;
   align-items: center;
-  padding-bottom: 84px; }
+  padding-bottom: 84px;
+  background-color: var(--colorTrending); }
 
 .trendigGIFOS .embedT {
   height: 187px;
@@ -844,10 +864,11 @@ video {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--colorBlanco); }
+  background-color: var(--colorTrending); }
 
 .trendingGifos h2, .trendingGifos h4 {
-  text-align: center; }
+  text-align: center;
+  background-color: var(--colorTrending); }
 
 .gifosAux {
   display: flex;
@@ -865,7 +886,7 @@ video {
 #windowTrend {
   width: 100%;
   height: auto;
-  background-color: var(--colorBlanco);
+  background-color: var(--colorTrending);
   overflow: hidden;
   transition: ease-in-out 0.3s; }
 
@@ -897,9 +918,6 @@ video {
     width: 40px;
     top: 50%;
     position: absolute;
-    background-image: url(/imagenes/button-left.svg);
-    background-repeat: no-repeat;
-    background-position: center;
     left: -50px;
     z-index: 99;
     border: 1px solid gray; }
@@ -912,26 +930,28 @@ video {
     width: 40px;
     right: -70px;
     position: absolute;
-    background-image: url(/imagenes/button-right.svg);
-    background-repeat: no-repeat;
-    background-position: center;
     top: 50%;
     border: 1px solid gray; }
 
   #previousTrend:hover {
-    background-color: blue;
-    background-image: url(/imagenes/button-left\ hover.svg); }
+    background-color: var(--colorTitulo); }
 
   #nextTrend:hover {
-    background-color: blue;
-    background-image: url(/imagenes/button-right\ hover.svg); }
+    background-color: var(--colorTitulo); }
+
+  #previousTrend:hover i {
+    color: var(--colorBlanco); }
+
+  #nextTrend:hover i {
+    color: var(--colorBlanco); }
 
   .trendingGifos {
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center; }
+    justify-content: center;
+    background-color: var(--colorTrending); }
 
   .trendingGifos h2, .trendingGifos h4 {
     text-align: center; }
@@ -953,7 +973,7 @@ video {
   #windowTrend {
     width: 100%;
     height: auto;
-    background-color: var(--colorBlanco);
+    background-color: var(--colorTrending);
     overflow: hidden;
     transition: ease-in-out 0.3s; }
 
@@ -968,7 +988,7 @@ video {
 
   .overlayT:hover {
     opacity: 1;
-    color: var(--colorBlanco);
+    color: var(--colorTrending);
     background-color: rgba(0, 0, 0, 0.4); }
 
   .overlayT:hover .iconosT:hover {

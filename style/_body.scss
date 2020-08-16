@@ -2,13 +2,11 @@
     --colorBlanco:#ffffff;
  --colorSecundario: #50E3C2;
  --colorTitulo: #572EE5;
-
+--colorTrending:#F3F5F8;
 }
 
 h1{
-    --colorTitulo: #572EE5;
-    --colorSecundario: #50E3C2;
-    
+    color: var(--colorTitulo);
     font-size: 30px;
     
 }

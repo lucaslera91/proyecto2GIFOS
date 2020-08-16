@@ -12,44 +12,88 @@ let btn;
 let colorBlanco = '--colorBlanco';
 let colorSecundario = '--colorSecundario';
 let colorTitulo = '--colorTitulo';
+let colorTrending = '--colorTrending';
 let root;
+let logoIm = document.getElementById('idImg');
+//logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
+
 let colorBtnIndex = document.getElementById('darkIndex');
-colorBtnIndex.addEventListener('click', theme);
+colorBtnIndex.addEventListener('click', setTheme);
 let themeColor;
 
-if(JSON.parse(localStorage.getItem("theme")) == null){
+
+if (JSON.parse(localStorage.getItem("theme")) == null) {
     localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
-}else {
-    themeColor= JSON.parse(localStorage.getItem("theme"));
+} else {
+    themeColor = JSON.parse(localStorage.getItem("theme"));
 }
 theme();
-function theme() {
+function setTheme() {
     themeColor = JSON.parse(localStorage.getItem("theme"));
     //alert(colorBtnIndex.innerHTML);
 
     if (themeColor == 'Modo Nocturno') {
         colorDiurno();
         //alert('rompe');
-    }else if (themeColor == 'Modo Diurno') {
+    } else if (themeColor == 'Modo Diurno') {
         colorDark();
         //alert('hola');
     }
-   
+}
+
+
+function theme() {
+
+    themeColor = JSON.parse(localStorage.getItem("theme"));
+    //alert(colorBtnIndex.innerHTML);
+
+    if (themeColor == 'Modo Nocturno') {
+
+        root = document.querySelector(':root');
+        root.style.setProperty(colorTitulo, 'white');
+        root.style.setProperty(colorSecundario, 'white');
+        root.style.setProperty(colorBlanco, '#37383C');
+        root.style.setProperty(colorTrending, '#222326');
+        //colorBtnIndex.innerHTML = themeColor;
+        logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
+
+
+        //alert('rompe');
+    } else if (themeColor == 'Modo Diurno') {
+        root = document.querySelector(':root');
+        root.style.setProperty(colorTitulo, '#572EE5');
+        root.style.setProperty(colorSecundario, '#50E3C2');
+        root.style.setProperty(colorBlanco, '#ffffff');
+        root.style.setProperty(colorTrending, '#F3F5F8');
+        //colorBtnIndex.innerHTML = themeColor;
+        logoIm.src = "./imagenes/logo-mobile.svg";
+
+        //alert('hola');
+    }
+    //./imagenes/logo-mobile.svg'
 }
 function colorDiurno() {
     root = document.querySelector(':root');
     root.style.setProperty(colorTitulo, '#572EE5');
     root.style.setProperty(colorSecundario, '#50E3C2');
     root.style.setProperty(colorBlanco, '#ffffff');
-    colorBtnIndex.innerHTML = 'Modo Nocturno';
+    root.style.setProperty(colorTrending, '#F3F5F8');
+    //colorBtnIndex.innerHTML = 'Modo Nocturno';
+
+    logoIm.src = "./imagenes/logo-mobile.svg";
+    //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a>`;
     localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
 }
 function colorDark() {
     root = document.querySelector(':root');
-    root.style.setProperty(colorTitulo, 'red');
+    root.style.setProperty(colorTitulo, 'white');
     root.style.setProperty(colorSecundario, 'white');
-    root.style.setProperty(colorBlanco, 'darkblue');
-    colorBtnIndex.innerHTML = 'Modo Diurno';
+    root.style.setProperty(colorBlanco, '#37383C');
+    root.style.setProperty(colorTrending, '#222326');
+    //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-desktop-modo-noc.svg" alt="Imagen logo"></a>`;
+    logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
+
+    //colorBtnIndex.innerHTML = 'Modo Diurno';
     localStorage.setItem("theme", JSON.stringify('Modo Nocturno'));
 
 }
@@ -141,8 +185,8 @@ function testing(busqueda) {
                                 
                             </div>
                             <div class="nameBox">
-                                <h4>User</h3>
-                                    <h3>Titulo</h2>
+                                <h4>${element.username}</h3>
+                                    <h3>${element.title}</h2>
                             </div>
                         </div>
                     `;
@@ -152,7 +196,7 @@ function testing(busqueda) {
                 countsearch++;
             });
             btn = document.getElementsByClassName('iconos');
-            debugger;
+            //debugger;
             for (let i = 0; i < btn.length; i++) {
                 btn[i].addEventListener('click', testClick);
             }
@@ -186,7 +230,7 @@ function testClick() {
         if (favSave != null) {
             for (let i = 0; i < favSave.length; i++) {
                 arrayFav.push(favSave[i]);
-                debugger;
+                //debugger;
             }
         } arrayFav.push(idgif);
         localStorage.setItem("favs", JSON.stringify(arrayFav));
@@ -200,10 +244,71 @@ function testClick() {
 
     }
     if (idend.slice(0, 3) == 'max') {
-        debugger;
+        // debugger;
         // alert('max');
         //link a maximizar imagen
         //fetch con este id en otra linea
         localStorage.setItem("max", JSON.stringify(idgif));
     }
 }
+let liSearch;
+let searchHelp;
+let line = document.getElementById('line');
+window.addEventListener('scroll', function () {
+    line = document.getElementById('line');
+    liSearch = document.getElementById('liSearch');
+    searchHelp = document.getElementById('searchHelp');
+    if(test.value.length != 0){
+
+    }else{
+
+    if (isInViewport(line) == false) {
+
+         //liSearch = document.getElementById('liSearch');
+        // searchHelp = document.getElementById('searchHelp');
+        liSearch.innerHTML = `<div class="searchBar">
+    <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
+    <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
+    <ul class="suggestions" id='suggestionBox'>
+    </ul>
+ </datalist>
+</div>`;
+        searchHelp.innerHTML = "";
+        test = document.getElementById("search1");
+        //alert(isInViewport(test));
+    } else {
+
+        liSearch.innerHTML = '';
+        //test = document.getElementById("search1");
+        searchHelp.innerHTML = `<div class="searchBar">
+<input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
+<img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
+<ul class="suggestions" id='suggestionBox'>
+</ul>
+</datalist>
+</div>`;
+    test = document.getElementById("search1");
+
+    }
+}
+});
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+
+
+
+
+
+
+// CORAZONES
+
+// <i class="far fa-heart"></i> SIN RELLENO 
+//<i class="fas fa-heart"></i> CON RELLENO
