@@ -71,23 +71,23 @@ grabar.addEventListener('click', function () {
             formData.append('api_key', apiKey);
            uploadFile(form);
 
-            console.log(blob);
-            let videoURL = window.URL.createObjectURL(blob);
+            // console.log(blob);
+            // let videoURL = window.URL.createObjectURL(blob);
 
 
-            videoSave.src = videoURL;
-            videoSave.style.zIndex = capaBtnStop;
-            capaBtnStart = capaBtnStart + 2;
-            start.style.zIndex = capaBtnStart;
-            console.log(videoURL);
-            subirGifBtn.style.zIndex = capaBtnStart + 1;
-            fileReader = new FileReader();
+            // videoSave.src = videoURL;
+            // videoSave.style.zIndex = capaBtnStop;
+            // capaBtnStart = capaBtnStart + 2;
+            // start.style.zIndex = capaBtnStart;
+            // console.log(videoURL);
+            // subirGifBtn.style.zIndex = capaBtnStart + 1;
+            // fileReader = new FileReader();
 
-            fileReader.onload = function (evt) {
-            //Read out file contents as a Data URL
-            let result = evt.target.result;
-            videoSave.setAttribute("src", result);
-            localStorage.setItem("video2", result);
+            // fileReader.onload = function (evt) {
+            // //Read out file contents as a Data URL
+            // let result = evt.target.result;
+            // videoSave.setAttribute("src", result);
+            // localStorage.setItem("video2", result);
             }
 
             fileReader.readAsDataURL(blob);
