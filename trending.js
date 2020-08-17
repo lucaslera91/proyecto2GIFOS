@@ -48,7 +48,7 @@ function testingtrend() {
                             <div class="overlayT">
                             <div class="iconosBoxT">
                             <div class="iconosT" id="fav${result.data[i].id}">
-                            <img src="./imagenes/icon-fav-hover.svg" alt="">
+                            <img src="" alt=""><i class="far fa-heart"></i>
                         </div>
                         <div class="iconosT" id="dwl${result.data[i].id}">
                         <img src="./imagenes/icon-download.svg" alt="">
@@ -94,13 +94,13 @@ function testingtrend() {
                             <div class="overlayT">
                             <div class="iconosBoxT">
                             <div class="iconosT" id="fav${result.data[arrayTrending.length - 1].id}">
-                            <img src="./imagenes/icon-fav-hover.svg" alt="">
+                            <img src="" alt=""><i class="far fa-heart"></i>
                         </div>
                         <div class="iconosT" id="dwl${result.data[arrayTrending.length - 1].id}">
                         <img src="./imagenes/icon-download.svg" alt="">
                         </div>
                         <div class="iconosT" id="max${result.data[arrayTrending.length - 1].id}">
-                        <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
+                        <a href="./verGifo.html"><img src="" alt=""><i class="far fa-heart"></i></a>
                         </div>
                                 <div class="nameBoxT">
                                     <h4>User</h3>
@@ -121,13 +121,13 @@ function testingtrend() {
                             <div class="overlayT">
                                 <div class="iconosBoxT">
                                 <div class="iconosT" id="fav${result.data[0].id}">
-                                <img src="./imagenes/icon-fav-hover.svg" alt="">
+                                <img src="" alt=""><i class="far fa-heart"></i>
                             </div>
                             <div class="iconosT" id="dwl${result.data[0].id}">
                             <img src="./imagenes/icon-download.svg" alt="">
                             </div>
                             <div class="iconosT" id="max${result.data[0].id}">
-                            <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
+                            <a href="./verGifo.html"><img src="" alt=""><i class="far fa-heart"></i></a>
                             </div>
                                 <div class="nameBoxT">
                                     <h4>User</h3>

@@ -8,7 +8,11 @@ let recorder;
 start = document.getElementById('start');
 let stopBtn = document.getElementById('stop');
 let subirGifBtn = document.getElementById('subir');
-let form = new FormData;
+let formData= new FormData;
+let misGifos = [];
+let gifFile;
+let formulario = document.getElementById('form');
+let apiKey = 'JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U';
 
 grabar.addEventListener('click', getStreamAndRecord);
 if (start != 0) {
@@ -56,10 +60,21 @@ grabar.addEventListener('click', function () {
             recorder.stopRecording();
 
             let blob = recorder.getBlob();
+            debugger;
+        //     formulario.inneHTML = `<form class='form' id='myForm'>
+        //     <input type="file" id="gifFile">
+        // </form>`;
+           //gifFile = document.getElementById('file');
             //invokeSaveAsDialog(blob);
-            form.append('file', blob, 'myGif.gif');
+
+            formData.append('file', blob);
+            formData.append('api_key', apiKey);
+           uploadFile(form);
+
             console.log(blob);
             let videoURL = window.URL.createObjectURL(blob);
+
+
             videoSave.src = videoURL;
             videoSave.style.zIndex = capaBtnStop;
             capaBtnStart = capaBtnStart + 2;
@@ -91,6 +106,19 @@ grabar.addEventListener('click', function () {
     })
 
 });
+function uploadFile(form){
+    debugger;
+fetch('upload.giphy.com/v1/gifs?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U',{
+    method: 'POST',
+    body: form
+}).catch(console.error);
+
+
+
+
+
+
+}
 //-------------------------------
 //-------------------------------
 //-------------------------------
@@ -100,7 +128,6 @@ grabar.addEventListener('click', function () {
 //-------------------------------
 
 
-let misGifos = [];
 // function testMyGifs() {
 //     if(localStorage.getItem("misGifs") != null) {
 //     listaGifs = JSON.parse(localStorage.getItem("misGifs"));
@@ -112,20 +139,20 @@ let misGifos = [];
 //testMyGifs();
 
 
-let cuantosGifs = 0;
-function addToMyGifs(url) {
-    if(localStorage.getItem("misGifs") != null) {
-    listaGifs = JSON.parse(localStorage.getItem("misGifs"));
-    //cuantosGifs++;
-    for(let i = 0; i<listaGifs.length; i++)
-    misGifos.push(listaGifs[i]);
-    }
-    misGifos.push(videoSave.src);
+// let cuantosGifs = 0;
+// function addToMyGifs(url) {
+//     if(localStorage.getItem("misGifs") != null) {
+//     listaGifs = JSON.parse(localStorage.getItem("misGifs"));
+//     //cuantosGifs++;
+//     for(let i = 0; i<listaGifs.length; i++)
+//     misGifos.push(listaGifs[i]);
+//     }
+//     misGifos.push(videoSave.src);
 
-    localStorage.setItem("misGifs", JSON.stringify(misGifos));
+//     localStorage.setItem("misGifs", JSON.stringify(misGifos));
 
-    alert("posible exito");
-}
+//     alert("posible exito");
+// }
 
 
 
@@ -187,91 +214,91 @@ function addToMyGifs(url) {
 // }
 
 
-let colorBlanco = '--colorBlanco';
-let colorSecundario = '--colorSecundario';
-let colorTitulo = '--colorTitulo';
-let colorTrending = '--colorTrending';
-let root;
-let logoIm4 = document.getElementById('idImg4');
-//logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
+// let colorBlanco = '--colorBlanco';
+// let colorSecundario = '--colorSecundario';
+// let colorTitulo = '--colorTitulo';
+// let colorTrending = '--colorTrending';
+// let root;
+// let logoIm4 = document.getElementById('idImg4');
+// //logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
 
-let colorBtnIndex4 = document.getElementById('darkIndex4');
-colorBtnIndex4.addEventListener('click', setTheme);
-let themeColor;
-
-
-if(JSON.parse(localStorage.getItem("theme")) == null){
-    localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
-}else {
-    themeColor= JSON.parse(localStorage.getItem("theme"));
-}
-theme();
-function setTheme(){
-    themeColor = JSON.parse(localStorage.getItem("theme"));
-    //alert(colorBtnIndex.innerHTML);
-
-    if (themeColor == 'Modo Nocturno') {
-        colorDiurno();
-        //alert('rompe');
-    }else if (themeColor == 'Modo Diurno') {
-        colorDark();
-        //alert('hola');
-    }
-}
+// let colorBtnIndex4 = document.getElementById('darkIndex4');
+// colorBtnIndex4.addEventListener('click', setTheme);
+// let themeColor;
 
 
-function theme() {
+// if(JSON.parse(localStorage.getItem("theme")) == null){
+//     localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
+// }else {
+//     themeColor= JSON.parse(localStorage.getItem("theme"));
+// }
+// theme();
+// function setTheme(){
+//     themeColor = JSON.parse(localStorage.getItem("theme"));
+//     //alert(colorBtnIndex.innerHTML);
 
-    themeColor = JSON.parse(localStorage.getItem("theme"));
-    //alert(colorBtnIndex.innerHTML);
+//     if (themeColor == 'Modo Nocturno') {
+//         colorDiurno();
+//         //alert('rompe');
+//     }else if (themeColor == 'Modo Diurno') {
+//         colorDark();
+//         //alert('hola');
+//     }
+// }
 
-    if (themeColor == 'Modo Nocturno') {
 
-        root = document.querySelector(':root');
-        root.style.setProperty(colorTitulo, 'white');
-        root.style.setProperty(colorSecundario, 'white');
-        root.style.setProperty(colorBlanco, '#37383C');
-        root.style.setProperty(colorTrending, '#222326');
-        //colorBtnIndex.innerHTML = themeColor;
-        logoIm4.src = './imagenes/logo-desktop-modo-noc.svg';
+// function theme() {
+
+//     themeColor = JSON.parse(localStorage.getItem("theme"));
+//     //alert(colorBtnIndex.innerHTML);
+
+//     if (themeColor == 'Modo Nocturno') {
+
+//         root = document.querySelector(':root');
+//         root.style.setProperty(colorTitulo, 'white');
+//         root.style.setProperty(colorSecundario, 'white');
+//         root.style.setProperty(colorBlanco, '#37383C');
+//         root.style.setProperty(colorTrending, '#222326');
+//         //colorBtnIndex.innerHTML = themeColor;
+//         logoIm4.src = './imagenes/logo-desktop-modo-noc.svg';
 
        
-        //alert('rompe');
-    }else if (themeColor == 'Modo Diurno') {
-            root = document.querySelector(':root');
-    root.style.setProperty(colorTitulo, '#572EE5');
-    root.style.setProperty(colorSecundario, '#50E3C2');
-    root.style.setProperty(colorBlanco, '#ffffff');
-    root.style.setProperty(colorTrending, '#F3F5F8');
-   //colorBtnIndex.innerHTML = themeColor;
-    logoIm4.src = "./imagenes/logo-mobile.svg";
+//         //alert('rompe');
+//     }else if (themeColor == 'Modo Diurno') {
+//             root = document.querySelector(':root');
+//     root.style.setProperty(colorTitulo, '#572EE5');
+//     root.style.setProperty(colorSecundario, '#50E3C2');
+//     root.style.setProperty(colorBlanco, '#ffffff');
+//     root.style.setProperty(colorTrending, '#F3F5F8');
+//    //colorBtnIndex.innerHTML = themeColor;
+//     logoIm4.src = "./imagenes/logo-mobile.svg";
     
-        //alert('hola');
-    }
-   //./imagenes/logo-mobile.svg'
-}
-function colorDiurno() {
-    root = document.querySelector(':root');
-    root.style.setProperty(colorTitulo, '#572EE5');
-    root.style.setProperty(colorSecundario, '#50E3C2');
-    root.style.setProperty(colorBlanco, '#ffffff');
-    root.style.setProperty(colorTrending, '#F3F5F8');
-    //colorBtnIndex.innerHTML = 'Modo Nocturno';
+//         //alert('hola');
+//     }
+//    //./imagenes/logo-mobile.svg'
+// }
+// function colorDiurno() {
+//     root = document.querySelector(':root');
+//     root.style.setProperty(colorTitulo, '#572EE5');
+//     root.style.setProperty(colorSecundario, '#50E3C2');
+//     root.style.setProperty(colorBlanco, '#ffffff');
+//     root.style.setProperty(colorTrending, '#F3F5F8');
+//     //colorBtnIndex.innerHTML = 'Modo Nocturno';
     
-    logoIm4.src = "./imagenes/logo-mobile.svg";
-    //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a>`;
-    localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
-}
-function colorDark() {
-    root = document.querySelector(':root');
-    root.style.setProperty(colorTitulo, 'white');
-    root.style.setProperty(colorSecundario, 'white');
-    root.style.setProperty(colorBlanco, '#37383C');
-    root.style.setProperty(colorTrending, '#222326');
-    //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-desktop-modo-noc.svg" alt="Imagen logo"></a>`;
-    logoIm4.src = './imagenes/logo-desktop-modo-noc.svg';
+//     logoIm4.src = "./imagenes/logo-mobile.svg";
+//     //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a>`;
+//     localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
+// }
+// function colorDark() {
+//     root = document.querySelector(':root');
+//     root.style.setProperty(colorTitulo, 'white');
+//     root.style.setProperty(colorSecundario, 'white');
+//     root.style.setProperty(colorBlanco, '#37383C');
+//     root.style.setProperty(colorTrending, '#222326');
+//     //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-desktop-modo-noc.svg" alt="Imagen logo"></a>`;
+//     logoIm4.src = './imagenes/logo-desktop-modo-noc.svg';
     
-    //colorBtnIndex.innerHTML = 'Modo Diurno';
-    localStorage.setItem("theme", JSON.stringify('Modo Nocturno'));
+//     //colorBtnIndex.innerHTML = 'Modo Diurno';
+//     localStorage.setItem("theme", JSON.stringify('Modo Nocturno'));
 
-}
+// }

@@ -174,7 +174,7 @@ function testing(busqueda) {
                             <div class="background"></div>
                             <div class="iconosBox">
                                 <div class="iconos" id="fav${element.id}">
-                                    <img src="./imagenes/icon-fav-hover.svg" alt="">
+                                    <img src="" alt=""><i class="far fa-heart"></i>
                                 </div>
                                 <div class="iconos" id="dwl${element.id}">
                                 <img src="./imagenes/icon-download.svg" alt="">
@@ -228,19 +228,42 @@ function testClick() {
         //alert('fav');
         let favSave = JSON.parse(localStorage.getItem("favs"));
         if (favSave != null) {
+            let auxFav;
             for (let i = 0; i < favSave.length; i++) {
                 arrayFav.push(favSave[i]);
                 //debugger;
             }
-        } arrayFav.push(idgif);
-        localStorage.setItem("favs", JSON.stringify(arrayFav));
+            auxFav = verificarFav(arrayFav, idgif);
+            if (auxFav == false && idgif != "") {
+                arrayFav.push(idgif);
+                //debugger;
+            } else { alert('repetido') }
+            //debugger;
 
+        } else if (favSave === null) {
+            debugger;
+            alert('its doing it');
+            arrayFav.push(idgif)
+        };
+
+        localStorage.setItem("favs", JSON.stringify(arrayFav));
+        arrayFav = [];
     }
     if (idend.slice(0, 3) == 'dwl') {
-        //alert(idgif);
-        //ver como descargo esto...
-        //si es de fetch o de otro lado
-        //verGif(idgif, 1);
+
+        fetch(`https://api.giphy.com/v1/gifs/${idgif}?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U`)
+            .then(function (dato1) {
+                result = dato1.json();
+                return result;
+            })
+            .then(function (result) {
+                
+                descargarG(`${result.data.images.original.url}`, result.data.title);
+            })
+            .catch(function (err) {
+                console.log(err.name, err.message)
+               //debugger;
+            })
 
     }
     if (idend.slice(0, 3) == 'max') {
@@ -251,6 +274,33 @@ function testClick() {
         localStorage.setItem("max", JSON.stringify(idgif));
     }
 }
+
+async function descargarG(url,titulo) {
+    let blob = await fetch(`${url}`)
+    .then(r => r.blob());
+    invokeSaveAsDialog(blob, `${titulo}`);
+    console.log(blob);
+}
+
+
+function verificarFav(listaLS, id) {
+    let contarFavs = 0;
+    let auxFavorito = false;
+    alert(listaLS.length);
+    do{
+        if(listaLS[contarFavs] == id){
+            auxFavorito = true;
+            console.log(auxFavorito);
+        }
+        console.log(contarFavs);
+        contarFavs++;
+    }while (contarFavs < listaLS.length && auxFavorito == false);
+
+
+return auxFavorito;
+}
+
+
 let liSearch;
 let searchHelp;
 let line = document.getElementById('line');
@@ -258,39 +308,39 @@ window.addEventListener('scroll', function () {
     line = document.getElementById('line');
     liSearch = document.getElementById('liSearch');
     searchHelp = document.getElementById('searchHelp');
-    if(test.value.length != 0){
+    if (test.value.length != 0) {
 
-    }else{
+    } else {
 
-    if (isInViewport(line) == false) {
+        if (isInViewport(line) == false) {
 
-         //liSearch = document.getElementById('liSearch');
-        // searchHelp = document.getElementById('searchHelp');
-        liSearch.innerHTML = `<div class="searchBar">
+            //liSearch = document.getElementById('liSearch');
+            // searchHelp = document.getElementById('searchHelp');
+            liSearch.innerHTML = `<div class="searchBar">
     <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
     <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
     <ul class="suggestions" id='suggestionBox'>
     </ul>
  </datalist>
 </div>`;
-        searchHelp.innerHTML = "";
-        test = document.getElementById("search1");
-        //alert(isInViewport(test));
-    } else {
+            searchHelp.innerHTML = "";
+            test = document.getElementById("search1");
+            //alert(isInViewport(test));
+        } else {
 
-        liSearch.innerHTML = '';
-        //test = document.getElementById("search1");
-        searchHelp.innerHTML = `<div class="searchBar">
+            liSearch.innerHTML = '';
+            //test = document.getElementById("search1");
+            searchHelp.innerHTML = `<div class="searchBar">
 <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
 <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
 <ul class="suggestions" id='suggestionBox'>
 </ul>
 </datalist>
 </div>`;
-    test = document.getElementById("search1");
+            test = document.getElementById("search1");
 
+        }
     }
-}
 });
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
