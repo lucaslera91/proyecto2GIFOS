@@ -106,8 +106,8 @@ font-size: 30px;
         opacity: 0;
     }
     
-    .overlay .iconos img{
-        background-color: var(--colorBlanco);
+    .overlay .iconos img {
+       //background-color: var(--colorBlanco);
         object-fit: contain;
      }
     
@@ -122,12 +122,15 @@ font-size: 30px;
         bottom: 2px;
         left: 5px;
     }
+    .overlay .iconos i{
+        color: var(--colorTitulo);
+    }
     
     .overlay .iconos{
         
         height: 32px;
         width: 32px;
-        background-color: var(--colorBlanco);
+       background-color: var(--colorBlanco);
         border-radius: 4px 4px 4px 4px;
         display: flex;
         justify-content: center;

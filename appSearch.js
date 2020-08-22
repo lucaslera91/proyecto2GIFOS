@@ -15,6 +15,7 @@ let colorTitulo = '--colorTitulo';
 let colorTrending = '--colorTrending';
 let root;
 let logoIm = document.getElementById('idImg');
+
 //logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
 
 let colorBtnIndex = document.getElementById('darkIndex');
@@ -158,9 +159,17 @@ function testing(busqueda) {
             return result;
         })
         .then(function (result) {
+            let like = JSON.parse(localStorage.getItem("favs"));
 
+            let blueHeart;
+
+            
 
             result.data.forEach(element => {
+
+                if(like.indexOf(element.id) == (-1)){
+                    blueHeart = '<i class="far fa-heart"></i>'
+                }else{blueHeart = '<i class="fas fa-heart"></i>'}
 
                 base = document.createElement('div');
 
@@ -174,7 +183,7 @@ function testing(busqueda) {
                             <div class="background"></div>
                             <div class="iconosBox">
                                 <div class="iconos" id="fav${element.id}">
-                                    <img src="" alt=""><i class="far fa-heart"></i>
+                                    <img src="" alt="">${blueHeart}
                                 </div>
                                 <div class="iconos" id="dwl${element.id}">
                                 <img src="./imagenes/icon-download.svg" alt="">
@@ -257,7 +266,7 @@ function testClick() {
                 return result;
             })
             .then(function (result) {
-                
+                debugger;
                 descargarG(`${result.data.images.original.url}`, result.data.title);
             })
             .catch(function (err) {
@@ -271,6 +280,7 @@ function testClick() {
         // alert('max');
         //link a maximizar imagen
         //fetch con este id en otra linea
+        debugger;
         localStorage.setItem("max", JSON.stringify(idgif));
     }
 }

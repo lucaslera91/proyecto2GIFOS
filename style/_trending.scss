@@ -22,13 +22,13 @@
 
 .trendingGifos{
     
-    background-color: var(--colorTrending);
+   // background-color: var(--colorTrending);
 
 }
 
 .gifosAux{
     width: 100%;
-    background-color: var(--colorTrending);
+   // background-color: var(--colorTrending);
    //overflow: hidden;
 
 }
@@ -41,7 +41,7 @@
    align-items: center;
    //background-color: indianred;
    padding-bottom: 84px;
-   background-color: var(--colorTrending);
+   //background-color: var(--colorTrending);
 
 }
 .trendigGIFOS .embedT {
@@ -60,10 +60,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--colorTrending);
+    //background-color: var(--colorTrending);
 
 }
-.trendingGifos h2, .trendingGifos h4{
+.trendingGifos{
     text-align: center;
     background-color: var(--colorTrending);
 
@@ -128,7 +128,7 @@ margin: 10px;
 
         .trendingGIFOS{
             position: relative;
-        transition: ease-in-out 0.3s;
+            transition: ease-in-out 0.3s;
 
            
         }
@@ -209,13 +209,23 @@ margin: 10px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            background-color: var(--colorTrending);                 
+           // color: var(--colorBlanco);
+            //background-color: var(--colorTrending);                 
 
             //background-color: pink;
         }
-        .trendingGifos h2, .trendingGifos h4{
+        
+        // h4{
+        //     text-align: center;
+        //     color: black;
+        // }
+        h2{
             text-align: center;
+            color: black;
         }
+       
+
+        
         .gifosAux{
             display: flex;
             position: relative;
@@ -240,7 +250,7 @@ margin: 10px;
             //background-color: red;
             background-color: var(--colorTrending);                 
             overflow: hidden;
-transition: ease-in-out 0.3s;
+            transition: ease-in-out 0.3s;
 
         }
         .overlayT{
@@ -257,46 +267,18 @@ transition: ease-in-out 0.3s;
         }
         .overlayT:hover {
             opacity: 1;
-            color:var(--colorTrending);
-            //background-color: pink;
+            //color:var(--colorTrending);
+           //background-color: pink;
            background-color: transparentize($color: #000000, $amount: 0.6)
         
         }
         .overlayT:hover .iconosT:hover{
             opacity: 1;
-            color: var(--colorBlanco);
-           background-color: transparentize($color: #FFFFFF, $amount: 0);
+            //color: var(--colorBlanco);
+           //background-color: transparentize($color: #FFFFFF, $amount: 0);
            z-index: 19990;
         
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -318,13 +300,15 @@ transition: ease-in-out 0.3s;
         position: absolute;
         bottom: 2px;
         left: 5px;
+        color: var(--colorBlanco);
+       
     }
     
     .iconosT{
         
         height: 32px;
         width: 32px;
-        background-color: #FFFFFF;
+       background-color: #FFFFFF;
         border-radius: 4px 4px 4px 4px;
         display: flex;
         justify-content: center;

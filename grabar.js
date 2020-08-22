@@ -8,10 +8,11 @@ let recorder;
 start = document.getElementById('start');
 let stopBtn = document.getElementById('stop');
 let subirGifBtn = document.getElementById('subir');
-let formData= new FormData;
+let form;
 let misGifos = [];
-let gifFile;
-let formulario = document.getElementById('form');
+let blob;
+//let gifFile;
+//let formulario = document.getElementById('form');
 let apiKey = 'JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U';
 
 grabar.addEventListener('click', getStreamAndRecord);
@@ -56,69 +57,71 @@ grabar.addEventListener('click', function () {
             capaBtnStop = capaBtnStop + 2;
             stopBtn.style.zIndex = capaBtnStop;
         });
+        form = new FormData();
         stopBtn.addEventListener('click', function (ev) {
             recorder.stopRecording();
-
-            let blob = recorder.getBlob();
+            blob = recorder.getBlob();
             debugger;
-        //     formulario.inneHTML = `<form class='form' id='myForm'>
-        //     <input type="file" id="gifFile">
-        // </form>`;
-           //gifFile = document.getElementById('file');
-            //invokeSaveAsDialog(blob);
+            form.append('file', blob, 'myGif');
+            form.append('api_key', apiKey);
+            uploadFile(form);
 
-            formData.append('file', blob);
-            formData.append('api_key', apiKey);
-           uploadFile(form);
-
-            // console.log(blob);
-            // let videoURL = window.URL.createObjectURL(blob);
-
-
-            // videoSave.src = videoURL;
-            // videoSave.style.zIndex = capaBtnStop;
-            // capaBtnStart = capaBtnStart + 2;
-            // start.style.zIndex = capaBtnStart;
-            // console.log(videoURL);
-            // subirGifBtn.style.zIndex = capaBtnStart + 1;
-            // fileReader = new FileReader();
-
-            // fileReader.onload = function (evt) {
-            // //Read out file contents as a Data URL
-            // let result = evt.target.result;
-            // videoSave.setAttribute("src", result);
-            // localStorage.setItem("video2", result);
-            }
-
-            fileReader.readAsDataURL(blob);
-
-            subirGifBtn.addEventListener('click', () => { addToMyGifs(videoSave); });
-
-            
-            alert("seguimos ok");
+        })
+    })
+        .catch(function (err) {
+            console.log(err.name, err.message)
         })
 
-
-            
-    })
-    .catch(function (err) {
-        console.log(err.name, err.message)
-    })
-
 });
-function uploadFile(form){
+function uploadFile(form) {
     debugger;
-fetch('upload.giphy.com/v1/gifs?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U',{
-    method: 'POST',
-    body: form
-}).catch(console.error);
+    fetch('https://upload.giphy.com/v1/gifs', {
+        method: 'POST',
+        body: form
+    }).then(function (response) {
+        result = response.json();
+        return result;
+        //debugger;
+    }).then(function (result) {
+        debugger;
 
+        let favGifs = JSON.parse(localStorage.getItem("myGifs"));
 
+        let arraymyGifs =[];
 
+        if (favGifs != null) {
+            for (let i = 0; i < favGifs.length; i++) {
+                arraymyGifs.push(favGifs[i]);
+                //debugger;
+            }
+            arraymyGifs.push(result.data.id);
+        } else { arraymyGifs.push(result.data.id); }
 
+        localStorage.setItem("myGifs", JSON.stringify(arraymyGifs));
 
+        //alert(result.data.id);
+
+    }).catch(console.error);
 
 }
+
+
+btn3 = document.getElementsByClassName('iconos');
+//debugger;
+for (let i = 0; i < btn3.length; i++) {
+    btn3[i].addEventListener('click', testClick);
+}
+
+btn = document.getElementsByClassName('iconos');
+//debugger;
+for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener('click', testClick);
+}
+
+
+
+
+
 //-------------------------------
 //-------------------------------
 //-------------------------------
@@ -262,7 +265,7 @@ fetch('upload.giphy.com/v1/gifs?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U',{
 //         //colorBtnIndex.innerHTML = themeColor;
 //         logoIm4.src = './imagenes/logo-desktop-modo-noc.svg';
 
-       
+
 //         //alert('rompe');
 //     }else if (themeColor == 'Modo Diurno') {
 //             root = document.querySelector(':root');
@@ -272,7 +275,7 @@ fetch('upload.giphy.com/v1/gifs?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U',{
 //     root.style.setProperty(colorTrending, '#F3F5F8');
 //    //colorBtnIndex.innerHTML = themeColor;
 //     logoIm4.src = "./imagenes/logo-mobile.svg";
-    
+
 //         //alert('hola');
 //     }
 //    //./imagenes/logo-mobile.svg'
@@ -284,7 +287,7 @@ fetch('upload.giphy.com/v1/gifs?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U',{
 //     root.style.setProperty(colorBlanco, '#ffffff');
 //     root.style.setProperty(colorTrending, '#F3F5F8');
 //     //colorBtnIndex.innerHTML = 'Modo Nocturno';
-    
+
 //     logoIm4.src = "./imagenes/logo-mobile.svg";
 //     //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a>`;
 //     localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
@@ -297,7 +300,7 @@ fetch('upload.giphy.com/v1/gifs?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U',{
 //     root.style.setProperty(colorTrending, '#222326');
 //     //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-desktop-modo-noc.svg" alt="Imagen logo"></a>`;
 //     logoIm4.src = './imagenes/logo-desktop-modo-noc.svg';
-    
+
 //     //colorBtnIndex.innerHTML = 'Modo Diurno';
 //     localStorage.setItem("theme", JSON.stringify('Modo Nocturno'));
 

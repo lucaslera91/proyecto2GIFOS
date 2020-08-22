@@ -11,7 +11,7 @@ test.addEventListener("keyup", testingHelp);
 
 window.addEventListener('keyup', ()=>{   
     
-    debugger;
+    //debugger;
    //alert('scroll');
 test = document.getElementById("search1");
 contenedorSugerengcia = document.getElementById('suggestionBox');
@@ -81,7 +81,7 @@ function testingHelp() {
                 });
                 buscarSugerencia = document.getElementsByClassName('suggestion');
                 for (let i = 0; i < buscarSugerencia.length; i++) {
-                    debugger;
+                   // debugger;
                     buscarSugerencia[i].addEventListener('click', setSearchSuggestion);
                 }
             })

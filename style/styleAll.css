@@ -1,5 +1,4 @@
 * {
-  background-color: var(--colorBlanco);
   box-sizing: border-box;
   margin: 0px;
   font-family: 'Montserrat', sans-serif; }
@@ -474,7 +473,6 @@ h1 {
     opacity: 0; }
 
   .overlay .iconos img {
-    background-color: var(--colorBlanco);
     object-fit: contain; }
 
   .overlay .iconosBox {
@@ -487,6 +485,9 @@ h1 {
     position: absolute;
     bottom: 2px;
     left: 5px; }
+
+  .overlay .iconos i {
+    color: var(--colorTitulo); }
 
   .overlay .iconos {
     height: 32px;
@@ -840,12 +841,8 @@ video {
   opacity: 0;
   display: none; }
 
-.trendingGifos {
-  background-color: var(--colorTrending); }
-
 .gifosAux {
-  width: 100%;
-  background-color: var(--colorTrending); }
+  width: 100%; }
 
 .trendigGIFOS {
   display: flex;
@@ -853,8 +850,7 @@ video {
   width: fit-content;
   justify-content: center;
   align-items: center;
-  padding-bottom: 84px;
-  background-color: var(--colorTrending); }
+  padding-bottom: 84px; }
 
 .trendigGIFOS .embedT {
   height: 187px;
@@ -866,10 +862,9 @@ video {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background-color: var(--colorTrending); }
+  justify-content: center; }
 
-.trendingGifos h2, .trendingGifos h4 {
+.trendingGifos {
   text-align: center;
   background-color: var(--colorTrending); }
 
@@ -953,11 +948,11 @@ video {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background-color: var(--colorTrending); }
+    justify-content: center; }
 
-  .trendingGifos h2, .trendingGifos h4 {
-    text-align: center; }
+  h2 {
+    text-align: center;
+    color: black; }
 
   .gifosAux {
     display: flex;
@@ -991,13 +986,10 @@ video {
 
   .overlayT:hover {
     opacity: 1;
-    color: var(--colorTrending);
     background-color: rgba(0, 0, 0, 0.4); }
 
   .overlayT:hover .iconosT:hover {
     opacity: 1;
-    color: var(--colorBlanco);
-    background-color: white;
     z-index: 19990; }
 
   .overlayT .iconosT img {
@@ -1015,7 +1007,8 @@ video {
   .nameBoxT {
     position: absolute;
     bottom: 2px;
-    left: 5px; }
+    left: 5px;
+    color: var(--colorBlanco); }
 
   .iconosT {
     height: 32px;

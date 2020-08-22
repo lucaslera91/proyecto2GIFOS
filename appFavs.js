@@ -4,6 +4,7 @@ let localFavs = JSON.parse(localStorage.getItem("favs"));
 let displayG = document.getElementById("cont");
 let sinFav = document.getElementById('titulo');
 let btn3;
+
 debugger;
 //alert('fuck');
 if (JSON.parse(localStorage.getItem("favs") != null)) {
@@ -39,7 +40,17 @@ function getGifId() {
                 return result;
             })
             .then(function (result) {
+
+                let like = JSON.parse(localStorage.getItem("favs"));
+                let blueHeart;
+
+                
+
                 result.data.forEach(element => {
+
+                    if(like.indexOf(element.id) == (-1)){
+                        blueHeart = '<i class="far fa-heart"></i>'
+                    }else{blueHeart = '<i class="fas fa-heart"></i>'}
                     base = document.createElement('div');
                     base.className = "base";
                     //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
@@ -51,7 +62,7 @@ function getGifId() {
                             <div class="background"></div>
                             <div class="iconosBox">
                                 <div class="iconos" id="fav${element.id}">
-                                    <img src="" alt=""><i class="far fa-heart"></i>
+                                    <img src="" alt="">${blueHeart}
                                 </div>
                                 <div class="iconos" id="dwl${element.id}">
                                     <img src="./imagenes/icon-download.svg" alt="">
@@ -61,8 +72,8 @@ function getGifId() {
                                 </div>
                             </div>
                             <div class="nameBox">
-                                <h4>User</h3>
-                                    <h3>Titulo</h2>
+                                <h4>${element.username}</h4>
+                                    <h3>${element.title}</h3>
                             </div>
                         </div>
                     `;

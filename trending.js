@@ -39,8 +39,20 @@ function testingtrend() {
         .then(function (result) {
             //let count = 0;
             //let auxTrend = document.createElement('div');
+            debugger;
+            let like = JSON.parse(localStorage.getItem("favs"));
+           
+
+            
 
             for (let i = 0; i < result.data.length; i++) {
+
+                let blueHeart;
+
+                if(like.indexOf(result.data[i].id) == (-1)){
+                    blueHeart = '<i class="far fa-heart"></i>'
+                }else{blueHeart = '<i class="fas fa-heart"></i>'}
+
                 //`<img src="${element.images.fixed_height.url}" type="">`;
                 displayTrend.innerHTML += `
                 <div class="trendingGIFOS" id="${i}">
@@ -48,7 +60,7 @@ function testingtrend() {
                             <div class="overlayT">
                             <div class="iconosBoxT">
                             <div class="iconosT" id="fav${result.data[i].id}">
-                            <img src="" alt=""><i class="far fa-heart"></i>
+                            <img src="" alt="">${blueHeart}
                         </div>
                         <div class="iconosT" id="dwl${result.data[i].id}">
                         <img src="./imagenes/icon-download.svg" alt="">
@@ -56,9 +68,10 @@ function testingtrend() {
                         <div class="iconosT" id="max${result.data[i].id}">
                         <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
                         </div>
-                                <div class="nameBoxT">
-                                    <h4>User</h3>
-                                        <h3>Titulo</h2>
+                        </div>
+                          <div class="nameBoxT">
+                                <h4>${result.data[i].username}</h4>
+                                <h3>${result.data[i].title}</h3>
                                 </div>
                             </div>
                         </div>`;
@@ -89,22 +102,23 @@ function testingtrend() {
             preGif.id = "last";
 
             preGif.innerHTML = `
-                <div >
+                        <div>
                             <img class="embedT" src="${result.data[arrayTrending.length - 1].images.fixed_height.url}" alt="">
                             <div class="overlayT">
-                            <div class="iconosBoxT">
-                            <div class="iconosT" id="fav${result.data[arrayTrending.length - 1].id}">
-                            <img src="" alt=""><i class="far fa-heart"></i>
-                        </div>
-                        <div class="iconosT" id="dwl${result.data[arrayTrending.length - 1].id}">
-                        <img src="./imagenes/icon-download.svg" alt="">
-                        </div>
-                        <div class="iconosT" id="max${result.data[arrayTrending.length - 1].id}">
-                        <a href="./verGifo.html"><img src="" alt=""><i class="far fa-heart"></i></a>
-                        </div>
+                                <div class="iconosBoxT">
+                                    <div class="iconosT" id="fav${result.data[arrayTrending.length - 1].id}">
+                                        <img src="" alt=""><i class="far fa-heart"></i>
+                                    </div>
+                                    <div class="iconosT" id="dwl${result.data[arrayTrending.length - 1].id}">
+                                        <img src="./imagenes/icon-download.svg" alt="">
+                                    </div>
+                                    <div class="iconosT" id="max${result.data[arrayTrending.length - 1].id}">
+                                        <a href="./verGifo.html"><img src="" alt=""><i class="far fa-heart"></i></a>
+                                    </div>
+                                </div>
                                 <div class="nameBoxT">
-                                    <h4>User</h3>
-                                        <h3>Titulo</h2>
+                                    <h4>${result.data[arrayTrending.length - 1].username}</h4>
+                                    <h3>${result.data[arrayTrending.length - 1].title}</h3>
                                 </div>
                             </div>
                         </div>`;
@@ -116,7 +130,7 @@ function testingtrend() {
             postGif.id = "first";
 
             postGif.innerHTML = `
-                <div  >
+                <div>
                             <img class="embedT" src="${result.data[0].images.fixed_height.url}" alt="">
                             <div class="overlayT">
                                 <div class="iconosBoxT">
@@ -129,9 +143,10 @@ function testingtrend() {
                             <div class="iconosT" id="max${result.data[0].id}">
                             <a href="./verGifo.html"><img src="" alt=""><i class="far fa-heart"></i></a>
                             </div>
+                            </div>
                                 <div class="nameBoxT">
-                                    <h4>User</h3>
-                                        <h3>Titulo</h2>
+                                    <h4>${result.data[0].username}</h4>
+                                        <h3>${result.data[0].title}</h3>
                                 </div>
                             </div>
                         </div>`;
@@ -152,35 +167,35 @@ function testingtrend() {
                 btn2[i].addEventListener('click', testClick);
                 //alert('working');
             }
-            for(let i = 0; i<vistaImg.length; i++){
-            vistaImg[i].addEventListener('touchstart', (e) => {
-                //alert('holas');
-                //debugger;
-                let eventStart = e.touches;
-                start = parseInt(eventStart[0].screenX);
+            for (let i = 0; i < vistaImg.length; i++) {
+                vistaImg[i].addEventListener('touchstart', (e) => {
+                    //alert('holas');
+                    //debugger;
+                    let eventStart = e.touches;
+                    start = parseInt(eventStart[0].screenX);
 
-                //parseInt(start[0].screenX);
-            }, false);
-        
-            vistaImg[i].addEventListener('touchend', (e) => {
-                //e.preventDefault();
-                let touchEvent = e.TouchEvent;
-                touch = parseInt(e.changedTouches[0].clientX);
-                 change = start - touch;
-                 //alert(change);
-                 if (change < 0) {
-                     //left
-                    previo();
-                    //alert('a');
+                    //parseInt(start[0].screenX);
+                }, false);
 
-                } else if (change > 0) {
-                    //right
-                    siguiente();
-                    //alert('b');
-                }
-                //alert(2);
-            });
-        }
+                vistaImg[i].addEventListener('touchend', (e) => {
+                    //e.preventDefault();
+                    let touchEvent = e.TouchEvent;
+                    touch = parseInt(e.changedTouches[0].clientX);
+                    change = start - touch;
+                    //alert(change);
+                    if (change < 0) {
+                        //left
+                        previo();
+                        //alert('a');
+
+                    } else if (change > 0) {
+                        //right
+                        siguiente();
+                        //alert('b');
+                    }
+                    //alert(2);
+                });
+            }
         })
 
 
@@ -431,7 +446,7 @@ function efect() {
 //             alert('b');
 //         }
 //     }, false);
-    
+
 
 
 // function slideShow() {
