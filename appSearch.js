@@ -159,6 +159,14 @@ function testing(busqueda) {
             return result;
         })
         .then(function (result) {
+
+            if(result.data.length == 0){
+
+                disp.innerHTML = `<div class="listasVacias" ><img src="./imagenes/icon-busqueda-sin-resultado.svg" alt="">
+                <h3> Indenta con otra busqueda</h3></div>`;
+
+                botonVerMas.style.display = "none";
+            }else{
             let like = JSON.parse(localStorage.getItem("favs"));
 
             let blueHeart;
@@ -218,7 +226,9 @@ function testing(busqueda) {
                 botonVerMas.style.display = "flex";
             }
 
-        })
+        }
+    })
+    
         .catch(function (err) {
             console.log("error");
         });
@@ -318,6 +328,7 @@ window.addEventListener('scroll', function () {
     line = document.getElementById('line');
     liSearch = document.getElementById('liSearch');
     searchHelp = document.getElementById('searchHelp');
+
     if (test.value.length != 0) {
 
     } else {
@@ -335,6 +346,7 @@ window.addEventListener('scroll', function () {
 </div>`;
             searchHelp.innerHTML = "";
             test = document.getElementById("search1");
+
             //alert(isInViewport(test));
         } else {
 
@@ -350,6 +362,15 @@ window.addEventListener('scroll', function () {
             test = document.getElementById("search1");
 
         }
+        buscador = document.getElementById("searchBnt");
+        if (buscador != null) {
+            buscador.addEventListener("click", searchtitle);
+            buscador.addEventListener("click", guardarValue);
+            buscador.addEventListener("click", resetGifs);
+            buscador.addEventListener("click", resetSearch);
+            buscador.addEventListener("click", function () { testing(busqueda) });
+        }
+
     }
 });
 function isInViewport(element) {

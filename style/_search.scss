@@ -126,6 +126,12 @@ font-size: 30px;
         color: var(--colorTitulo);
     }
     
+.listasVacias{
+    display: flex;
+    flex-direction: column;
+    color: var(--colorSecundario);
+}    
+
     .overlay .iconos{
         
         height: 32px;
@@ -137,6 +143,20 @@ font-size: 30px;
         align-items: center;
         margin: 2px;
         opacity: 0.6;
+    
+    }
+    .overlay .iconosDelete{
+        
+        height: 32px;
+        width: 32px;
+       background-color: var(--colorBlanco);
+        border-radius: 4px 4px 4px 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2px;
+        opacity: 0.6;
+        color: var(--colorTitulo);
     
     }
     .lookUp .gifosSearch .overlay:hover {
@@ -151,6 +171,11 @@ font-size: 30px;
        background-color: transparentize($color: #FFFFFF, $amount: 0);
 
     }
-  
+    .lookUp .gifosSearch .overlay:hover .iconosDelete:hover{
+        opacity: 1;
+        color: var(--colorTitulo);
+       background-color: transparentize($color: #FFFFFF, $amount: 0);
+
+    }
 
 }

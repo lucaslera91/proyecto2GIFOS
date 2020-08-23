@@ -4,6 +4,7 @@ let localFavs = JSON.parse(localStorage.getItem("favs"));
 let displayG = document.getElementById("cont");
 let sinFav = document.getElementById('titulo');
 let btn3;
+let btn4;
 
 debugger;
 //alert('fuck');
@@ -61,8 +62,8 @@ function getGifId() {
                         <div class="overlay">
                             <div class="background"></div>
                             <div class="iconosBox">
-                                <div class="iconos" id="fav${element.id}">
-                                    <img src="" alt="">${blueHeart}
+                                <div class="iconosDelete" id="fav${element.id}">
+                                    ${blueHeart}
                                 </div>
                                 <div class="iconos" id="dwl${element.id}">
                                     <img src="./imagenes/icon-download.svg" alt="">
@@ -81,7 +82,13 @@ function getGifId() {
                     displayG.appendChild(base);
 
                 })
+                btn4 = document.getElementsByClassName('iconosDelete');
+                //debugger;
+                for (let i = 0; i < btn4.length; i++) {
+                    btn4[i].addEventListener('click', eliminarFav);
+                }
 
+                
                 btn3 = document.getElementsByClassName('iconos');
                 //debugger;
                 for (let i = 0; i < btn3.length; i++) {
@@ -93,6 +100,28 @@ function getGifId() {
                // debugger;
             })
     }
+}
+
+
+function eliminarFav(){
+    let idFav = this.id.slice(3);
+alert(idFav);
+    let arrayFavorite = JSON.parse(localStorage.getItem("favs"));
+
+    let favUpdate = eliminarDeLista(arrayFavorite, idFav);
+
+    localStorage.setItem("favs", JSON.stringify(favUpdate));
+
+}
+
+
+function eliminarDeLista(array, item){
+    let arrayNuevo;
+    for (let i = 0; i < array.length; i++) { if (array[i] === item) { 
+        arrayNuevo = array.splice(i, 1); 
+        }
+    }
+    return arrayNuevo;
 }
 
 

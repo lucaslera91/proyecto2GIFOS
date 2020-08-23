@@ -489,6 +489,11 @@ h1 {
   .overlay .iconos i {
     color: var(--colorTitulo); }
 
+  .listasVacias {
+    display: flex;
+    flex-direction: column;
+    color: var(--colorSecundario); }
+
   .overlay .iconos {
     height: 32px;
     width: 32px;
@@ -500,6 +505,18 @@ h1 {
     margin: 2px;
     opacity: 0.6; }
 
+  .overlay .iconosDelete {
+    height: 32px;
+    width: 32px;
+    background-color: var(--colorBlanco);
+    border-radius: 4px 4px 4px 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    opacity: 0.6;
+    color: var(--colorTitulo); }
+
   .lookUp .gifosSearch .overlay:hover {
     opacity: 1;
     color: var(--colorBlanco);
@@ -508,6 +525,11 @@ h1 {
   .lookUp .gifosSearch .overlay:hover .iconos:hover {
     opacity: 1;
     color: var(--colorBlanco);
+    background-color: white; }
+
+  .lookUp .gifosSearch .overlay:hover .iconosDelete:hover {
+    opacity: 1;
+    color: var(--colorTitulo);
     background-color: white; } }
 .imagenfav {
   display: flex;
