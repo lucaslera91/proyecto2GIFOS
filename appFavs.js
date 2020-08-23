@@ -110,6 +110,8 @@ alert(idFav);
 
     let favUpdate = eliminarDeLista(arrayFavorite, idFav);
 
+    alert(favUpdate);
+
     localStorage.setItem("favs", JSON.stringify(favUpdate));
 
 }
@@ -121,7 +123,7 @@ function eliminarDeLista(array, item){
         arrayNuevo = array.splice(i, 1); 
         }
     }
-    return arrayNuevo;
+    return array;
 }
 
 
