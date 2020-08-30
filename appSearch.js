@@ -278,8 +278,8 @@ function testing(busqueda) {
                     base.className = "base";
                     //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
                     //`<img src="${element.images.fixed_height.url}" type="">`;
-                    base.innerHTML ='help'+
-                        `
+                    base.innerHTML =`
+                    
                         <img class="embed" src="${element.images.fixed_height.url}" alt="">
                         <div class="overlay">
                             <div class="background"></div>
