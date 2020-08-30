@@ -25,7 +25,7 @@ function setSearchSuggestion() {
 
     //alert("wero");
     let idCheck = this.id;
-    alert(idCheck);
+    //alert(idCheck);
     //debugger;
     test.value = idCheck;
     contenedorSugerengcia.innerHTML = "";
@@ -69,7 +69,7 @@ function testingHelp() {
                 result.data.forEach(element => {
                     //suggestion = document.createElement('li');
 
-                    contenedorSugerengcia.innerHTML += `<li class="suggestion" id="${element.name}"><img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">${element.name}</li>`;
+                    contenedorSugerengcia.innerHTML += `<li class="suggestion" id="${element.name}"><i class="fas fa-search"></i>${element.name}</li>`;
                     console.log(element.name);
 
                     //contenedorSugerengcia.appendChild(suggestion);

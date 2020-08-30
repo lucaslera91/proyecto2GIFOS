@@ -1,4 +1,27 @@
 
+menu i{
+    color: var(--colorTitulo);
+}
+
+#gifoCaritas img{
+    //background-color: lightcoral;
+    height: 150px;
+    width: 100%;
+    
+display: flex;
+justify-content: center;
+}
+#gifoCaritas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#gifoCaritas h3{
+    color: var(--colorSecundario);
+}
 
 *{
 
@@ -18,8 +41,17 @@ font-family: 'Montserrat', sans-serif;
 .margins{
 height: 5px;
 width: 100%;
+
 background-color: var(--colorTitulo) ;
 }
+#margin1{
+    position: absolute;
+    top:0;
+}
+// #margin2{
+//     position: absolute;
+//     bottom: -900px;
+// }
 @media only screen and (min-width: 768px){
  body{
      margin-top: 90px;

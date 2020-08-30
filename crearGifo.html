@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROYECTO FINAL 2 Crear Gifo</title>
     <link rel="stylesheet" href="./style/styleAll.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="margins"></div>
+    <div class="margins" id="margin1"></div>
     <header>
         <div class="logo"><a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a>
         </div>
@@ -23,16 +26,17 @@
 
             <div class="menu">
                 <ul>
-                    <li class="conLinea" id="darkIndex">Modo Nocturno</li>
+                    <li class="conLinea"><a href="./index.html">Inicio</a></li>
+
+                    <li class="conLinea" id="darkIndex"><a href="">Modo Nocturno</a></li>
 
                     <li class="conLinea"><a href="favoritos.html">Favoritos</a></li>
 
                     <li><a href="./misGifos.html">Mis GIFOS</a></li>
 
                     <li id="addGifo"><a href="crearGifo.html">
-                            <div class="svg"></div>
+                            <div class="svg"><i class="fas fa-plus"></i></div>
                         </a></li>
-
 
                 </ul>
             </div>
@@ -56,11 +60,36 @@
                         <span></span>
                         <span></span>
                         <span></span>
-                        <div class="textoEnPantalla">
+                        <div class="textoEnPantalla" id="crear1">
                             <h2>Aqui podras crear tus GIFOS</h2>
                             <p>Crea tu Gifo solo 3 pasos</p>
-                            <p>(solo necesitas una camara para grabar un video</p>
+                            <p>solo necesitas una camara para grabar un video</p>
                         </div>
+                        <div class="textoEnPantalla" id="crear2" >
+                            <h2>Nos das acceso a tu camara?</h2>
+                            <p>El acceso a la camara sera valido </p>
+                            <p>solo por el tiempo en el que estes creando el GIFO</p>
+                        </div>
+                       
+                        <div class="textoEnPantalla" id="crear3">
+
+                            <img src="./imagenes/loader.svg" alt="loader">
+                            <h2>Estamos subiendo tu GIFO</h2>
+                            
+                        </div>
+                        <div class="textoEnPantalla" id="crear4">
+                            <div>
+                                <div class="iconosMyGifo">
+                                    <img src="./imagenes/icon-download.svg" alt="">
+                                    <img src="./imagenes/icon-link.svg" alt="">
+                                </div>
+                            </div>
+
+                            <img src="./imagenes/check.svg" alt="loader">
+                            <h2>GIFO subido con exito</h2>
+                            
+                        </div>
+
                         <video controls id="show"></video>
                         <!-- <div id="form">
                             <form class='form' id='myForm'>
@@ -76,9 +105,10 @@
             </div>
 
             <div class="botones">
-                <button id="boton1">1</button>
+                <div class="auxbotonesCamara"><button id="boton1">1</button>
                 <button id="boton2">2</button>
-                <button id="boton3">3</button>
+                <button id="boton3">3</button></div>
+                <div id="accionGrabacion"></div>
             </div>
             <div class="linea"></div>
             <div class="bottonComenzar">
@@ -91,21 +121,25 @@
 
         </div>
     </main>
+
     <footer>
-        <h4>Compartir en:</h4>
-        <div class="redes">
 
-            <img src="./imagenes/icon_facebook.svg" alt="facebook">
-            <img src="./imagenes/icon-twitter.svg" alt="twitter">
-            <img src="./imagenes/icon_instagram.svg" alt="instagram">
+        <div class="footerHelp">
+            <div class="redes">
+                <h4>Compartir en:</h4>
+                <div class="logosRedes"><i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i></div>
 
+            </div>
+            <p>© GIFOS 2020 All Rights Reserved</p>
+            <!-- <i class="fas fa-heart"> -->
         </div>
-        <p>© GIFOS 2020 All Rights Reserved</p>
-
+        <div class="margins" id="margin2"></div>
     </footer>
-    <div class="margins"></div>
 
     <script src="grabar.js"></script>
+    <script src="appSearch.js"></script>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
 
 </body>

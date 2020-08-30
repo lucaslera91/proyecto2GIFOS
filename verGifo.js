@@ -1,4 +1,5 @@
 let verGifoNet = 0;
+
 let contenerGif = document.getElementById('contenerGifoMax');
 //alert('start');
 let idMax = "";
@@ -21,117 +22,58 @@ function verGif(id) {
             //base.className = "base";
             //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
             //`<img src="${element.images.fixed_height.url}" type="">`;
-            contenerGif.innerHTML =
-                `
-                            <img class="embed" src="${result.data.images.original.url}" alt="">
-                        `;
+            // contenerGif.innerHTML =
+            //     `
+            //                 <img class="embed" src="${result.data.images.original.url}" alt="">
+            //             `;
             //debugger;
             //disp.appendChild(base);
 
-
+            let likeGif = JSON.parse(localStorage.getItem("favs"));
+            let blueHeartGif;
             localStorage.setItem("max", JSON.stringify(""));
+            if(likeGif.indexOf(result.data.id) == (-1)){
+                blueHeart = '<i class="far fa-heart"></i>'
+            }else{blueHeart = '<i class="fas fa-heart"></i>'}
+
+            textoMax = document.getElementById("textoMax");
+            let botonMax = document.getElementById('gifElegido');
+            botonMax.innerHTML =
+                `
+                
+        <div class="contenedorPrincipal">
+             <div class="gifcontenedor" id="contenerGifoMax">
+             <img class="embed" src="${result.data.images.original.url}" alt="">
+            </div>
+            <div class="textos">
+                <div class="textocontenedor" id="textoMax">
+                    <h4>${result.data.username}</h4>
+                    <h3>${result.data.title}</h3>
+                </div>
+                
+                <div class="iconoContenedor">
+                    <div class="iconos" id="fav${result.data.id}">
+                    ${blueHeart}
+                    </div>
+                    <div class="iconos" id="dwl${result.data.id}"">
+                        <img src="./imagenes/icon-download.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+        let botonlike = document.getElementsByClassName('iconos');
+        for(let i = 0; i<botonlike.length; i++){
+            botonlike[i].addEventListener('click', () => {alert('')});
+        }
+            //testClick
+
         })
         .catch(function (err) {
             console.log(err.name, err.message)
             debugger;
         })
 }
-
-
-
-
-let colorBlanco = '--colorBlanco';
-let colorSecundario = '--colorSecundario';
-let colorTitulo = '--colorTitulo';
-let colorTrending = '--colorTrending';
-let root;
-//let logoIm4 = document.getElementById('idImg4');
-//logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
-
-// let colorBtnIndex4 = document.getElementById('darkIndex4');
-// colorBtnIndex4.addEventListener('click', setTheme);
-let themeColor;
-
-
-if(JSON.parse(localStorage.getItem("theme")) == null){
-    localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
-}else {
-    themeColor= JSON.parse(localStorage.getItem("theme"));
-}
-theme();
-
-// function setTheme(){
-//     themeColor = JSON.parse(localStorage.getItem("theme"));
-//     //alert(colorBtnIndex.innerHTML);
-
-//     if (themeColor == 'Modo Nocturno') {
-//         colorDiurno();
-//         //alert('rompe');
-//     }else if (themeColor == 'Modo Diurno') {
-//         colorDark();
-//         //alert('hola');
-//     }
-// }
-
-
-function theme() {
-
-    themeColor = JSON.parse(localStorage.getItem("theme"));
-    //alert(colorBtnIndex.innerHTML);
-
-    if (themeColor == 'Modo Nocturno') {
-
-        root = document.querySelector(':root');
-        root.style.setProperty(colorTitulo, 'white');
-        root.style.setProperty(colorSecundario, 'white');
-        root.style.setProperty(colorBlanco, '#37383C');
-        root.style.setProperty(colorTrending, '#222326');
-        //colorBtnIndex.innerHTML = themeColor;
-       // logoIm4.src = './imagenes/logo-desktop-modo-noc.svg';
-
-       
-        //alert('rompe');
-    }else if (themeColor == 'Modo Diurno') {
-            root = document.querySelector(':root');
-    root.style.setProperty(colorTitulo, '#572EE5');
-    root.style.setProperty(colorSecundario, '#50E3C2');
-    root.style.setProperty(colorBlanco, '#ffffff');
-    root.style.setProperty(colorTrending, '#F3F5F8');
-   //colorBtnIndex.innerHTML = themeColor;
-    //logoIm4.src = "./imagenes/logo-mobile.svg";
-    
-        //alert('hola');
-    }
-   //./imagenes/logo-mobile.svg'
-}
-
-
-// function colorDiurno() {
-//     root = document.querySelector(':root');
-//     root.style.setProperty(colorTitulo, '#572EE5');
-//     root.style.setProperty(colorSecundario, '#50E3C2');
-//     root.style.setProperty(colorBlanco, '#ffffff');
-//     root.style.setProperty(colorTrending, '#F3F5F8');
-//     //colorBtnIndex.innerHTML = 'Modo Nocturno';
-    
-//     //logoIm4.src = "./imagenes/logo-mobile.svg";
-//     //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a>`;
-//     localStorage.setItem("theme", JSON.stringify('Modo Diurno'));
-// }
-// function colorDark() {
-//     root = document.querySelector(':root');
-//     root.style.setProperty(colorTitulo, 'white');
-//     root.style.setProperty(colorSecundario, 'white');
-//     root.style.setProperty(colorBlanco, '#37383C');
-//     root.style.setProperty(colorTrending, '#222326');
-//     //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-desktop-modo-noc.svg" alt="Imagen logo"></a>`;
-//     //logoIm4.src = './imagenes/logo-desktop-modo-noc.svg';
-    
-//     //colorBtnIndex.innerHTML = 'Modo Diurno';
-//     localStorage.setItem("theme", JSON.stringify('Modo Nocturno'));
-
-// }
-
 
 
 

@@ -12,7 +12,7 @@
 
 <body>
     <!-- <i class="fas fa-heart"></i> -->
-    <div class="margins"></div>
+    <div class="margins" id="margin1"></div>
     <header>
         <div class="logo"><a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a>
         </div>
@@ -27,15 +27,19 @@
                 <ul>
                     <li id='liSearch'>
                         <!-- <div class="searchBar">
-                        <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
-                        <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
-                        <ul class="suggestions" id='suggestionBox'>
-                        </ul>
-                     </datalist>
-                    </div>-->
+                            <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
+                            <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
+                            <ul class="suggestions" id='suggestionBox'>
+                             
+                            </ul>
+                               
+                    
+                            </datalist>
+                        </div> -->
                     </li>
+                    <li class="conLinea"><a href="./index.html">Inicio</a></li>
 
-                    <li class="conLinea" id="darkIndex">Modo Nocturno</li>
+                    <li class="conLinea" id="darkIndex"><a href="">Modo Nocturno</a></li>
 
                     <li class="conLinea"><a href="favoritos.html">Favoritos</a></li>
 
@@ -59,6 +63,7 @@
                 <div class="auxTitulo">
                     <h1>Inspirate, busca, guarda, y crea los mejoires <span>GIFOS</span></h1>
                 </div>
+
             </div>
             <div class="imagenInicio">
                 <img src="./imagenes/ilustra_header.svg" alt="">
@@ -76,7 +81,7 @@
         <section class="trending">
             <div class="h3aux">
                 <h3 id="line"><span>Trending:</span></h3>
-                <p>
+                <p id="busquedasTrend">
                     Reactions, Entretainment, Sports, Stickers, Artists
                 </p>
             </div>
@@ -125,7 +130,7 @@
             <div class="trendingGifos" id="trendingMain">
                 <div class="pretitulo">
                     <h2>Trending GIFOS</h2>
-                    <h4 style="color: black">Mira los ultimos GIFOS de nuestra comunidad.</h4>
+                    <h4>Mira los ultimos GIFOS de nuestra comunidad.</h4>
                 </div>
 
                 <div class="gifosAux">
@@ -172,19 +177,22 @@
 
     </main>
     <footer>
-        <h4>Compartir en:</h4>
-        <div class="redes">
 
-            <img src="./imagenes/icon_facebook.svg" alt="facebook">
-            <img src="./imagenes/icon-twitter.svg" alt="twitter">
-            <img src="./imagenes/icon_instagram.svg" alt="instagram">
+        <div class="footerHelp">
+            <div class="redes">
+                <h4>Compartir en:</h4>
+                <div class="logosRedes"><i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i></div>
 
+            </div>
+            <p>© GIFOS 2020 All Rights Reserved</p>
+            <!-- <i class="fas fa-heart"> -->
         </div>
-        <p>© GIFOS 2020 All Rights Reserved</p>
-        <!-- <i class="fas fa-heart"> -->
+        <div class="margins" id="margin2"></div>
     </footer>
 
-    <div class="margins"></div>
+
 </body>
 <script src="searchSuggestions.js"></script>
 <script src="appSearch.js"></script>

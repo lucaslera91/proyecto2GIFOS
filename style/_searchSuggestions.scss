@@ -1,14 +1,30 @@
 
 .searchBar{
+
+    height: auto;
     width: 60vw;
-    justify-content: center;
-    align-items: center;
+    position: relative;
     border-radius: 20px 20px 20px 20px;
     border: solid 1px grey;
 
 }
+.searchBar ul li i{
+    // position: absolute;
+    // left: 0;
+    margin: 5px;
+    width: 20px;
+    color:rgb(177, 177, 177);
+
+}
+.searchBar ul li {
+    display: flex;
+    color: rgb(206, 206, 206);
+}
+
+
 
 .suggestions {
+    width: 100%;
     height: auto;
     opacity: 1;
     list-style: none;
@@ -23,7 +39,8 @@
 
 }
 .suggestion {
-    
+    position: absolute;
+    top: 0px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -41,7 +58,11 @@
     z-index: 99;
     cursor: pointer;
 }
-
+.liSearch{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
 
 .suggestion::after {
     content: '';
@@ -51,4 +72,26 @@
     position: absolute;
     top: 100%;
        
+}
+.menu .searchBar{
+    width: 23vw;
+    position: absolute;
+    top: 20px;
+    background-color: var(--colorBlanco);
+
+}
+.menu .searchBar ul{
+    
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    
+}
+.menu .searchBar li{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+   
 }

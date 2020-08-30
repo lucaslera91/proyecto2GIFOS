@@ -9,6 +9,10 @@ align-items: center;
 //display: none;
 
 }
+
+.lookUp i{
+color: #572EE5;
+}
 .lookUp h2{
 
 padding: 40px 0 20px 0;
@@ -24,7 +28,7 @@ font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 10px 78px 10px;
+    padding: 20px 10px 18px 10px;
     flex-wrap: wrap;
 
 }
@@ -62,11 +66,12 @@ font-size: 30px;
 //    }
 .buttonVerMas{
     padding: 0 0  80px 0;
+    
 
 }
 #verMas:hover{
     background-color: var(--colorTitulo);
-    color: #F3F5F8;
+    color: var(--colorBlanco);
 
 
 }
@@ -101,7 +106,7 @@ font-size: 30px;
         left: 0;
         height: 100%;
         width: 100%;
-        background-color: rgb(124, 150, 235);
+        //background-color: red;
         z-index: 2;
         opacity: 0;
     }
@@ -122,9 +127,9 @@ font-size: 30px;
         bottom: 2px;
         left: 5px;
     }
-    .overlay .iconos i{
-        color: var(--colorTitulo);
-    }
+    // .overlay .iconos i{
+    //     color: var(--colorTitulo);
+    // }
     
 .listasVacias{
     display: flex;
@@ -136,7 +141,7 @@ font-size: 30px;
         
         height: 32px;
         width: 32px;
-       background-color: var(--colorBlanco);
+       background-color: #ffffff;
         border-radius: 4px 4px 4px 4px;
         display: flex;
         justify-content: center;
@@ -149,7 +154,7 @@ font-size: 30px;
         
         height: 32px;
         width: 32px;
-       background-color: var(--colorBlanco);
+       background-color: #ffffff;
         border-radius: 4px 4px 4px 4px;
         display: flex;
         justify-content: center;
@@ -161,13 +166,13 @@ font-size: 30px;
     }
     .lookUp .gifosSearch .overlay:hover {
         opacity: 1;
-        color: var(--colorBlanco);
-       background-color: transparentize($color: #000000, $amount: 0.6)
+        color: var(--colorTexto);
+       background-color: transparentize($color:#572EE5, $amount: 0.6)
 
     }
     .lookUp .gifosSearch .overlay:hover .iconos:hover{
         opacity: 1;
-        color: var(--colorBlanco);
+        color: var(#FFFFFF);
        background-color: transparentize($color: #FFFFFF, $amount: 0);
 
     }

@@ -18,6 +18,13 @@ window.onload = cargarMisGifs();
 
 function cargarMisGifs() {
 
+    if(listaGif == null || listaGif == ""){
+        //alert('esto');
+        let carasGifos = document.getElementById('gifoCaritas');
+               carasGifos.innerHTML = `<img src="./imagenes/icon-mis-gifos-sin-contenido.svg" alt="">
+               <h3>Animate a crear tu primer GIFO</h3>`
+    }else{
+
     fetch(`https://api.giphy.com/v1/gifs?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&ids=${listaGif}`)
         .then(function (dato1) {
             result = dato1.json();
@@ -25,7 +32,7 @@ function cargarMisGifs() {
             //https://api.giphy.com/v1/gifs?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&ids=dCWgE8Kopv4QDzILmo
         })
         .then(function (result) {
-            debugger;
+            //debugger;
 //alert(listaGif);
 
             for (let i = 0; i < result.data.length; i++) {
@@ -37,8 +44,8 @@ function cargarMisGifs() {
     <div class="overlay">
         <div class="background"></div>
         <div class="iconosBox">
-            <div class="iconos" id="">
-            <img src="" class="basura" alt=""><i class="far fa-trash-alt"></i>
+            <div class="iconosDelete" id="del${result.data[i].id}">
+            <i class="far fa-trash-alt"></i>
         </div>
         <div class="iconos" id="dwl${result.data[i].id}">
             <img src="./imagenes/icon-download.svg" alt="">
@@ -57,7 +64,7 @@ function cargarMisGifs() {
 
             }
             btn4 = document.getElementsByClassName('iconos');
-            btn5 = document.getElementsByClassName('basura');
+            btn5 = document.getElementsByClassName('iconosDelete');
             
             //debugger;
             for (let i = 0; i < btn4.length; i++) {
@@ -68,30 +75,45 @@ function cargarMisGifs() {
             for (let i = 0; i < btn5.length; i++) {
                 btn5[i].addEventListener('click', eliminarMyGif);
                 //btn5[i].addEventListener('click', ()=> {alert(this.id)});
-
+                //eliminarMyGif
 
             }
-
+        
         }).catch(function (err) {
             console.log(err.name, err.message)
             // debugger;
         })
-}
-
-
-//var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]; 
-function eliminarMyGif() {
-    for (var i = 0; i < listaGif.length; i++) {
-
-        if (listaGif[i] === this.id) {
-            listaGif.splice(i, 1);
-
-        }
     }
-    localStorage.setItem("myGifs", JSON.stringify(listaGif));
-    //=> [1, 2, 3, 4, 6, 7, 8, 9, 0]
 }
 
+function thisId(){
+    alert(this.id);
+}
+//var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]; 
+// function eliminarMyGif() {
+//     for (var i = 0; i < listaGif.length; i++) {
+
+//         if (listaGif[i] === this.id) {
+//             listaGif.splice(i, 1);
+
+//         }
+//     }
+//     localStorage.setItem("myGifs", JSON.stringify(listaGif));
+//     //=> [1, 2, 3, 4, 6, 7, 8, 9, 0]
+// }
+function eliminarMyGif(){
+    let idmMyGif= this.id.slice(3);
+    alert(this.id);
+    alert(idmMyGif);
+    let arrayMyGifs = JSON.parse(localStorage.getItem("myGifs"));
+
+    let gifUpdate = eliminarDeLista(arrayMyGifs, idmMyGif);
+
+    alert(gifUpdate);
+
+    localStorage.setItem("myGifs", JSON.stringify(gifUpdate));
+
+}
 
 //window.onload = testingtrend;
 

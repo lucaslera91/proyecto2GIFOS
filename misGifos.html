@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="margins"></div>
+    <div class="margins" id="margin1"></div>
     <header>
         <div class="logo"><a href="index.html"><img id='idImg' src="./imagenes/logo-mobile.svg" alt="Imagen logo"></a></div>
         
@@ -24,14 +24,17 @@
 
             <div class="menu">
                 <ul>
-                    <li class="conLinea" id="darkIndex">Modo Nocturno</li>
+
+                    <li class="conLinea"><a href="./index.html">Inicio</a></li>
+
+                    <li class="conLinea" id="darkIndex"><a href="">Modo Nocturno</a></li>
 
                     <li class="conLinea"><a href="favoritos.html">Favoritos</a></li>
 
                     <li><a href="misGifos.html">Mis GIFOS</a></li>
 
                     <li id="addGifo"><a href="crearGifo.html">
-                            <div class="svg"></div>
+                        <div class="svg"><i class="fas fa-plus"></i></div>
                         </a></li>
                 </ul>
             </div>
@@ -49,7 +52,10 @@
                 </div>
         </section>
         <section>
-            <img src="./imagenes/icon-mis-gifos-sin-contenido.svg" alt="">
+            <div id="gifoCaritas">
+                <!-- <img src="./imagenes/icon-mis-gifos-sin-contenido.svg" alt=""> -->
+                
+            </div>
 
             <article class="lookUp">
 
@@ -101,7 +107,9 @@
                     </div>
                 </div>
 
-                <button id="nextTrend"><img src="" alt=""></button>
+                <button id="nextTrend"><img src="" alt="">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </button>
 
             </div>
 
@@ -109,26 +117,27 @@
 
     </main>
     <footer>
-        <h4>Compartir en:</h4>
-        <div class="redes">
 
-            <img src="./imagenes/icon_facebook.svg" alt="facebook">
-            <img src="./imagenes/icon-twitter.svg" alt="twitter">
-            <img src="./imagenes/icon_instagram.svg" alt="instagram">
+        <div class="footerHelp">
+            <div class="redes">
+                <h4>Compartir en:</h4>
+                <div class="logosRedes"><i class="fab fa-twitter"></i>
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i></div>
 
+            </div>
+            <p>© GIFOS 2020 All Rights Reserved</p>
+            <!-- <i class="fas fa-heart"> -->
         </div>
-        <p>© GIFOS 2020 All Rights Reserved</p>
-
+        <div class="margins" id="margin2"></div>
     </footer>
-    <div class="margins"></div>
 
     <script src="./misGifs.js"></script>
 
     <script src="./appSearch.js"></script>
     <script src="./trending.js"></script>
     <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
-
-
+   
 </body>
 
 </html>

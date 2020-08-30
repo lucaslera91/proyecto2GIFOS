@@ -1,7 +1,13 @@
 
+.myGifAux{
+    display: flex;
+    justify-content: center;
+    
+}
 .verGifo{
     display: flex;
-    //background-color: pink;
+    //background-color: red;
+  
     height: 95px;
     width: 100%;
 }
@@ -16,6 +22,7 @@
     opacity: 1;
     z-index: 50;
     width: 80%;
+    color: var(--colorTitulo);
     //background-color: red;
     
 }
@@ -25,10 +32,10 @@
     display: flex;
     flex-direction: column;
     height: 65vh;
-    width: 100%;
+    width: 60vw;
     justify-content: center;
     align-items: center;
-    //background-color: pink;
+   //background-color: pink;
     //z-index: 5;
 }
 
@@ -55,12 +62,19 @@
     object-fit: contain;
 
 }
-.textos{
+.gifElegido .textos{
+
     width: 100%;
     display: flex;
     //background-color: pink;
     justify-content: space-between;
     align-items: center;
+
+}
+.gifElegido #textoMax {
+
+    color: var(--colorTexto);
+    
 
 }
 .iconoContenedor{
@@ -71,10 +85,14 @@
 .iconoContenedor .iconos{
     height: 32px;
     width: 32px;
-    background-color: var(--colorBlanco);
+    background-color: #ffffff;
     border-radius: 4px 4px 4px 4px;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 2px;
+    color: var(#572EE5);
+}
+.iconoContenedor .iconos i{ 
+    
 }

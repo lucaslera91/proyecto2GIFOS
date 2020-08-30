@@ -20,10 +20,11 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    
 }
 
 .pantalla{
-    border: 1px solid black;
+    border: 1px solid var(--colorTexto);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,6 +53,16 @@
     bottom: 0;
     left: 0;
 
+}
+#accionGrabacion{
+    color: var(--colorTexto);
+    position: absolute;
+    right: 0;
+    top: 15px;
+}
+#accionGrabacion:hover{
+   border-bottom: 3px solid var(--colorSecundario);
+   cursor: pointer;
 }
 .esquinas span:nth-child(2n){
     //content:"";
@@ -138,7 +149,13 @@
 }
 
 .contenerAux .botones{
-    padding: 10px
+    padding: 10px;
+    display: flex;
+    position: relative;
+  
+    width: 50%;
+    justify-content: center;
+    align-items: center;
 }
 .contenerAux .botones button{
     border-radius: 50%;
@@ -227,9 +244,13 @@ video{
        height: 100%;
        width: 20%;
     }
+    
     #luz{
         position: relative;
         
+    }
+    #crear1{
+        color: var(--colorTexto);
     }
     .camara img{
         height: 15vw;
@@ -251,4 +272,60 @@ video{
     // bottom: 100%;
     // right: 10%;
      }
+     #crear1{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 4;
+        
+     }
+    #show{
+        z-index: 3;
+    }
+
+     #crear2{
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        
+     }
+     #crear3{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.6;
+        z-index: 0;
+        
+     }
+     #crear4{
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        background-color: blueviolet;
+        z-index: 2;
+        display: flex;
+     }
+     .iconosMyGifo{
+         position: absolute;
+         display: flex;
+         top: 0;
+         right: 0;
+     }
+    
+     .iconosMyGifo img{
+        
+        margin: 5px 5px 5px 5px;
+        padding: 5px 5px 5px 5px;
+        background-color: var(--colorBlanco);
+        height: 30px;
+        width: 30px;
+        border-radius: 4px 4px 4px 4px;
+
+    }
+    .bottonComenzar{
+        margin-bottom: 200px;
+    }
+
 }

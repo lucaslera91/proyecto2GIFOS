@@ -3,10 +3,10 @@ let favHelper = 0;
 let localFavs = JSON.parse(localStorage.getItem("favs"));
 let displayG = document.getElementById("cont");
 let sinFav = document.getElementById('titulo');
-let btn3;
-let btn4;
+let btn7;
+let btn6;
 
-debugger;
+//debugger;
 //alert('fuck');
 if (JSON.parse(localStorage.getItem("favs") != null)) {
     favHelper = 1;
@@ -82,17 +82,17 @@ function getGifId() {
                     displayG.appendChild(base);
 
                 })
-                btn4 = document.getElementsByClassName('iconosDelete');
+                btn6 = document.getElementsByClassName('iconosDelete');
                 //debugger;
-                for (let i = 0; i < btn4.length; i++) {
-                    btn4[i].addEventListener('click', eliminarFav);
+                for (let i = 0; i < btn6.length; i++) {
+                    btn6[i].addEventListener('click', eliminarFav);
                 }
 
                 
-                btn3 = document.getElementsByClassName('iconos');
+                btn7 = document.getElementsByClassName('iconos');
                 //debugger;
-                for (let i = 0; i < btn3.length; i++) {
-                    btn3[i].addEventListener('click', testClick);
+                for (let i = 0; i < btn7.length; i++) {
+                    btn7[i].addEventListener('click', testClick);
                 }
                 //testClick
             }).catch(function (err) {
@@ -105,7 +105,7 @@ function getGifId() {
 
 function eliminarFav(){
     let idFav = this.id.slice(3);
-alert(idFav);
+  alert(idFav);
     let arrayFavorite = JSON.parse(localStorage.getItem("favs"));
 
     let favUpdate = eliminarDeLista(arrayFavorite, idFav);
@@ -117,14 +117,7 @@ alert(idFav);
 }
 
 
-function eliminarDeLista(array, item){
-    let arrayNuevo;
-    for (let i = 0; i < array.length; i++) { if (array[i] === item) { 
-        arrayNuevo = array.splice(i, 1); 
-        }
-    }
-    return array;
-}
+
 
 
 // function testClick() {

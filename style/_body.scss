@@ -3,6 +3,22 @@
  --colorSecundario: #50E3C2;
  --colorTitulo: #572EE5;
 --colorTrending:#F3F5F8;
+--colorTexto: black;
+--colorMenu: #572EE5;
+--colorSubrayar: #50E3C2;
+--backgroundColor:#ffffff;
+--colorMenuH: #572EE5;
+//'#37383C');
+--colorA: #222326;
+--colorB: #37383C;
+--inversoTexto: #ffffff;
+
+
+
+
+}
+body{
+    background-color: var(--backgroundColor);
 }
 
 h1{
@@ -52,6 +68,7 @@ color: var(--colorSecundario);
     border: none;
     cursor: pointer;
     z-index: 100;
+    color: var(--colorBlack);
    
 }
 .searchBar img:hover{
@@ -86,7 +103,7 @@ color: var(--colorSecundario);
 }
 .trending .h3aux{
     width: 100%;
-   padding: 30px 70px 48px 70px;
+   padding: 30px 70px 28px 35px;
 //    display: flex;
 //    justify-content: center;
 //    flex-direction: column;
@@ -109,6 +126,9 @@ color: var(--colorSecundario);
 
 
     @media only screen and (min-width: 768px){
+        .inicio{
+            padding-top: 90px;
+        }
 
 .imagenInicio{
                 width: 50vw;

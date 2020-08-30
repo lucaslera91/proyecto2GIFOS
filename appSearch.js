@@ -1,26 +1,39 @@
+
 let test = document.getElementById("search1");
-let buscador = document.getElementById("searchBnt");
 let botonVerMas = document.getElementById("verMas");
 let tituloBusqueda = document.getElementById('searchtitle');
+let disp = document.getElementById("cont");
+let buscador = document.getElementById("searchBnt");
+
+
+
 let busqueda;
 let verMas = 0;
-let disp = document.getElementById("cont");
 let btnFav;
 let btnDownload;
 let btnFullSize;
 let btn;
+let colorTexto = '--colorTexto';
+let backgroundColor = '--backgroundColor';
 let colorBlanco = '--colorBlanco';
 let colorSecundario = '--colorSecundario';
 let colorTitulo = '--colorTitulo';
 let colorTrending = '--colorTrending';
+let colorMenu = '--colorMenu';
 let root;
 let logoIm = document.getElementById('idImg');
+let busquedaTrend = document.getElementById('busquedasTrend');
+let arrayTrendSearches = [];
 
 //logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
 
 let colorBtnIndex = document.getElementById('darkIndex');
-colorBtnIndex.addEventListener('click', setTheme);
-let themeColor;
+if (colorBtnIndex == null) {
+
+} else {
+    colorBtnIndex.addEventListener('click', setTheme);
+    let themeColor;
+}
 
 
 if (JSON.parse(localStorage.getItem("theme")) == null) {
@@ -43,6 +56,66 @@ function setTheme() {
 }
 
 
+
+
+
+function searchtrend() {
+    
+    fetch(`https://api.giphy.com/v1/trending/searches?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&limit=5`)
+        .then(function (dato1) {
+            result = dato1.json();
+            return result;
+        })
+        .then(function (result) {
+            //debugger;
+            //console.log(result.data);
+            
+            busquedaTrend.innerHTML = "";
+            result.data.forEach(element => {
+                arrayTrendSearches.push(element);
+            });
+            for (let index = 0; index < 4; index++) {
+                //const element = array[index];
+                busquedaTrend.innerHTML += `<span class="searchTrend" id="idSearch${index}">${arrayTrendSearches[index]}</span>, `;
+                
+            }
+            busquedaTrend.innerHTML += `<span class="searchTrend" id="idSearch4">${arrayTrendSearches[4]}</span>`;
+
+            for (let index = 0; index < 5; index++) {
+                searchTrend = document.getElementsByClassName('searchTrend');
+                searchTrend[index].addEventListener('click', searchTrednSearch);
+            }
+
+        })
+
+        .catch(function (err) {
+            console.log("error");
+        });
+}
+
+let searchTrend;
+
+searchtrend()
+
+function searchTrednSearch(){
+    let innerSearchid  = this.id; 
+    let elementSearch = document.getElementById(innerSearchid);
+    //alert(innerSearchid);
+    let busquedaTrend = elementSearch.innerHTML;
+    //alert(busquedaTrend);
+    test.value = busquedaTrend;
+    
+    searchtitle();
+    guardarValue();
+    resetGifs();
+    resetSearch();
+    testing(busqueda);
+}
+
+
+
+
+
 function theme() {
 
     themeColor = JSON.parse(localStorage.getItem("theme"));
@@ -52,9 +125,14 @@ function theme() {
 
         root = document.querySelector(':root');
         root.style.setProperty(colorTitulo, 'white');
-        root.style.setProperty(colorSecundario, 'white');
+        root.style.setProperty(colorSecundario, '#50E3C2');
         root.style.setProperty(colorBlanco, '#37383C');
         root.style.setProperty(colorTrending, '#222326');
+        root.style.setProperty(colorTexto, 'white');
+        root.style.setProperty(colorMenu, 'black');
+
+        root.style.setProperty(backgroundColor, '#37383C');
+
         //colorBtnIndex.innerHTML = themeColor;
         logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
 
@@ -64,6 +142,10 @@ function theme() {
         root = document.querySelector(':root');
         root.style.setProperty(colorTitulo, '#572EE5');
         root.style.setProperty(colorSecundario, '#50E3C2');
+        root.style.setProperty(backgroundColor, '#ffffff');
+        root.style.setProperty(colorTexto, 'black');
+        root.style.setProperty(colorMenu, '#572EE5');
+
         root.style.setProperty(colorBlanco, '#ffffff');
         root.style.setProperty(colorTrending, '#F3F5F8');
         //colorBtnIndex.innerHTML = themeColor;
@@ -79,6 +161,8 @@ function colorDiurno() {
     root.style.setProperty(colorSecundario, '#50E3C2');
     root.style.setProperty(colorBlanco, '#ffffff');
     root.style.setProperty(colorTrending, '#F3F5F8');
+    root.style.setProperty(colorMenu, '#572EE5');
+
     //colorBtnIndex.innerHTML = 'Modo Nocturno';
 
     logoIm.src = "./imagenes/logo-mobile.svg";
@@ -88,9 +172,13 @@ function colorDiurno() {
 function colorDark() {
     root = document.querySelector(':root');
     root.style.setProperty(colorTitulo, 'white');
+    root.style.setProperty(backgroundColor, '#37383C');
     root.style.setProperty(colorSecundario, 'white');
     root.style.setProperty(colorBlanco, '#37383C');
+    root.style.setProperty(colorTexto, 'white');
     root.style.setProperty(colorTrending, '#222326');
+    root.style.setProperty(colorMenu, 'black');
+
     //logoIm.innerHTML = `<a href="index.html"><img id='idImg' src="./imagenes/logo-desktop-modo-noc.svg" alt="Imagen logo"></a>`;
     logoIm.src = './imagenes/logo-desktop-modo-noc.svg';
 
@@ -109,9 +197,13 @@ if (buscador != null) {
     buscador.addEventListener("click", resetSearch);
     buscador.addEventListener("click", function () { testing(busqueda) });
 }
-botonVerMas.addEventListener("click", doceMas);
-botonVerMas.addEventListener("click", function () { testing(busqueda) });
 
+try {
+    botonVerMas.addEventListener("click", doceMas);
+    botonVerMas.addEventListener("click", function () { testing(busqueda) });
+} catch (err) {
+    console.log(err.name, err.message)
+}
 let base;
 
 function doceMas() {
@@ -160,32 +252,32 @@ function testing(busqueda) {
         })
         .then(function (result) {
 
-            if(result.data.length == 0){
+            if (result.data.length == 0) {
 
                 disp.innerHTML = `<div class="listasVacias" ><img src="./imagenes/icon-busqueda-sin-resultado.svg" alt="">
                 <h3> Indenta con otra busqueda</h3></div>`;
 
                 botonVerMas.style.display = "none";
-            }else{
-            let like = JSON.parse(localStorage.getItem("favs"));
+            } else {
+                let like = JSON.parse(localStorage.getItem("favs"));
 
-            let blueHeart;
+                let blueHeart;
 
-            
 
-            result.data.forEach(element => {
 
-                if(like.indexOf(element.id) == (-1)){
-                    blueHeart = '<i class="far fa-heart"></i>'
-                }else{blueHeart = '<i class="fas fa-heart"></i>'}
+                result.data.forEach(element => {
 
-                base = document.createElement('div');
+                    if (like.indexOf(element.id) == (-1)) {
+                        blueHeart = '<i class="far fa-heart"></i>'
+                    } else { blueHeart = '<i class="fas fa-heart"></i>' }
 
-                base.className = "base";
-                //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
-                //`<img src="${element.images.fixed_height.url}" type="">`;
-                base.innerHTML =
-                    `
+                    base = document.createElement('div');
+
+                    base.className = "base";
+                    //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
+                    //`<img src="${element.images.fixed_height.url}" type="">`;
+                    base.innerHTML =
+                        `
                         <img class="embed" src="${element.images.fixed_height.url}" alt="">
                         <div class="overlay">
                             <div class="background"></div>
@@ -208,27 +300,27 @@ function testing(busqueda) {
                         </div>
                     `;
 
-                disp.appendChild(base);
+                    disp.appendChild(base);
 
-                countsearch++;
-            });
-            btn = document.getElementsByClassName('iconos');
-            //debugger;
-            for (let i = 0; i < btn.length; i++) {
-                btn[i].addEventListener('click', testClick);
+                    countsearch++;
+                });
+                btn = document.getElementsByClassName('iconos');
+                //debugger;
+                for (let i = 0; i < btn.length; i++) {
+                    btn[i].addEventListener('click', testClick);
+                }
+                if (verMas + 12 >= parseInt(result.pagination.total_count)) {
+                    //alert("last items");
+                    botonVerMas.style.display = "none";
+
+                } else {
+                    //alert(result.pagination.total_count);
+                    botonVerMas.style.display = "flex";
+                }
+
             }
-            if (verMas + 12 >= parseInt(result.pagination.total_count)) {
-                //alert("last items");
-                botonVerMas.style.display = "none";
+        })
 
-            } else {
-                //alert(result.pagination.total_count);
-                botonVerMas.style.display = "flex";
-            }
-
-        }
-    })
-    
         .catch(function (err) {
             console.log("error");
         });
@@ -238,7 +330,7 @@ let arrayFav = [];
 
 function testClick() {
     // alert('should work');
-    debugger;
+    //debugger;
     let idend = this.id;
     let idgif = idend.slice(3);
     //alert(idend.slice(3));
@@ -255,13 +347,16 @@ function testClick() {
             auxFav = verificarFav(arrayFav, idgif);
             if (auxFav == false && idgif != "") {
                 arrayFav.push(idgif);
+                ///////////////////////////////////////////
+                let corazon = document.getElementById(idend);
+                corazon.innerHTML = `<img src="" alt=""><i class="fas fa-heart"></i>`
                 //debugger;
             } else { alert('repetido') }
             //debugger;
 
         } else if (favSave === null) {
-            debugger;
-            alert('its doing it');
+            //debugger;
+            //alert('its doing it');
             arrayFav.push(idgif)
         };
 
@@ -276,12 +371,12 @@ function testClick() {
                 return result;
             })
             .then(function (result) {
-                debugger;
+                //debugger;
                 descargarG(`${result.data.images.original.url}`, result.data.title);
             })
             .catch(function (err) {
                 console.log(err.name, err.message)
-               //debugger;
+                //debugger;
             })
 
     }
@@ -290,14 +385,14 @@ function testClick() {
         // alert('max');
         //link a maximizar imagen
         //fetch con este id en otra linea
-        debugger;
+        //debugger;
         localStorage.setItem("max", JSON.stringify(idgif));
     }
 }
 
-async function descargarG(url,titulo) {
+async function descargarG(url, titulo) {
     let blob = await fetch(`${url}`)
-    .then(r => r.blob());
+        .then(r => r.blob());
     invokeSaveAsDialog(blob, `${titulo}`);
     console.log(blob);
 }
@@ -306,18 +401,18 @@ async function descargarG(url,titulo) {
 function verificarFav(listaLS, id) {
     let contarFavs = 0;
     let auxFavorito = false;
-    alert(listaLS.length);
-    do{
-        if(listaLS[contarFavs] == id){
+    //alert(listaLS.length);
+    do {
+        if (listaLS[contarFavs] == id) {
             auxFavorito = true;
             console.log(auxFavorito);
         }
         console.log(contarFavs);
         contarFavs++;
-    }while (contarFavs < listaLS.length && auxFavorito == false);
+    } while (contarFavs < listaLS.length && auxFavorito == false);
 
 
-return auxFavorito;
+    return auxFavorito;
 }
 
 
@@ -328,8 +423,8 @@ window.addEventListener('scroll', function () {
     line = document.getElementById('line');
     liSearch = document.getElementById('liSearch');
     searchHelp = document.getElementById('searchHelp');
-
-    if (test.value.length != 0) {
+    try{
+    if (test.value.length != 0){
 
     } else {
 
@@ -359,6 +454,7 @@ window.addEventListener('scroll', function () {
 </ul>
 </datalist>
 </div>`;
+
             test = document.getElementById("search1");
 
         }
@@ -372,7 +468,11 @@ window.addEventListener('scroll', function () {
         }
 
     }
+}catch(err){
+    console.log(err.name, err.message)
+}
 });
+
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -385,6 +485,15 @@ function isInViewport(element) {
 
 
 
+function eliminarDeLista(array, item) {
+    let arrayNuevo;
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === item) {
+            arrayNuevo = array.splice(i, 1);
+        }
+    }
+    return array;
+}
 
 
 

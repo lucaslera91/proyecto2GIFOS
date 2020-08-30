@@ -6,6 +6,7 @@
     position: relative;
     //right: 0;
     z-index: 99;
+    //var(--colorTexto)
 }
 #nextTrend{
     display: none;
@@ -13,6 +14,8 @@
     position: relative;
     top: 50%;
     z-index: 99;
+    color: white;
+
 
 }
 .overlayT{
@@ -20,10 +23,9 @@
     display: none;
 }
 
-.trendingGifos{
-    
-   // background-color: var(--colorTrending);
-
+.trendingGifos i{
+   
+   color: #572EE5;
 }
 
 .gifosAux{
@@ -56,16 +58,21 @@
 
 
 .trendingGifos{
+    position: relative;
+    top: -80px;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     //background-color: var(--colorTrending);
+    color: var(--colorTexto);
 
 }
 .trendingGifos{
     text-align: center;
     background-color: var(--colorTrending);
+    padding: 50px;
+    
 
 }
 .gifosAux{
@@ -101,7 +108,6 @@ transition: ease-in-out 0.3s;
 height: 100%;
 width: 100%;
 margin: 10px;
-
 }
 
 // .embedT{
@@ -129,14 +135,16 @@ margin: 10px;
         .trendingGIFOS{
             position: relative;
             transition: ease-in-out 0.3s;
-
+           
            
         }
+        
         .trendingGIFOS .embedT {
             height: auto;
             max-height: auto;
             width: auto;
             max-width: 400px;
+
             
                 //margin: 2%;
         }
@@ -152,14 +160,14 @@ margin: 10px;
             align-items: center;
             height: 30px;
             width: 40px;
-            top: 50%;
+            top: 55%;
             position: absolute;
             //background-image: url(/imagenes/button-left.svg);
            // background-repeat: no-repeat;
             //background-position: center;
             left: -50px;
             z-index: 99;
-            border: 1px solid gray;
+            border: 1px solid #572EE5;
         }
 
         #nextTrend{
@@ -173,30 +181,41 @@ margin: 10px;
            // background-image: url(/imagenes/button-right.svg);
             //background-repeat: no-repeat;
            // background-position: center;
-            top: 50%;
-            border: 1px solid gray;
+            top: 55%;
+            border: 1px solid #572EE5;
 
         
         }
 
         #previousTrend:hover{
-            background-color: var(--colorTitulo);
+            background-color: #572EE5;
            //background-image: url(/imagenes/button-left\ hover.svg);
             
         }
         #nextTrend:hover{
-            background-color: var(--colorTitulo);
+            background-color: #572EE5;
+           // background-image: url(/imagenes/button-right\ hover.svg);
+            
+            
+        }
+        #previousTrend i{
+            color: #572EE5;
+           //background-image: url(/imagenes/button-left\ hover.svg);
+            
+        }
+        #nextTrend i{
+            color: #572EE5;
            // background-image: url(/imagenes/button-right\ hover.svg);
             
             
         }
         #previousTrend:hover i{
-            color: var(--colorBlanco);
+            color: #ffffff;
            //background-image: url(/imagenes/button-left\ hover.svg);
             
         }
         #nextTrend:hover i{
-            color: var(--colorBlanco);
+            color: #ffffff;
            // background-image: url(/imagenes/button-right\ hover.svg);
             
             
@@ -204,6 +223,7 @@ margin: 10px;
         
         
         .trendingGifos{
+            
             position: relative;
             width: 100%;
             display: flex;
@@ -221,9 +241,9 @@ margin: 10px;
         // }
         h2{
             text-align: center;
-            color: black;
+            color:  var(--colorTexto);
         }
-       
+   
 
         
         .gifosAux{
@@ -232,15 +252,20 @@ margin: 10px;
             justify-content: center;
             align-items: center;
             width: 80%;
+            color: var(--colorTexto);
+            
+
             //overflow: hidden;
 
         }
         #contenerTrending{
+            margin-top: 50px;
             position: relative;
             object-fit: contain;
             display: flex;
             width: 100%;
             height: 100%;
+
             //overflow: hidden;
               
         }
@@ -263,18 +288,19 @@ margin: 10px;
            //background-color: #000000;
             z-index: 999;
             //background-color: blue;
+            color: var(--colorTitulo);
             
         }
         .overlayT:hover {
             opacity: 1;
             //color:var(--colorTrending);
            //background-color: pink;
-           background-color: transparentize($color: #000000, $amount: 0.6)
+           background-color: transparentize($color: #572EE5, $amount: 0.6)
         
         }
         .overlayT:hover .iconosT:hover{
             opacity: 1;
-            //color: var(--colorBlanco);
+            color: var(--colorTitulo);
            //background-color: transparentize($color: #FFFFFF, $amount: 0);
            z-index: 19990;
         
@@ -290,7 +316,6 @@ margin: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        
         position: absolute;
         
         top: 0;
@@ -301,6 +326,7 @@ margin: 10px;
         bottom: 2px;
         left: 5px;
         color: var(--colorBlanco);
+        color:  var(--inversoTexto);
        
     }
     

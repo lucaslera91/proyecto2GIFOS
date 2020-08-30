@@ -39,7 +39,7 @@ function testingtrend() {
         .then(function (result) {
             //let count = 0;
             //let auxTrend = document.createElement('div');
-            debugger;
+            //debugger;
             let like = JSON.parse(localStorage.getItem("favs"));
            
 
