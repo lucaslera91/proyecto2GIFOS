@@ -81,7 +81,7 @@ function testingtrend() {
                     </div>
                 </div>`;
                 //displayTrend.appendChild(auxTrend);
-                alert('all good2');
+                //alert('all good2');
 
 
                 sumWidth += parseInt(result.data[i].images.fixed_height.width);
@@ -97,7 +97,7 @@ function testingtrend() {
 
             }
 
-            alert('all good3');
+            //alert('all good3');
 
 
             //
@@ -135,7 +135,7 @@ function testingtrend() {
 
             postGif.className = "trendingGIFOS";
             postGif.id = "first";
-            alert('all good4');
+            //alert('all good4');
 
             postGif.innerHTML = `
                 <div>
@@ -166,7 +166,7 @@ function testingtrend() {
 
             //debugger;
             panic = 1;
-            alert('all good5');
+            //alert('all good5');
 
             auxPanic();
             btn2 = document.getElementsByClassName('iconosT');
@@ -187,7 +187,7 @@ function testingtrend() {
 
                     //parseInt(start[0].screenX);
                 }, false);
-                alert('all good6');
+                //alert('all good6');
 
                 vistaImg[i].addEventListener('touchend', (e) => {
                     //e.preventDefault();
@@ -209,7 +209,7 @@ function testingtrend() {
                 });
             }
             
-            alert('all good7');
+            //alert('all good7');
 
         })
 
