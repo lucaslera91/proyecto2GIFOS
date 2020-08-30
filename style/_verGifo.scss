@@ -11,6 +11,10 @@
     height: 95px;
     width: 100%;
 }
+.verGifo i{
+color: var(--colorTitulo);
+transform: scale(1.5);
+}
 .verGifo .logo{
    opacity: 0.1;
   // background-color: purple;
@@ -91,8 +95,11 @@
     justify-content: center;
     align-items: center;
     margin: 2px;
-    color: var(#572EE5);
+    color: var(--colorTitulo);
+    cursor: pointer;
 }
 .iconoContenedor .iconos i{ 
-    
+    color:#572EE5;
+    //background-color: #572EE5;
+    //transform: scale(100);
 }

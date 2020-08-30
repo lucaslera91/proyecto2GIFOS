@@ -64,7 +64,7 @@ function verGif(id) {
 
         let botonlike = document.getElementsByClassName('iconos');
         for(let i = 0; i<botonlike.length; i++){
-            botonlike[i].addEventListener('click', () => {alert('')});
+            botonlike[i].addEventListener('click', testClick);
         }
             //testClick
 
