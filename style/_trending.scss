@@ -20,7 +20,19 @@
 }
 .overlayT{
     opacity: 0;
-    display: none;
+    //display: none;
+}
+
+.iconosT a img{
+    position: absolute;
+    top:0;
+    left: 0;;
+    width: 35vw;
+    height: 28vw;
+    display: flex;
+    z-index: 99;
+    background-color: red;
+    opacity: 1;
 }
 
 .trendingGifos i{
@@ -343,7 +355,15 @@ margin: 10px;
         opacity: 0.6;
     
     }
-    
+   
+.iconosT a img{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    opacity: 0.6;
+}
+
     
     
     

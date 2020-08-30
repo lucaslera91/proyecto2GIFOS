@@ -538,6 +538,13 @@ h1 {
   justify-content: center;
   align-items: center; }
 
+.iconos a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35vw;
+  height: 28vw; }
+
 .lookUp i {
   color: #572EE5; }
 
@@ -611,6 +618,11 @@ h1 {
     width: 25vw;
     max-width: 300px;
     margin: 1; }
+
+  .iconos a img {
+    position: relative;
+    width: 25px;
+    height: 25px; }
 
   .lookUp .gifosSearch .overlay {
     display: flex;
@@ -1089,8 +1101,18 @@ video {
   color: white; }
 
 .overlayT {
-  opacity: 0;
-  display: none; }
+  opacity: 0; }
+
+.iconosT a img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35vw;
+  height: 28vw;
+  display: flex;
+  z-index: 99;
+  background-color: red;
+  opacity: 1; }
 
 .trendingGifos i {
   color: #572EE5; }
@@ -1288,6 +1310,13 @@ video {
     justify-content: center;
     align-items: center;
     margin: 2px;
+    opacity: 0.6; }
+
+  .iconosT a img {
+    position: relative;
+    width: 25px;
+    height: 25px;
+    display: flex;
     opacity: 0.6; } }
 .searchBar {
   height: auto;

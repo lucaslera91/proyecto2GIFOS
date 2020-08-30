@@ -9,7 +9,14 @@ align-items: center;
 //display: none;
 
 }
+.iconos a img{
+    position: absolute;
+    top:0;
+    left: 0;;
+    width: 35vw;
+    height: 28vw;
 
+}
 .lookUp i{
 color: #572EE5;
 }
@@ -125,6 +132,13 @@ font-size: 30px;
         margin: 1;
         
    }
+
+   .iconos a img{
+    position: relative;
+    width: 25px;
+    height: 25px;
+
+}
 
     .lookUp .gifosSearch .overlay{
         display: flex;

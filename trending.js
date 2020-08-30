@@ -56,25 +56,28 @@ function testingtrend() {
                 //`<img src="${element.images.fixed_height.url}" type="">`;
                 displayTrend.innerHTML += `
                 <div class="trendingGIFOS" id="${i}">
-                            <img class="embedT" src="${result.data[i].images.fixed_height.url}" alt="">
-                            <div class="overlayT">
-                            <div class="iconosBoxT">
+                     <img class="embedT" src="${result.data[i].images.fixed_height.url}" alt="">
+                     <div class="overlayT">
+                        <div class="iconosBoxT">
                             <div class="iconosT" id="fav${result.data[i].id}">
-                            <img src="" alt="">${blueHeart}
-                        </div>
-                        <div class="iconosT" id="dwl${result.data[i].id}">
-                        <img src="./imagenes/icon-download.svg" alt="">
-                        </div>
-                        <div class="iconosT" id="max${result.data[i].id}">
-                        <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
-                        </div>
-                        </div>
-                          <div class="nameBoxT">
-                                <h4>${result.data[i].username}</h4>
-                                <h3>${result.data[i].title}</h3>
-                                </div>
+                                <img src="" alt="">${blueHeart}
                             </div>
-                        </div>`;
+                            <div class="iconosT" id="dwl${result.data[i].id}">
+                                <img src="./imagenes/icon-download.svg" alt="">
+                            </div>
+                            <div class="iconosT" id="max${result.data[i].id}">
+                                <a href="./verGifo.html">
+                                    <img src="./imagenes/icon-max.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="nameBoxT">
+                            <h4>${result.data[i].username}</h4>
+                            <h3>${result.data[i].title}</h3>
+                        </div>
+                    </div>
+                </div>`;
                 //displayTrend.appendChild(auxTrend);
 
 
@@ -113,7 +116,7 @@ function testingtrend() {
                                         <img src="./imagenes/icon-download.svg" alt="">
                                     </div>
                                     <div class="iconosT" id="max${result.data[arrayTrending.length - 1].id}">
-                                        <a href="./verGifo.html"><img src="" alt=""><i class="far fa-heart"></i></a>
+                                        <a href="./verGifo.html"><img src="./imagenes/icon-max.svg" alt=""></a>
                                     </div>
                                 </div>
                                 <div class="nameBoxT">
@@ -131,25 +134,27 @@ function testingtrend() {
 
             postGif.innerHTML = `
                 <div>
-                            <img class="embedT" src="${result.data[0].images.fixed_height.url}" alt="">
-                            <div class="overlayT">
-                                <div class="iconosBoxT">
-                                <div class="iconosT" id="fav${result.data[0].id}">
+                    <img class="embedT" src="${result.data[0].images.fixed_height.url}" alt="">
+                    <div class="overlayT">
+                         <div class="iconosBoxT">
+                            <div class="iconosT" id="fav${result.data[0].id}">
                                 <img src="" alt=""><i class="far fa-heart"></i>
                             </div>
                             <div class="iconosT" id="dwl${result.data[0].id}">
-                            <img src="./imagenes/icon-download.svg" alt="">
+                                <img src="./imagenes/icon-download.svg" alt="">
                             </div>
                             <div class="iconosT" id="max${result.data[0].id}">
-                            <a href="./verGifo.html"><img src="" alt=""><i class="far fa-heart"></i></a>
+                                <a href="./verGifo.html">
+                                    <img src="" alt=""><i class="far fa-heart"></i>
+                                </a>
                             </div>
-                            </div>
-                                <div class="nameBoxT">
-                                    <h4>${result.data[0].username}</h4>
-                                        <h3>${result.data[0].title}</h3>
-                                </div>
-                            </div>
-                        </div>`;
+                        </div>
+                        <div class="nameBoxT">
+                            <h4>${result.data[0].username}</h4>
+                            <h3>${result.data[0].title}</h3>
+                        </div>
+                    </div>
+                </div>`;
             //lert("try");
 
             displayTrend.appendChild(postGif);
