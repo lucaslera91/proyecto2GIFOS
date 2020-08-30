@@ -196,7 +196,7 @@ if (buscador != null) {
     buscador.addEventListener("click", resetGifs);
     buscador.addEventListener("click", resetSearch);
     buscador.addEventListener("click", function () { testing(busqueda) });
-    alert('try');
+    alert(buscador.innerHTML);
 }
 
 try {
