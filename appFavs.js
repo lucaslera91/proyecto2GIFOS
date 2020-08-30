@@ -17,6 +17,7 @@ if (JSON.parse(localStorage.getItem("favs") != null)) {
         sinFav.innerHTML = `<div id="noimagenfav">
         <h3>Favoritos</h3>
         <img src="./imagenes/icon-fav-sin-contenido.svg" alt="">
+        <h3>Agrega tus gifos Favoritos!</h3>
     </div>`
     }
 
