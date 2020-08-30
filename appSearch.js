@@ -261,7 +261,11 @@ function testing(busqueda) {
 
                 botonVerMas.style.display = "none";
             } else {
+                
                 let like = JSON.parse(localStorage.getItem("favs"));
+                if(like == null){
+                    alert('puede ser esto');
+                }
 
                 let blueHeart;
 
@@ -279,7 +283,7 @@ function testing(busqueda) {
                     //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
                     //`<img src="${element.images.fixed_height.url}" type="">`;
                     base.innerHTML =`
-                    
+
                         <img class="embed" src="${element.images.fixed_height.url}" alt="">
                         <div class="overlay">
                             <div class="background"></div>
