@@ -189,14 +189,14 @@ function colorDark() {
 
 
 let contenedorSugerengciaSearch = document.getElementById('suggestionBox');
-alert('try afuera');
+//alert('try afuera');
 if (buscador != null) {
     buscador.addEventListener("click", searchtitle);
     buscador.addEventListener("click", guardarValue);
     buscador.addEventListener("click", resetGifs);
     buscador.addEventListener("click", resetSearch);
     buscador.addEventListener("click", function () { testing(busqueda) });
-    alert(buscador.innerHTML);
+    //alert(buscador.innerHTML);
 }
 
 try {
@@ -277,7 +277,7 @@ function testing(busqueda) {
                     base.className = "base";
                     //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
                     //`<img src="${element.images.fixed_height.url}" type="">`;
-                    base.innerHTML =
+                    base.innerHTML ='help'+
                         `
                         <img class="embed" src="${element.images.fixed_height.url}" alt="">
                         <div class="overlay">
