@@ -44,8 +44,9 @@ function testingtrend() {
            
             if(like == null){
                 alert('puede ser esto trending');
-            }
             alert(result.data[0].images.fixed_height.url);
+
+            }
 
             for (let i = 0; i < result.data.length; i++) {
 
