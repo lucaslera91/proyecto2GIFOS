@@ -44,6 +44,11 @@ function getGifId() {
             .then(function (result) {
 
                 let like = JSON.parse(localStorage.getItem("favs"));
+
+                if(like == null){
+                    like = [];
+      
+                  }
                 let blueHeart;
 
                 

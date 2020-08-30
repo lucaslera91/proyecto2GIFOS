@@ -30,6 +30,9 @@ function verGif(id) {
             //disp.appendChild(base);
 
             let likeGif = JSON.parse(localStorage.getItem("favs"));
+            if(likeGif == null){
+                like = [];
+            }
             let blueHeartGif;
             localStorage.setItem("max", JSON.stringify(""));
             if(likeGif.indexOf(result.data.id) == (-1)){
