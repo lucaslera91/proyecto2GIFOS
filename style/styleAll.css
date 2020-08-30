@@ -40,8 +40,7 @@ menu i {
   .iconos img i {
     color: var(--colorTitulo); } }
 header {
-  width: 100%;
-  background-color: none; }
+  width: 100%; }
 
 #addGifo {
   display: none; }
@@ -376,7 +375,7 @@ footer p {
 
 @media only screen and (min-width: 768px) {
   footer {
-    display: "";
+    display: -moz-deck;
     height: 18px; }
 
   footer .redes h4 {
@@ -617,7 +616,7 @@ h1 {
     max-height: 230px;
     width: 25vw;
     max-width: 300px;
-    margin: 1; }
+    margin: 10px; }
 
   .iconos a img {
     position: relative;
@@ -1041,7 +1040,7 @@ video {
     width: 15vw; }
 
   .pelicula img {
-    height: 10w;
+    height: 10vw;
     width: 10vw; }
 
   .pelicula {
