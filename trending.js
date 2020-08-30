@@ -43,7 +43,7 @@ function testingtrend() {
             let like = JSON.parse(localStorage.getItem("favs"));
            
 
-            
+            alert('all good');
 
             for (let i = 0; i < result.data.length; i++) {
 
