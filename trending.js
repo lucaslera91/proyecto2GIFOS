@@ -31,7 +31,7 @@ function testingtrend() {
     //alert("yes");
     //debugger;
 
-    fetch(`https://api.giphy.com/v1/gifs/trending?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&rating=r`)
+    fetch(`https://api.giphy.com/v1/gifs/trending?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U`)
         .then(function (dato1) {
             result = dato1.json();
             return result;
