@@ -264,7 +264,7 @@ function testing(busqueda) {
                 
                 let like = JSON.parse(localStorage.getItem("favs"));
                 if(like == null){
-                    alert('puede ser esto');
+                    like = [];
                 }
 
                 let blueHeart;

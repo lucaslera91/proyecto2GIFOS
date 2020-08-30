@@ -43,8 +43,7 @@ function testingtrend() {
             let like = JSON.parse(localStorage.getItem("favs"));
            
             if(like == null){
-                alert('puede ser esto trending');
-            alert(result.data[0].images.fixed_height.url);
+              like = [];
 
             }
 
