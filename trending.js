@@ -42,7 +42,7 @@ function testingtrend() {
             //debugger;
             let like = JSON.parse(localStorage.getItem("favs"));
            
-
+            alert(result.data[0].images.fixed_height.url);
 
             for (let i = 0; i < result.data.length; i++) {
 
