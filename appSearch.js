@@ -243,7 +243,7 @@ function searchtitle() {
 //debugger;
 
 function testing(busqueda) {
-    alert(busqueda);
+    //alert(busqueda);
     //debugger;
     let countsearch = 0;
     
