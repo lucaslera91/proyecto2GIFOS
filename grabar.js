@@ -14,9 +14,10 @@ let blob;
 let timeStart;
 let subiendo = document.getElementById('crear3');
 let repetir;
+let descargaGifo = document.getElementById('descargaGif');
 //let recorder;
 let video;
-let stream ;
+// let stream;
 
 //let uploadFileBtn = 
 //let gifFile;
@@ -37,202 +38,232 @@ function getStreamAndRecord() {
         audio: false,
         video: {
             height: { max: 1200 }
-
         }
-    })
-        .then(function (stream) {
-            //alert('he');
+    }).then(function (stream) {
+        //alert('he');
 
-            video = document.querySelector('video');
-            video.srcObject = stream;
-            video.play();
-            show = document.getElementById('show');
-            show.style.zIndex = capaBtnStart;
-            videoSave = document.getElementById('videoSave');
-            displayPositions(1);
-        })
+        video = document.querySelector('video');
+        video.srcObject = stream;
+        video.play();
+        show = document.getElementById('show');
+        show.style.zIndex = capaBtnStart;
+        videoSave = document.getElementById('videoSave');
+        displayPositions(1);
 
-
-    // grabar.addEventListener('click', function () {
-             stream = navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: false
-        }).then(function (stream) {
-            alert('camara');
-
-            grabar.style.zIndex = -5;
-            recorder = new RecordRTCPromisesHandler(stream, {
-                type: 'gif'
-            })
-                
-                
-        }).catch(function (err) {
-            console.log(err.name, err.message)
-            alert('Error, camara on?');
+        recorder = RecordRTC(stream, {
+            type: 'gif'
         });
+
+    }).catch(function (err) {
+        console.log(err.name, err.message)
+        alert('Error, camara on?');
+    });
+
+}
+
+//let stream = await navigator.mediaDevices.getUserMedia({video: true, audio: true});
+// let recorder = new RecordRTCPromisesHandler(stream, {
+//     type: 'video'
+// });
+// function startRec(){
+// recorder.startRecording();
+// }
+// async function stopRec(recorder){   
+// await recorder.stopRecording();
+// }
+//let blob = await recorder.getBlob();
+//invokeSaveAsDialog(blob);
+
+// grabar.addEventListener('click', function () {
+//     stream = navigator.mediaDevices.getUserMedia({
+//         video: true,
+//         audio: false
+//     }).then(function (stream) {
+//         alert('camara');
+
+//         grabar.style.zIndex = -5;
+//         recorder = new RecordRTCPromisesHandler(stream, {
+//             type: 'gif'
+//         })
+
+
+//     }).catch(function (err) {
+//         console.log(err.name, err.message)
+//         alert('Error, camara on?');
+//     });
+// }
+
+
+// ////////////////////////-////////////////////
+// ////////////////////////
+
+start.addEventListener('click', startRecord);
+
+function startRecord() {
+    start.style.display = 'none';
+    displayPositions(2);
+    recorder.startRecording();
+    console.log(recorder.state);
+    //alert('yea');
+    capaBtnStop = capaBtnStop + 2;
+    stopBtn.style.display ='flex';
+    subirGifBtn.style.display = 'none';
+
+    nuevaHora = new Date().getTime();/// tiempo de grabacion
+    function looper() {
+        // if(!recorder) {
+        //     return;
+        // }
+        document.getElementById('accionGrabacion').innerHTML = 'Rec: ' + recTime((new Date().getTime() - nuevaHora) / 1000);
+    }
+    timeStart = setInterval(looper, 1000);
+};
+
+
+form = new FormData();
+stopBtn.addEventListener('click', stopRecord);
+async function stopRecord() {
+    stopBtn.style.display ='none';
+
+    recorder.stopRecording();
+    blob = recorder.getBlob();
+    clearInterval(timeStart);
+    document.getElementById('accionGrabacion').innerHTML = 'Repetir Grabacion';
+    repetir = document.getElementById('accionGrabacion');
+    repetir.addEventListener('click', startRecord);
+
+    subirGifBtn.style.display = 'flex';
+    //debugger;
+}
+
+subirGifBtn.addEventListener('click', () => {uploadRecord(blob)});
+
+function uploadRecord(blob) {
+
+        displayPositions(3);
+        
+        subiendo.style.zIndex = 15;
+        form.append('file', blob, 'myGif');
+        form.append('api_key', apiKey);
+        debugger;
+        uploadFile(form);
+
     }
 
 
+
+function uploadFile(form) {
+    //debugger;
+    fetch('https://upload.giphy.com/v1/gifs', {
+        method: 'POST',
+        body: form
+    }).then(function (response) {
+        result = response.json();
+        return result;
+        //debugger;
+    }).then(function (result) {
+        debugger;
+
+        let favGifs = JSON.parse(localStorage.getItem("myGifs"));
+
+        let arraymyGifs = [];
+
+        if (favGifs != null) {
+            for (let i = 0; i < favGifs.length; i++) {
+                arraymyGifs.push(favGifs[i]);
+                //debugger;
+            }
+            arraymyGifs.push(result.data.id);
+        } else { arraymyGifs.push(result.data.id); }
+
+        localStorage.setItem("myGifs", JSON.stringify(arraymyGifs));
+
+        let loadsuccesfull = document.getElementById('crear4');
+
+        loadsuccesfull.style.zIndex = 9999;
+        //alert(result.data.id);
+        botoneras = document.getElementsByClassName('controler');
+        for (let index = 0; index < botoneras.length; index++) {
+        
+            botoneras[index].style.display = 'none';
+        }
+        descargaGifo.addEventListener('click', ()=>{invokeSaveAsDialog(blob, 'Mi Gifo')});
+        botoneras.style.display = 'none';
+        //alert(result.data.id);
+
+    }).catch(console.error);
+    //alert('error');
+}
+
+
+
+
 ////////////////////////-////////////////////
+////////////////////////////////////////////////-////////////////////
 ////////////////////////
+function displayPositions(status) {
+    let boton1 = document.getElementById('boton1');
+    let boton2 = document.getElementById('boton2');
+    let boton3 = document.getElementById('boton3');
+    //let boton = document.getElementById('boton1');
 
-start.addEventListener('click', startRecord);
-            
-async function startRecord() {
-    
-            displayPositions(2);
-            recorder.startRecording();
-            console.log(recorder.state);
-            alert('yea');
-            capaBtnStop = capaBtnStop + 2;
-            stopBtn.style.zIndex = capaBtnStop;
+    if (status == 1) {
+        boton1.style.color = 'var(--colorBlanco)';
+        boton2.style.color = 'var(--colorTitulo)';
+        boton3.style.color = 'var(--colorTitulo)';
 
-            nuevaHora = new Date().getTime();/// tiempo de grabacion
-            function looper() {
-                // if(!recorder) {
-                //     return;
-                // }
-                document.getElementById('accionGrabacion').innerHTML = 'Rec: ' + recTime((new Date().getTime() - nuevaHora) / 1000);
-            }
-            timeStart = setInterval(looper, 1000);
-        };
+        boton1.style.backgroundColor = '#572EE5';
+        boton2.style.backgroundColor = 'var(--colorBlanco)';
+        boton3.style.backgroundColor = 'var(--colorBlanco)';
 
+    } else
 
-        form = new FormData();
-        stopBtn.addEventListener('click', stopRecord);
-    async function stopRecord() {
-                await recorder.stopRecording();
-                blob = recorder.getBlob();
-                clearInterval(timeStart);
-                document.getElementById('accionGrabacion').innerHTML = 'Repetir Grabacion';
-                repetir = document.getElementById('accionGrabacion');
-                repetir.addEventListener('click')
-                subirGifBtn.style.zIndex = 14;;
-                //debugger;
-            }
+        if (status == 2) {
+            boton1.style.color = 'var(--colorTitulo)';
+            boton2.style.color = 'var(--colorBlanco)';
+            boton3.style.color = 'var(--colorTitulo)';
 
-        subirGifBtn.addEventListener('click', uploadRecord);
+            boton1.style.backgroundColor = 'var(--colorBlanco)';
+            boton2.style.backgroundColor = '#572EE5';
+            boton3.style.backgroundColor = 'var(--colorBlanco)';
 
-        function uploadRecord() {
-            subirGifBtn.addEventListener('click', function (ev) {
-                displayPositions(3);
-                subiendo.style.zIndex = 15;
-                form.append('file', blob, 'myGif');
-                form.append('api_key', apiKey);
-                debugger;
-                uploadFile(form);
+        } else
 
-            })
-        }
-
-
-        function uploadFile(form) {
-            //debugger;
-            fetch('https://upload.giphy.com/v1/gifs', {
-                method: 'POST',
-                body: form
-            }).then(function (response) {
-                result = response.json();
-                return result;
-                //debugger;
-            }).then(function (result) {
-                debugger;
-
-                let favGifs = JSON.parse(localStorage.getItem("myGifs"));
-
-                let arraymyGifs = [];
-
-                if (favGifs != null) {
-                    for (let i = 0; i < favGifs.length; i++) {
-                        arraymyGifs.push(favGifs[i]);
-                        //debugger;
-                    }
-                    arraymyGifs.push(result.data.id);
-                } else { arraymyGifs.push(result.data.id); }
-
-                localStorage.setItem("myGifs", JSON.stringify(arraymyGifs));
-
-                let loadsuccesfull = document.getElementById('crear4');
-
-                loadsuccesfull.style.zIndex = 9999;
-                //alert(result.data.id);
-                botoneras = document.getElementsByClassName('botones');
-                botoneras.style.display = 'none';
-                alert(result.data.id);
-
-            }).catch(console.error);
-            //alert('error');
-        }
-
-
-
-
-        ////////////////////////-////////////////////
-        ////////////////////////////////////////////////-////////////////////
-        ////////////////////////
-        function displayPositions(status) {
-            let boton1 = document.getElementById('boton1');
-            let boton2 = document.getElementById('boton2');
-            let boton3 = document.getElementById('boton3');
-            //let boton = document.getElementById('boton1');
-
-            if (status == 1) {
-                boton1.style.color = 'var(--colorBlanco)';
+            if (status == 3) {
+                boton1.style.color = 'var(--colorTitulo)';
                 boton2.style.color = 'var(--colorTitulo)';
-                boton3.style.color = 'var(--colorTitulo)';
+                boton3.style.color = 'var(--colorBlanco)';
 
-                boton1.style.backgroundColor = '#572EE5';
+                boton1.style.backgroundColor = 'var(--colorBlanco)';
                 boton2.style.backgroundColor = 'var(--colorBlanco)';
-                boton3.style.backgroundColor = 'var(--colorBlanco)';
+                boton3.style.backgroundColor = '#572EE5';
 
-            } else
-
-                if (status == 2) {
-                    boton1.style.color = 'var(--colorTitulo)';
-                    boton2.style.color = 'var(--colorBlanco)';
-                    boton3.style.color = 'var(--colorTitulo)';
-
-                    boton1.style.backgroundColor = 'var(--colorBlanco)';
-                    boton2.style.backgroundColor = '#572EE5';
-                    boton3.style.backgroundColor = 'var(--colorBlanco)';
-
-                } else
-
-                    if (status == 3) {
-                        boton1.style.color = 'var(--colorTitulo)';
-                        boton2.style.color = 'var(--colorTitulo)';
-                        boton3.style.color = 'var(--colorBlanco)';
-
-                        boton1.style.backgroundColor = 'var(--colorBlanco)';
-                        boton2.style.backgroundColor = 'var(--colorBlanco)';
-                        boton3.style.backgroundColor = '#572EE5';
-
-                    }
-
-        }
-
-
-        function recTime(secs) {
-
-            let hr = Math.floor(secs / 3600);
-            let min = Math.floor((secs - (hr * 3600)) / 60);
-            let sec = Math.floor(secs - (hr * 3600) - (min * 60));
-
-            if (min < 10) {
-                min = "0" + min;
             }
 
-            if (sec < 10) {
-                sec = "0" + sec;
-            }
+}
 
-            if (hr <= 0) {
-                return min + ':' + sec;
-            }
 
-            return hr + ':' + min + ':' + sec;
+function recTime(secs) {
 
-        }
+    let hr = Math.floor(secs / 3600);
+    let min = Math.floor((secs - (hr * 3600)) / 60);
+    let sec = Math.floor(secs - (hr * 3600) - (min * 60));
+
+    if (min < 10) {
+        min = "0" + min;
+    }
+
+    if (sec < 10) {
+        sec = "0" + sec;
+    }
+
+    if (hr <= 0) {
+        return min + ':' + sec;
+    }
+
+    return hr + ':' + min + ':' + sec;
+
+}
 //setInterval(recTime, 1000);
 
 

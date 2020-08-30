@@ -60,7 +60,7 @@ function setTheme() {
 
 
 function searchtrend() {
-    
+
     fetch(`https://api.giphy.com/v1/trending/searches?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&limit=5`)
         .then(function (dato1) {
             result = dato1.json();
@@ -69,7 +69,7 @@ function searchtrend() {
         .then(function (result) {
             //debugger;
             //console.log(result.data);
-            
+
             busquedaTrend.innerHTML = "";
             result.data.forEach(element => {
                 arrayTrendSearches.push(element);
@@ -77,7 +77,7 @@ function searchtrend() {
             for (let index = 0; index < 4; index++) {
                 //const element = array[index];
                 busquedaTrend.innerHTML += `<span class="searchTrend" id="idSearch${index}">${arrayTrendSearches[index]}</span>, `;
-                
+
             }
             busquedaTrend.innerHTML += `<span class="searchTrend" id="idSearch4">${arrayTrendSearches[4]}</span>`;
 
@@ -97,14 +97,14 @@ let searchTrend;
 
 searchtrend()
 
-function searchTrednSearch(){
-    let innerSearchid  = this.id; 
+function searchTrednSearch() {
+    let innerSearchid = this.id;
     let elementSearch = document.getElementById(innerSearchid);
     //alert(innerSearchid);
     let busquedaTrend = elementSearch.innerHTML;
     //alert(busquedaTrend);
     test.value = busquedaTrend;
-    
+
     searchtitle();
     guardarValue();
     resetGifs();
@@ -423,31 +423,35 @@ window.addEventListener('scroll', function () {
     line = document.getElementById('line');
     liSearch = document.getElementById('liSearch');
     searchHelp = document.getElementById('searchHelp');
-    try{
-    if (test.value.length != 0){
+    try {
+        if (test.value.length != 0) {
 
-    } else {
+        } else {
 
-        if (isInViewport(line) == false) {
+            if (isInViewport(line) == false) {
+                //const rect2 = element.getBoundingClientRect();
+                //alert(rect2.clientWidth);
+                // if(rect2.clientWidth < 768){
 
-            //liSearch = document.getElementById('liSearch');
-            // searchHelp = document.getElementById('searchHelp');
-            liSearch.innerHTML = `<div class="searchBar">
+                // }else{
+                liSearch = document.getElementById('liSearch');
+                searchHelp = document.getElementById('searchHelp');
+                liSearch.innerHTML = `<div class="searchBar">
     <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
     <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
     <ul class="suggestions" id='suggestionBox'>
     </ul>
  </datalist>
 </div>`;
-            searchHelp.innerHTML = "";
-            test = document.getElementById("search1");
+                searchHelp.innerHTML = "";
+                test = document.getElementById("search1");
 
-            //alert(isInViewport(test));
-        } else {
+                //alert(isInViewport(test));
+            } else {
 
-            liSearch.innerHTML = '';
-            //test = document.getElementById("search1");
-            searchHelp.innerHTML = `<div class="searchBar">
+                liSearch.innerHTML = '';
+                //test = document.getElementById("search1");
+                searchHelp.innerHTML = `<div class="searchBar">
 <input type="text" id="search1" list="datalist1" placeholder="Busca GIFOS y mas">
 <img id="searchBnt" src="./imagenes/icon-search.svg" alt="lupa">
 <ul class="suggestions" id='suggestionBox'>
@@ -455,22 +459,22 @@ window.addEventListener('scroll', function () {
 </datalist>
 </div>`;
 
-            test = document.getElementById("search1");
+                test = document.getElementById("search1");
+
+            }
+            buscador = document.getElementById("searchBnt");
+            if (buscador != null) {
+                buscador.addEventListener("click", searchtitle);
+                buscador.addEventListener("click", guardarValue);
+                buscador.addEventListener("click", resetGifs);
+                buscador.addEventListener("click", resetSearch);
+                buscador.addEventListener("click", function () { testing(busqueda) });
+            }
 
         }
-        buscador = document.getElementById("searchBnt");
-        if (buscador != null) {
-            buscador.addEventListener("click", searchtitle);
-            buscador.addEventListener("click", guardarValue);
-            buscador.addEventListener("click", resetGifs);
-            buscador.addEventListener("click", resetSearch);
-            buscador.addEventListener("click", function () { testing(busqueda) });
-        }
-
+    } catch (err) {
+        console.log(err.name, err.message)
     }
-}catch(err){
-    console.log(err.name, err.message)
-}
 });
 
 function isInViewport(element) {

@@ -89,13 +89,24 @@ color: var(--colorSecundario);
     z-index: 99;
     cursor: pointer;
 }
+.trending .h3aux{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
 .trending .h3aux h3 {
+    width: 80%;
+    padding-left: 60px;
     font-weight: bold;
     color: var(--colorTitulo);
     font-size: 18px;
     text-align: center;
 }
 .trending .h3aux p{
+    padding-left: 60px;
+    width: 50%;
     color: var(--colorTitulo);
     font-size: 18px;
     text-align: center;

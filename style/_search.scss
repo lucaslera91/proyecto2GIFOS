@@ -13,39 +13,67 @@ align-items: center;
 .lookUp i{
 color: #572EE5;
 }
-.lookUp h2{
 
+.lookUp h2{
 padding: 40px 0 20px 0;
 color: var(--colorTitulo);
 font-size: 30px;
+
 }
+
 .overlay{
     opacity: 0;
     //display: none;
 }
 
 .lookUp .gifosSearch{
+    //background-color: red;
     display: flex;
     justify-content: center;
+    flex-direction: row;
     align-items: center;
     padding: 20px 10px 18px 10px;
     flex-wrap: wrap;
 
 }
 .lookUp .gifosSearch .base {
-     height: auto;
-     width: 90%;
+     
+    //background-color: blue;
+    height: 28vw;
+     width: 35vw;
      margin: 5px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
      //background-color: rgb(204, 125, 125);
      position: relative;
-     object-fit: contain;
+     //object-fit: contain;
      overflow: hidden;
+     //display: hidden;
+    
 }
 .base .embed{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
     width: 100%;
+    //background-color: green;
+   // min-width: 1600px;
     //position: absolute;
   object-fit: contain;
+}
+.lookUp .gifosSearch .overlay{
+    display: flex;
+    position: absolute;
+    margin: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    //background-color: red;
+    z-index: 2;
+    opacity: 0;
 }
 
 // .background{
@@ -94,7 +122,7 @@ font-size: 30px;
         max-height: 230px;
         width: 25vw;
         max-width: 300px;
-        margin: 1%;
+        margin: 1;
         
    }
 

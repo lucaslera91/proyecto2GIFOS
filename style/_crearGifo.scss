@@ -318,7 +318,7 @@ video{
         
         margin: 5px 5px 5px 5px;
         padding: 5px 5px 5px 5px;
-        background-color: var(--colorBlanco);
+        background-color: #ffffff;
         height: 30px;
         width: 30px;
         border-radius: 4px 4px 4px 4px;
@@ -327,5 +327,9 @@ video{
     .bottonComenzar{
         margin-bottom: 200px;
     }
-
+.controler{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 }

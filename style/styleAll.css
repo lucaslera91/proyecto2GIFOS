@@ -483,13 +483,23 @@ h1 {
   z-index: 99;
   cursor: pointer; }
 
+.trending .h3aux {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
 .trending .h3aux h3 {
+  width: 80%;
+  padding-left: 60px;
   font-weight: bold;
   color: var(--colorTitulo);
   font-size: 18px;
   text-align: center; }
 
 .trending .h3aux p {
+  padding-left: 60px;
+  width: 50%;
   color: var(--colorTitulo);
   font-size: 18px;
   text-align: center;
@@ -542,22 +552,39 @@ h1 {
 .lookUp .gifosSearch {
   display: flex;
   justify-content: center;
+  flex-direction: row;
   align-items: center;
   padding: 20px 10px 18px 10px;
   flex-wrap: wrap; }
 
 .lookUp .gifosSearch .base {
-  height: auto;
-  width: 90%;
+  height: 28vw;
+  width: 35vw;
   margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  object-fit: contain;
   overflow: hidden; }
 
 .base .embed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   object-fit: contain; }
+
+.lookUp .gifosSearch .overlay {
+  display: flex;
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 2;
+  opacity: 0; }
 
 .buttonVerMas {
   padding: 0 0  80px 0; }
@@ -583,7 +610,7 @@ h1 {
     max-height: 230px;
     width: 25vw;
     max-width: 300px;
-    margin: 1%; }
+    margin: 1; }
 
   .lookUp .gifosSearch .overlay {
     display: flex;
@@ -1036,13 +1063,18 @@ video {
   .iconosMyGifo img {
     margin: 5px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
-    background-color: var(--colorBlanco);
+    background-color: #ffffff;
     height: 30px;
     width: 30px;
     border-radius: 4px 4px 4px 4px; }
 
   .bottonComenzar {
-    margin-bottom: 200px; } }
+    margin-bottom: 200px; }
+
+  .controler {
+    display: flex;
+    justify-content: center;
+    align-items: center; } }
 #previousTrend {
   display: none;
   top: 50%;
