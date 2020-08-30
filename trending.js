@@ -43,7 +43,6 @@ function testingtrend() {
             let like = JSON.parse(localStorage.getItem("favs"));
            
 
-            alert('all good');
 
             for (let i = 0; i < result.data.length; i++) {
 
@@ -52,6 +51,7 @@ function testingtrend() {
                 if(like.indexOf(result.data[i].id) == (-1)){
                     blueHeart = '<i class="far fa-heart"></i>'
                 }else{blueHeart = '<i class="fas fa-heart"></i>'}
+                alert('all good');
 
                 //`<img src="${element.images.fixed_height.url}" type="">`;
                 displayTrend.innerHTML += `
