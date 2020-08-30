@@ -18,17 +18,7 @@ function verGif(id) {
             return result;
         })
         .then(function (result) {
-            //base = document.createElement('div');
-            //base.className = "base";
-            //base.id = `fav${countsearch}download${countsearch}maximg${countsearch}`;
-            //`<img src="${element.images.fixed_height.url}" type="">`;
-            // contenerGif.innerHTML =
-            //     `
-            //                 <img class="embed" src="${result.data.images.original.url}" alt="">
-            //             `;
-            //debugger;
-            //disp.appendChild(base);
-
+        
             let likeGif = JSON.parse(localStorage.getItem("favs"));
             if(likeGif == null){
                 like = [];

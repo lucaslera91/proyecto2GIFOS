@@ -89,18 +89,7 @@ function cargarMisGifs() {
 function thisId(){
     alert(this.id);
 }
-//var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]; 
-// function eliminarMyGif() {
-//     for (var i = 0; i < listaGif.length; i++) {
 
-//         if (listaGif[i] === this.id) {
-//             listaGif.splice(i, 1);
-
-//         }
-//     }
-//     localStorage.setItem("myGifs", JSON.stringify(listaGif));
-//     //=> [1, 2, 3, 4, 6, 7, 8, 9, 0]
-// }
 function eliminarMyGif(){
     let idmMyGif= this.id.slice(3);
     alert(this.id);

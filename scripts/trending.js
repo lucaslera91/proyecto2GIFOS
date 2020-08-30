@@ -97,14 +97,6 @@ function testingtrend() {
 
             }
 
-            //alert('all good3');
-
-
-            //
-            //alert(arrayWidth);
-
-            //for (let i = 0; i < result.data.length; i++) {
-
             preGif.className = "trendingGIFOS";
             preGif.id = "last";
 
@@ -262,57 +254,8 @@ function auxPanic() {
         window.addEventListener('resize', auxSize)
     }
 }
-// try {
-//     width = vistaImg[0].clientWidth;
-
-//     vistaImg = document.getElementsByClassName('.trendingGIFOS');
-//     wide = document.getElementById('trendingMain');
-//     vista = document.getElementById('contenerTrending');
-//     contador = 1;
-//     //alert(vista.id);
-//     width = vistaImg[0].clientWidth;
-//     wideTest = wide.clientWidth;
-//     aux = width / wideTest;
-//     //alert(vistaImg[0]);
-//     vista.style.left = aux + "%";
-// } catch (error) {
-//     console.log(error);
-// }
 
 
-//fetchTry();
-//debugger;
-// ---------- ------------ ////// 
-// ---------- ------------ ////// 
-//        carrusel
-// ---------- ------------ ////// 
-// ---------- ------------ ////// 
-
-
-//alert(aux);
-////alert(wide.id);
-//alert(wideTest);
-
-//alert(width);
-//vista.style.transform =  "translateX(" + (-width * contador) + "px)";
-//vista.style.left = aux + "%";
-//let combinedData = {"apiRequest1":{},"apiRequest2:{}};
-
-// async function getUserAsync(name) {
-//     let response = await fetch(`https://api.giphy.com/v1/gifs/trending?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&q`);
-//     let data = await response.json()
-//     try {
-//         alert("this worded");
-
-//     } catch (error) {
-//         console.log(error);
-//         alert("this cannot still happen");
-//     }
-
-//     return data;
-// }
-
-//debugger;
 
 function auxSize() {
     if (panic != 0) {
@@ -334,22 +277,6 @@ function auxSize() {
     }
 }
 
-// function arraywid() {
-//     if (panic != 0) {
-
-//         for (let i = 0; i < vistaImg.length; i++) {
-//             //alert(vistaImg[i].clientWidth);            
-
-//             sumWidth += vistaImg[i].clientWidth;
-
-//             //alert(sumWidth);
-
-//             arrayWidth.push(sumWidth);
-//         }
-//     }
-
-
-// }
 
 function previo() {
     if (panic != 0) {
@@ -397,32 +324,7 @@ function siguiente() {
         }
     }
 }
-// function count(contador) {
-//     contadorAuxiliar = (contador ^ 2) ^ 1/2;
-//     return contadorAuxiliar;
-// }
-// function efect() {
-//     console.log(contador);
-//     //console.log(vistaImg[contador].id);
 
-//     if (vistaImg[contador].id === 'last') {
-//         console.log(vistaImg[contador].id);
-//         //eje = -vistaImg[count(contador)].clientWidth;
-//         console.log(contador);
-//         // if (vistaImg[contador].id === "0") {
-//         vista.style.transition = 'none';
-//         contador = vistaImg.length - 2;
-//         //vista.style.transform = "translateX(" + (eje) + "px)";
-//     }
-//     if (vistaImg[contador].id === 'first') {
-
-//         // if (vistaImg[contador].id === arrayTrending.length - 1 ) {
-//         vista.style.transition = 'none';
-//         contador = vistaImg.length - contador;
-//         //vista.style.transform = "translateX(" + (eje) + "px)";
-//         vista.style.left = -arrayWidth[contador-2] + "px";
-//     }
-// }
 
 function efect() {
 
@@ -439,44 +341,6 @@ function efect() {
 
     }
 }
-// let change;
-
-// // function touchSlide() {
-//     vistaImg[contador].addEventListener('touchstart', (e) => {
-//         alert('holas');
-//         start = e.clientX
-//     }, false);
-
-//     vistaImg[contador].addEventListener('touchend', (e) => {
-//         e.preventDefault();
-//         let touch = e.clientX;
-//         change = start - touch;
-//         if (change > 0) {
-//             //left
-//             previo();
-//             alert('a');
-//         } else if (change < 0) {
-//             //right
-//             siguiente();
-//             alert('b');
-//         }
-//     }, false);
-
-
-
-// function slideShow() {
-//     if (change > 0) {
-//         //left
-//         previo();
-//         alert('a');
-//     } else if (change < 0) {
-//         //right
-//         siguiente();
-//         alert('b');
-//     }
-//     alert('c');
-// }
-
 
 
 

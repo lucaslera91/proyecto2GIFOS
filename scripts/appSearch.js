@@ -387,11 +387,7 @@ function testClick() {
 
     }
     if (idend.slice(0, 3) == 'max') {
-        // debugger;
-        // alert('max');
-        //link a maximizar imagen
-        //fetch con este id en otra linea
-        //debugger;
+        
         localStorage.setItem("max", JSON.stringify(idgif));
     }
 }
@@ -435,11 +431,7 @@ window.addEventListener('scroll', function () {
         } else {
 
             if (isInViewport(line) == false) {
-                //const rect2 = element.getBoundingClientRect();
-                //alert(rect2.clientWidth);
-                // if(rect2.clientWidth < 768){
-
-                // }else{
+           
                 liSearch = document.getElementById('liSearch');
                 searchHelp = document.getElementById('searchHelp');
                 liSearch.innerHTML = `<div class="searchBar">
@@ -504,8 +496,6 @@ function eliminarDeLista(array, item) {
     }
     return array;
 }
-
-
 
 
 // CORAZONES
