@@ -189,7 +189,7 @@ function colorDark() {
 
 
 let contenedorSugerengciaSearch = document.getElementById('suggestionBox');
-
+alert('try afuera');
 if (buscador != null) {
     buscador.addEventListener("click", searchtitle);
     buscador.addEventListener("click", guardarValue);
