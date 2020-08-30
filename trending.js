@@ -51,7 +51,6 @@ function testingtrend() {
                 if(like.indexOf(result.data[i].id) == (-1)){
                     blueHeart = '<i class="far fa-heart"></i>'
                 }else{blueHeart = '<i class="fas fa-heart"></i>'}
-                alert('all good');
 
                 //`<img src="${element.images.fixed_height.url}" type="">`;
                 displayTrend.innerHTML += `
@@ -79,6 +78,7 @@ function testingtrend() {
                     </div>
                 </div>`;
                 //displayTrend.appendChild(auxTrend);
+                alert('all good2');
 
 
                 sumWidth += parseInt(result.data[i].images.fixed_height.width);
