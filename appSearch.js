@@ -243,9 +243,10 @@ function searchtitle() {
 //debugger;
 
 function testing(busqueda) {
-    //alert("yes");
+    alert(busqueda);
     //debugger;
     let countsearch = 0;
+    
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&q=${busqueda}&limit=12&offset=${verMas}`)
         .then(function (dato1) {
             result = dato1.json();
