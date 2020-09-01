@@ -502,18 +502,19 @@ window.addEventListener('scroll', function () {
                 buscador.addEventListener("click", resetGifs);
                 buscador.addEventListener("click", resetSearch);
                 buscador.addEventListener("click", function () { testing(busqueda) });
-            }
-            test.addEventListener("keydown", (event)=> {
+                test.addEventListener("keydown", (event)=> {
     
-                // Number 13 is the "Enter" key on the keyboard
-                if (event.keyCode === 13) {
-                    //alert('ola');
-                  // Cancel the default action, if needed
-                  event.preventDefault();
-                  // Trigger the button element with a click
-                  buscador.click();
-                  
-                }});
+                    // Number 13 is the "Enter" key on the keyboard
+                    if (event.keyCode === 13) {
+                        //alert('ola');
+                      // Cancel the default action, if needed
+                      event.preventDefault();
+                      // Trigger the button element with a click
+                      buscador.click();
+                      
+                    }});
+            }
+            
 
         }
     } catch (err) {
