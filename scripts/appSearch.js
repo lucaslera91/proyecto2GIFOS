@@ -204,7 +204,17 @@ if (buscador != null) {
     buscador.addEventListener("click", function () { testing(busqueda) });
     
     //alert(buscador.innerHTML);
+    test.addEventListener("keydown", (event)=> {
     
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            //alert('ola');
+          // Cancel the default action, if needed
+          event.preventDefault();
+          // Trigger the button element with a click
+          buscador.click();
+          
+        }});
 
 }
 
@@ -262,17 +272,7 @@ function searchtitle() {
     tituloBusqueda.innerHTML = test.value;
 }
 
-test.addEventListener("keydown", (event)=> {
-    
-    // Number 13 is the "Enter" key on the keyboard
-    if (event.keyCode === 13) {
-        //alert('ola');
-      // Cancel the default action, if needed
-      event.preventDefault();
-      // Trigger the button element with a click
-      buscador.click();
-      
-    }});
+
 
 //let disp2 = document.getElementById("cont2");
 //debugger;

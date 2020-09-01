@@ -40,7 +40,8 @@ menu i {
   .iconos img i {
     color: var(--colorTitulo); } }
 header {
-  width: 100%; }
+  width: 100%;
+  z-index: 99999999999999999; }
 
 #addGifo {
   display: none; }
@@ -197,7 +198,8 @@ nav ul li a {
     z-index: 1; }
 
   #liSearch {
-    width: 20%; }
+    width: 20%;
+    z-index: 99999999999999999; }
 
   .navegador {
     display: flex;
@@ -280,7 +282,8 @@ nav ul li a {
     padding: 0;
     margin: 0;
     z-index: 21;
-    transition: 0.3s ease-in-out; }
+    transition: 0.3s ease-in-out;
+    z-index: 99999999999999999; }
 
   nav ul li a {
     height: 35px;
