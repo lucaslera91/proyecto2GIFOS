@@ -16,9 +16,12 @@ window.addEventListener('keyup', ()=>{
 test = document.getElementById("search1");
 contenedorSugerengcia = document.getElementById('suggestionBox');
 test.addEventListener("keyup", testingHelp);
+//keyEnter ();
 
 //alert('scroll');
 });
+
+
 
 
 function setSearchSuggestion() {

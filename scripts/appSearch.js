@@ -58,7 +58,6 @@ function setTheme() {
 
 
 
-
 function searchtrend() {
 
     fetch(`https://api.giphy.com/v1/trending/searches?api_key=JYqVNpPaFFV2Cix7iSHnDB6gs42qBZ6U&limit=5`)
@@ -95,6 +94,11 @@ function searchtrend() {
 
 let searchTrend;
 
+
+
+
+
+
 searchtrend()
 
 function searchTrednSearch() {
@@ -110,6 +114,8 @@ function searchTrednSearch() {
     resetGifs();
     resetSearch();
     testing(busqueda);
+
+   
 }
 
 
@@ -196,8 +202,27 @@ if (buscador != null) {
     buscador.addEventListener("click", resetGifs);
     buscador.addEventListener("click", resetSearch);
     buscador.addEventListener("click", function () { testing(busqueda) });
+    
     //alert(buscador.innerHTML);
+    
+
 }
+
+// function keyEnter (){
+//     if (buscador != null) {
+//     test.addEventListener("keyup", (event)=> {
+    
+//         // Number 13 is the "Enter" key on the keyboard
+//         if (event.keyCode === 13) {
+//           // Cancel the default action, if needed
+//           event.preventDefault();
+//           // Trigger the button element with a click
+//           buscador.click();
+          
+//         }});
+//     }
+// }
+
 
 try {
     botonVerMas.addEventListener("click", doceMas);
@@ -237,7 +262,17 @@ function searchtitle() {
     tituloBusqueda.innerHTML = test.value;
 }
 
-
+test.addEventListener("keydown", (event)=> {
+    
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+        //alert('ola');
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      buscador.click();
+      
+    }});
 
 //let disp2 = document.getElementById("cont2");
 //debugger;
@@ -468,6 +503,17 @@ window.addEventListener('scroll', function () {
                 buscador.addEventListener("click", resetSearch);
                 buscador.addEventListener("click", function () { testing(busqueda) });
             }
+            test.addEventListener("keydown", (event)=> {
+    
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                    //alert('ola');
+                  // Cancel the default action, if needed
+                  event.preventDefault();
+                  // Trigger the button element with a click
+                  buscador.click();
+                  
+                }});
 
         }
     } catch (err) {
