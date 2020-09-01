@@ -2,6 +2,8 @@
 header{
     width: 100%;
  //background-color: none;
+ z-index: 99999999999999999;
+
 }
 #addGifo{
     display: none;
@@ -203,6 +205,7 @@ nav ul li a{
     #liSearch{
         //padding: 0 20px 0 20px;
         width: 20%;
+        z-index: 99999999999999999;
         
     }
 
@@ -301,6 +304,8 @@ nav ul{
     margin: 0;
 z-index: 21;
 transition: 0.3s ease-in-out;
+z-index: 99999999999999999;
+
 
 }   
     
@@ -313,7 +318,6 @@ transition: 0.3s ease-in-out;
         font-size: 14px;
 
         color: var(--colorTitulo);
-
     }   
     #addGifo {
         padding: 0 9% 0 9%;
