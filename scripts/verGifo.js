@@ -21,7 +21,7 @@ function verGif(id) {
         
             let likeGif = JSON.parse(localStorage.getItem("favs"));
             if(likeGif == null){
-                like = [];
+                likeGif = [];
             }
             let blueHeartGif;
             localStorage.setItem("max", JSON.stringify(""));
