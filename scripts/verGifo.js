@@ -23,7 +23,7 @@ function verGif(id) {
             if(likeGif == null){
                 likeGif = [];
             }
-            let blueHeartGif;
+            let blueHeartGif = result.data.id;
             localStorage.setItem("max", JSON.stringify(""));
             if(likeGif.indexOf(result.data.id) == (-1)){
                 blueHeart = '<i class="far fa-heart"></i>'
@@ -56,8 +56,10 @@ function verGif(id) {
         </div>`;
 
         let botonlike = document.getElementsByClassName('iconos');
+        let corazonlike = document.getElementById(`fav${blueHeartGif}`);
         for(let i = 0; i<botonlike.length; i++){
             botonlike[i].addEventListener('click', testClick);
+            botonlike[i].addEventListener('click', ()=> {corazonlike.innerHTML = `<i class="fas fa-heart"></i>`});
         }
             //testClick
 
